@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - UAC Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>UAC Services</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                    <li><a href="#" class="btn-nav" id="cartToggle">Cart (<span id="cartCount">0</span>)</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Professional car wash supplies for petrol station forecourts</p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Products Grid -->
+                <div class="products-container">
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Squeegees -->
+                        <div class="product-card" data-product='{"id":"red-squeegee","name":"Red Squeegee","price":30,"bulkPrice":28,"category":"squeegee","image":"red"}'>
+                            <div class="product-image" style="background-color: #dc3545;">
+                                <span class="product-image-text">Red Squeegee</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Red Squeegee</h3>
+                                <p class="product-price">R30.00 each</p>
+                                <p class="product-bulk">R28.00 for 50+</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"blue-squeegee","name":"Blue Squeegee","price":30,"bulkPrice":28,"category":"squeegee","image":"blue"}'>
+                            <div class="product-image" style="background-color: #0066cc;">
+                                <span class="product-image-text">Blue Squeegee</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Blue Squeegee</h3>
+                                <p class="product-price">R30.00 each</p>
+                                <p class="product-bulk">R28.00 for 50+</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"black-squeegee","name":"Black Squeegee","price":30,"bulkPrice":28,"category":"squeegee","image":"black"}'>
+                            <div class="product-image" style="background-color: #000;">
+                                <span class="product-image-text">Black Squeegee</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Black Squeegee</h3>
+                                <p class="product-price">R30.00 each</p>
+                                <p class="product-bulk">R28.00 for 50+</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"dark-grey-squeegee","name":"Dark Grey Squeegee","price":30,"bulkPrice":28,"category":"squeegee","image":"dark-grey"}'>
+                            <div class="product-image" style="background-color: #555;">
+                                <span class="product-image-text">Dark Grey Squeegee</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Dark Grey Squeegee</h3>
+                                <p class="product-price">R30.00 each</p>
+                                <p class="product-bulk">R28.00 for 50+</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"light-grey-squeegee","name":"Light Grey Squeegee","price":30,"bulkPrice":28,"category":"squeegee","image":"light-grey"}'>
+                            <div class="product-image" style="background-color: #999;">
+                                <span class="product-image-text">Light Grey Squeegee</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Light Grey Squeegee</h3>
+                                <p class="product-price">R30.00 each</p>
+                                <p class="product-bulk">R28.00 for 50+</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Other Products -->
+                        <div class="product-card" data-product='{"id":"garage-roll","name":"Garage Roll","price":240,"category":"cleaning","image":"garage-roll"}'>
+                            <div class="product-image" style="background-color: #666;">
+                                <span class="product-image-text">Garage Roll</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Garage Roll</h3>
+                                <p class="product-price">R240.00 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"reject-garage-roll","name":"Reject Garage Roll","price":180,"category":"cleaning","image":"reject-garage-roll"}'>
+                            <div class="product-image" style="background-color: #888;">
+                                <span class="product-image-text">Reject Garage Roll</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Reject Garage Roll</h3>
+                                <p class="product-price">R180.00 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"replacement-rubber","name":"Replacement Rubber 5-Pack","price":40,"category":"parts","image":"replacement-rubber"}'>
+                            <div class="product-image" style="background-color: #333;">
+                                <span class="product-image-text">Replacement Rubber</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Replacement Rubber 5-Pack</h3>
+                                <p class="product-price">R40.00 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"pink-soap","name":"Pink Soap","price":400,"category":"cleaning","image":"pink-soap"}'>
+                            <div class="product-image" style="background-color: #ff69b4;">
+                                <span class="product-image-text">Pink Soap</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pink Soap</h3>
+                                <p class="product-price">R400.00 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"replacement-sponges","name":"Replacement Sponges 5-Pack","price":40.50,"category":"parts","image":"replacement-sponges"}'>
+                            <div class="product-image" style="background-color: #ffa500;">
+                                <span class="product-image-text">Replacement Sponges</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Replacement Sponges 5-Pack</h3>
+                                <p class="product-price">R40.50 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-product='{"id":"out-of-order-cover","name":"Out of Order Cover","price":120,"category":"signage","image":"out-of-order"}'>
+                            <div class="product-image" style="background-color: #ff4444;">
+                                <span class="product-image-text">Out of Order Cover</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Out of Order Cover</h3>
+                                <p class="product-price">R120.00 each</p>
+                                <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart Sidebar -->
+                <div class="cart-sidebar" id="cartSidebar">
+                    <div class="cart-header">
+                        <h2>Shopping Cart</h2>
+                        <button class="close-cart" id="closeCart">&times;</button>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <p class="empty-cart">Your cart is empty</p>
+                    </div>
+
+                    <div class="cart-footer" id="cartFooter" style="display: none;">
+                        <div class="cart-discount" id="cartDiscount" style="display: none;">
+                            <p class="discount-notice">Bulk discount applied! 🎉</p>
+                        </div>
+
+                        <div class="cart-subtotal">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal">R0.00</span>
+                        </div>
+
+                        <div class="delivery-options">
+                            <h3>Delivery Option</h3>
+                            <label class="radio-label">
+                                <input type="radio" name="delivery" value="delivery" id="deliveryOption">
+                                <span>Delivery (R150 flat rate, FREE over R2000)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="delivery" value="collection" id="collectionOption" checked>
+                                <span>Collection (Free)</span>
+                            </label>
+                        </div>
+
+                        <div class="delivery-fee" id="deliveryFee" style="display: none;">
+                            <span>Delivery Fee:</span>
+                            <span id="deliveryFeeAmount">R0.00</span>
+                        </div>
+
+                        <div class="cart-total">
+                            <span><strong>Total:</strong></span>
+                            <span id="cartTotal"><strong>R0.00</strong></span>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+                        <button class="btn btn-secondary btn-block" id="clearCartBtn">Clear Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <button class="close-modal" id="closeCheckout">&times;</button>
+            </div>
+            <div class="modal-body" id="checkoutContent">
+                <!-- Checkout steps will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>UAC Services</h4>
+                    <p>Keeping forecourts clean, one station at a time</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About & Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>10 Celie Industrial Park<br>Celie Road, Retreat<br>Cape Town</p>
+                    <p>Phone: <a href="tel:0828261003">082 826 1003</a></p>
+                    <p>Email: <a href="mailto:uac@gmail.com">uac@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UAC Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
