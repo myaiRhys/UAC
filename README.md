@@ -1,6 +1,6 @@
 # UAC Services Website
 
-A complete e-commerce website for UAC Services, a car wash supplies company serving petrol stations in Cape Town.
+A complete e-commerce website for UAC Services, a supplier of car wash equipment and cleaning supplies to petrol stations in Cape Town. We provide squeegees, soaps, garage rolls (paper towels), and other supplies for cleaning cars and windscreens at petrol station forecourts.
 
 ## 🚀 Features
 
@@ -441,4 +441,4 @@ This website is proprietary software owned by UAC Services. All rights reserved.
 
 **Built with ❤️ for UAC Services**
 
-*Keeping forecourts clean, one station at a time*
+*Professional car wash supplies for petrol stations*
