@@ -452,6 +452,47 @@ UAC/
 2. Check that images are in the `images/` folder
 3. Try using absolute paths: `/images/product.jpg`
 
+### Issue: Blue Squeegee Cloudinary Image Not Displaying (FIXED)
+
+**Problem**: The Blue Squeegee product image was not displaying on index.html and shop.html. Investigation revealed the Cloudinary URL was incorrect.
+
+**Root Cause**:
+- Initial URL used a non-existent path: `https://res.cloudinary.com/dgol2ulhi/image/upload/assets/blue_squeegee.jpg`
+- Multiple URL variations were attempted, all returning 403 Forbidden errors
+- The correct image existed at a different path with a versioned URL structure
+
+**Solution Applied** (November 4, 2025):
+1. **Updated the Cloudinary URL** to use the correct versioned path format:
+   ```
+   Old: https://res.cloudinary.com/dgol2ulhi/image/upload/assets/blue_squeegee.jpg
+   New: https://res.cloudinary.com/dgol2ulhi/image/upload/v1762252933/9034b808-b793-4a42-989d-6ba88363d51a_onp8a2.jpg
+   ```
+
+2. **Files Updated**:
+   - `index.html` (line 100) - Featured Products section
+   - `shop.html` (line 64) - Product grid
+   - `test-image.html` - Added test case for the new URL
+
+3. **Commit**: `56a80d3` - "Update Blue Squeegee image URL to use versioned Cloudinary path"
+
+**How Cloudinary URLs Work**:
+- **Standard format**: `https://res.cloudinary.com/{cloud_name}/image/upload/{public_id}.{format}`
+- **Versioned format**: `https://res.cloudinary.com/{cloud_name}/image/upload/v{version}/{public_id}.{format}`
+- **With folders**: Add folder path before the public_id
+
+**Important Notes**:
+- When using Cloudinary, always use the **complete URL** provided when you upload an image
+- The public_id includes version numbers and unique identifiers (e.g., `v1762252933/9034b808-b793-4a42-989d-6ba88363d51a_onp8a2`)
+- Test URLs using the `test-image.html` diagnostic page before deploying
+- Check Cloudinary security settings if images return 403 errors in curl but work in browsers (referrer restrictions may apply)
+
+**To Upload New Product Images to Cloudinary**:
+1. Log into your Cloudinary account: https://cloudinary.com/console
+2. Upload the product image
+3. Copy the **full URL** provided after upload
+4. Update the `background-image: url()` in the HTML files with the complete URL
+5. Test the image using `test-image.html` to verify it loads correctly
+
 ### Issue: GitHub Pages shows 404
 
 **Solution**:
