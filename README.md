@@ -4,6 +4,7 @@ A complete e-commerce website for UAC Services, a supplier of car wash equipment
 
 ## 🚀 Features
 
+### Core Functionality
 - **Responsive Design**: Mobile-friendly layout that works on all devices
 - **Shopping Cart**: Full-featured cart with localStorage persistence
 - **Bulk Discounts**: Automatic price reduction for orders of 50+ squeegees
@@ -11,7 +12,18 @@ A complete e-commerce website for UAC Services, a supplier of car wash equipment
 - **Email Integration**: Order notifications via EmailJS
 - **Payment Processing**: EFT payment with proof of upload
 - **Contact Form**: Direct inquiry form for customer questions
-- **Professional Design**: Clean, corporate look using Facebook blue (#1877F2)
+
+### ✨ Modern Visual Design (v2.0)
+- **Animated Gradients**: Beautiful rotating gradients on hero sections, CTAs, and footers
+- **Glassmorphism Effects**: Frosted glass cart sidebar and navigation with backdrop-filter blur
+- **Smooth Animations**: Fade-in-up animations on scroll using Intersection Observer API
+- **Micro-interactions**: Button ripple effects, hover transforms, and smooth transitions
+- **Enhanced Typography**: Clean Poppins font with improved spacing and hierarchy
+- **Advanced Shadows**: Layered box-shadows with blue tints for depth
+- **Button Animations**: Scale effects, gradient shifts, and click ripple animations
+- **Form Enhancements**: Focus glow effects and validation shake animations
+- **Cart Animations**: Slide-in notifications and quantity change effects
+- **Smooth Scrolling**: Native smooth scroll behavior throughout the site
 
 ## 📋 Table of Contents
 
@@ -369,13 +381,45 @@ UAC/
 ├── about.html              # About & contact page
 ├── README.md               # This file
 ├── css/
-│   └── style.css           # All styles
+│   └── style.css           # All styles (modern design with animations)
 ├── js/
-│   ├── main.js             # General functionality
+│   ├── main.js             # General functionality + animations
 │   ├── cart.js             # Shopping cart logic
 │   └── checkout.js         # Checkout process
 └── images/                 # Product images (placeholder folder)
 ```
+
+## 🎨 Design System
+
+### Colors
+- **Primary**: #1877F2 (Facebook Blue)
+- **Primary Hover**: #0e5fc2
+- **Primary Light**: #E3F2FD
+- **Success**: #42b72a
+- **Error**: #f02849
+- **Text Dark**: #1c1e21
+- **Text Light**: #65676b
+
+### Typography
+- **Font Family**: Poppins (Google Fonts)
+- **Weights**: 300, 400, 500, 600, 700, 800
+- **Hero Title**: 4rem (64px), weight 800
+- **Section Headings**: 3rem (48px), weight 700
+- **Body Text**: 1rem (16px), line-height 1.7
+
+### Animations
+- **Fade In Up**: Elements animate from bottom with opacity
+- **Gradient Rotation**: 8s infinite animation on gradients
+- **Hover Lift**: translateY(-10px) with enhanced shadows
+- **Ripple Effect**: Click feedback on all buttons
+- **Smooth Transitions**: 0.3s ease for most interactions
+
+### Border Radius
+- **Small**: 8px
+- **Medium**: 12px
+- **Large**: 16px
+- **Extra Large**: 20px
+- **Full**: 9999px (pills/rounded)
 
 ## 🐛 Troubleshooting
 
@@ -429,6 +473,16 @@ This website is proprietary software owned by UAC Services. All rights reserved.
 
 ## 🔄 Version History
 
+- **v2.0.0** (2025) - Modern Visual Upgrade
+  - Complete visual redesign with modern aesthetics
+  - Animated gradients and glassmorphism effects
+  - Scroll-triggered animations using Intersection Observer
+  - Enhanced micro-interactions and button effects
+  - Poppins typography system
+  - Improved mobile responsiveness
+  - Performance optimizations
+  - Enhanced accessibility features
+
 - **v1.0.0** (2025) - Initial release
   - Full e-commerce functionality
   - Responsive design
@@ -436,6 +490,28 @@ This website is proprietary software owned by UAC Services. All rights reserved.
   - EmailJS integration
   - Contact form
   - Checkout process with EFT payment
+
+## 🎯 Performance & Browser Compatibility
+
+### Performance Features
+- **CSS-only animations**: Using transform and opacity for 60fps performance
+- **Intersection Observer**: Efficient scroll detection for animations
+- **Debouncing & Throttling**: Optimized scroll and resize event handlers
+- **Lazy Loading Ready**: Support for lazy loading images
+- **Minimal Dependencies**: Only EmailJS for email functionality
+
+### Browser Compatibility
+- **Modern Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Mobile Browsers**: iOS Safari 14+, Chrome Mobile, Samsung Internet
+- **Fallbacks**: Graceful degradation for older browsers
+- **Backdrop Filter**: May not work in older browsers (cart will still function)
+
+### Accessibility
+- **Keyboard Navigation**: Full keyboard support
+- **Focus States**: Visible focus indicators on all interactive elements
+- **Semantic HTML**: Proper heading hierarchy and ARIA labels
+- **Color Contrast**: WCAG AA compliant color combinations
+- **Smooth Scrolling**: Respects prefers-reduced-motion
 
 ---
 

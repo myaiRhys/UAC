@@ -1,4 +1,5 @@
 // Main JavaScript for UAC Services Website
+// Modern Design with Enhanced Animations
 
 // Initialize EmailJS (if configured)
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,9 +8,74 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof emailjs !== 'undefined') {
         emailjs.init('YOUR_PUBLIC_KEY');
     }
+
+    console.log('🚀 UAC Services website loaded with modern animations');
 });
 
-// Mobile Navigation Toggle
+// ========================================
+// SCROLL ANIMATIONS
+// ========================================
+
+// Enhanced Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+};
+
+const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Optionally unobserve after animation to improve performance
+            // animationObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements for scroll animation
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements that should animate on scroll
+    const animatedElements = document.querySelectorAll(
+        '.product-card, .overview-card, .reason-card, .contact-form, .contact-info-container, .map-container, .about-text, .placeholder-image'
+    );
+
+    animatedElements.forEach((el, index) => {
+        // Add base animation class
+        el.classList.add('animate-on-scroll');
+
+        // Stagger animation delays for a cascading effect
+        el.style.transitionDelay = `${index * 0.05}s`;
+
+        // Observe the element
+        animationObserver.observe(el);
+    });
+});
+
+// ========================================
+// NAVBAR ENHANCEMENTS
+// ========================================
+
+// Navbar scroll effect
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Add scrolled class for styling
+    if (scrollTop > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+
+    lastScrollTop = scrollTop;
+});
+
+// ========================================
+// MOBILE NAVIGATION
+// ========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -39,7 +105,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Contact Form Handler
+// ========================================
+// BUTTON RIPPLE EFFECT
+// ========================================
+
+// Add ripple effect to all buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.btn, .btn-primary, .btn-secondary');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create ripple element
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple-effect');
+
+            this.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+});
+
+// Add ripple effect styles dynamically
+const rippleStyles = document.createElement('style');
+rippleStyles.textContent = `
+    .ripple-effect {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+    }
+
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyles);
+
+// ========================================
+// CONTACT FORM HANDLER
+// ========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
@@ -62,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
 
             try {
                 // Send email using EmailJS
@@ -75,10 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         to_email: 'uac@gmail.com'
                     });
 
-                    // Show success message
+                    // Show success message with animation
                     if (formMessage) {
                         formMessage.className = 'form-message success';
-                        formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+                        formMessage.textContent = '✓ Thank you for your message! We\'ll get back to you soon.';
+
+                        // Scroll message into view
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
 
                     // Reset form
@@ -88,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('Contact form submission:', formData);
                     if (formMessage) {
                         formMessage.className = 'form-message success';
-                        formMessage.textContent = 'Form submitted! (EmailJS not configured - check console for data)';
+                        formMessage.textContent = '✓ Form submitted! (EmailJS not configured - check console for data)';
                     }
                     contactForm.reset();
                 }
@@ -96,26 +220,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Contact form error:', error);
                 if (formMessage) {
                     formMessage.className = 'form-message error';
-                    formMessage.textContent = 'There was an error sending your message. Please try again or contact us directly at uac@gmail.com';
+                    formMessage.textContent = '✗ There was an error sending your message. Please try again or contact us directly at uac@gmail.com';
                 }
             } finally {
                 // Restore button state
                 submitBtn.textContent = originalBtnText;
                 submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
 
-                // Clear message after 5 seconds
+                // Clear message after 7 seconds
                 setTimeout(() => {
                     if (formMessage) {
                         formMessage.style.display = 'none';
                         formMessage.className = 'form-message';
                     }
-                }, 5000);
+                }, 7000);
             }
         });
     }
 });
 
-// Smooth Scrolling for Anchor Links
+// ========================================
+// SMOOTH SCROLLING
+// ========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -133,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (target) {
                 e.preventDefault();
-                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = target.offsetTop - 100; // Account for fixed navbar
 
                 window.scrollTo({
                     top: offsetTop,
@@ -144,80 +272,188 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add animation to elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// ========================================
+// FORM INPUT ANIMATIONS
+// ========================================
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.product-card, .overview-card, .reason-card');
+    const formInputs = document.querySelectorAll('input, textarea, select');
 
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
+    formInputs.forEach(input => {
+        // Focus animation
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('input-focused');
+        });
+
+        // Blur animation
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('input-focused');
+        });
+
+        // Remove error state on input
+        input.addEventListener('input', function() {
+            if (this.style.borderColor === 'rgb(240, 40, 73)') {
+                this.style.borderColor = '';
+            }
+        });
     });
 });
 
-// Add CSS animations for notifications
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
+// ========================================
+// QUANTITY BUTTON ANIMATIONS
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add animation to quantity displays when they change
+    const observeQuantityChanges = () => {
+        const quantities = document.querySelectorAll('.cart-item-details');
+
+        quantities.forEach(qty => {
+            const quantityDisplay = qty.querySelector('span');
+            if (quantityDisplay) {
+                // Watch for changes
+                const observer = new MutationObserver(() => {
+                    quantityDisplay.style.transform = 'scale(1.3)';
+                    quantityDisplay.style.color = 'var(--primary-color)';
+
+                    setTimeout(() => {
+                        quantityDisplay.style.transform = 'scale(1)';
+                        quantityDisplay.style.color = '';
+                    }, 200);
+                });
+
+                observer.observe(quantityDisplay, {
+                    childList: true,
+                    characterData: true,
+                    subtree: true
+                });
+            }
+        });
+    };
+
+    // Initial observation
+    setTimeout(observeQuantityChanges, 1000);
+
+    // Re-observe when cart updates
+    document.addEventListener('cartUpdated', observeQuantityChanges);
+});
+
+// ========================================
+// ADD TO CART ANIMATION
+// ========================================
+
+// Enhanced notification with icon
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    const icon = type === 'success' ? '✓' : '✗';
+
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: -400px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #42b72a 0%, #5cd63c 100%)' : 'linear-gradient(135deg, #f02849 0%, #ff4757 100%)'};
+        color: white;
+        padding: 1rem 1.75rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideInFromRight 0.5s ease forwards;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        min-width: 280px;
+    `;
+
+    notification.innerHTML = `
+        <span style="font-size: 1.5rem; font-weight: 700;">${icon}</span>
+        <span>${message}</span>
+    `;
+
+    document.body.appendChild(notification);
+
+    // Slide out animation
+    setTimeout(() => {
+        notification.style.animation = 'slideOutToRight 0.5s ease forwards';
+        setTimeout(() => notification.remove(), 500);
+    }, 3000);
+}
+
+// Add notification animations
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideInFromRight {
         from {
-            transform: translateX(400px);
+            right: -400px;
             opacity: 0;
         }
         to {
-            transform: translateX(0);
+            right: 20px;
             opacity: 1;
         }
     }
 
-    @keyframes slideOut {
+    @keyframes slideOutToRight {
         from {
-            transform: translateX(0);
+            right: 20px;
             opacity: 1;
         }
         to {
-            transform: translateX(400px);
+            right: -400px;
             opacity: 0;
         }
+    }
+
+    .loading {
+        position: relative;
+        pointer-events: none;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spinner 0.6s linear infinite;
+    }
+
+    @keyframes spinner {
+        to { transform: rotate(360deg); }
+    }
+
+    .input-focused {
+        transform: scale(1.01);
+        transition: transform 0.2s ease;
+    }
+
+    /* Shopping cart icon bounce */
+    @keyframes cartBounce {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-5px) scale(1.1);
+        }
+    }
+
+    .cart-icon-animate {
+        animation: cartBounce 0.5s ease;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(notificationStyles);
 
-// Utility: Format currency
-function formatCurrency(amount) {
-    return `R${amount.toFixed(2)}`;
-}
+// ========================================
+// FORM VALIDATION HELPER
+// ========================================
 
-// Utility: Validate email
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Utility: Validate phone number (South African format)
-function isValidPhone(phone) {
-    // Remove spaces and check if it's a valid SA number
-    const cleaned = phone.replace(/\s/g, '');
-    const re = /^(\+27|0)[0-9]{9}$/;
-    return re.test(cleaned);
-}
-
-// Form validation helper
 function validateForm(formElement) {
     const inputs = formElement.querySelectorAll('input[required], textarea[required], select[required]');
     let isValid = true;
@@ -226,18 +462,21 @@ function validateForm(formElement) {
         if (!input.value.trim()) {
             isValid = false;
             input.style.borderColor = '#f02849';
+            input.style.animation = 'shake 0.5s ease';
         } else {
-            input.style.borderColor = '#dddfe2';
+            input.style.borderColor = '';
 
             // Additional validation for specific input types
             if (input.type === 'email' && !isValidEmail(input.value)) {
                 isValid = false;
                 input.style.borderColor = '#f02849';
+                input.style.animation = 'shake 0.5s ease';
             }
 
             if (input.type === 'tel' && !isValidPhone(input.value)) {
                 isValid = false;
                 input.style.borderColor = '#f02849';
+                input.style.animation = 'shake 0.5s ease';
             }
         }
     });
@@ -245,47 +484,37 @@ function validateForm(formElement) {
     return isValid;
 }
 
-// Add input listeners to remove error state on correction
-document.addEventListener('DOMContentLoaded', () => {
-    const formInputs = document.querySelectorAll('input, textarea, select');
-
-    formInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            if (input.style.borderColor === 'rgb(240, 40, 73)') {
-                input.style.borderColor = '#dddfe2';
-            }
-        });
-    });
-});
-
-// Sticky Navigation on Scroll
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-        navbar.classList.remove('scroll-up');
-        return;
+// Add shake animation for validation errors
+const shakeStyles = document.createElement('style');
+shakeStyles.textContent = `
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
     }
+`;
+document.head.appendChild(shakeStyles);
 
-    if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
-        // Scrolling down
-        navbar.classList.remove('scroll-up');
-        navbar.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
-        // Scrolling up
-        navbar.classList.remove('scroll-down');
-        navbar.classList.add('scroll-up');
-    }
+// ========================================
+// UTILITY FUNCTIONS
+// ========================================
 
-    lastScroll = currentScroll;
-});
+// Format currency
+function formatCurrency(amount) {
+    return `R${amount.toFixed(2)}`;
+}
 
-// Print order summary (optional feature)
-function printOrderSummary(orderId) {
-    window.print();
+// Validate email
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Validate phone number (South African format)
+function isValidPhone(phone) {
+    const cleaned = phone.replace(/\s/g, '');
+    const re = /^(\+27|0)[0-9]{9}$/;
+    return re.test(cleaned);
 }
 
 // Copy to clipboard utility
@@ -310,40 +539,86 @@ function copyToClipboard(text) {
     }
 }
 
-// Simple notification function (used by various parts of the app)
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#42b72a' : '#f02849'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        z-index: 10000;
-        animation: slideIn 0.3s ease;
-    `;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
+// Print order summary
+function printOrderSummary(orderId) {
+    window.print();
 }
 
-// Export utilities for use in other scripts
+// ========================================
+// PERFORMANCE OPTIMIZATION
+// ========================================
+
+// Debounce function for scroll events
+function debounce(func, wait = 10) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function for resize events
+function throttle(func, limit = 100) {
+    let inThrottle;
+    return function executedFunction(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// ========================================
+// LAZY LOADING IMAGES (if implemented)
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        // Observe all images with data-src attribute
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+});
+
+// ========================================
+// EXPORT UTILITIES
+// ========================================
+
 window.UAC = {
     formatCurrency,
     isValidEmail,
     isValidPhone,
     validateForm,
     copyToClipboard,
-    showNotification
+    showNotification,
+    debounce,
+    throttle
 };
 
-// Log initialization
-console.log('UAC Services website initialized successfully');
+// ========================================
+// INITIALIZATION COMPLETE
+// ========================================
+
+console.log('✓ UAC Services website initialized with modern features');
+console.log('✓ Scroll animations active');
+console.log('✓ Micro-interactions enabled');
+console.log('✓ Glassmorphism effects applied');
 console.log('Remember to configure EmailJS with your credentials in main.js and checkout.js');
