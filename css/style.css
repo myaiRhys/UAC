@@ -1724,3 +1724,132 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ========================================
+   PRODUCTS SECTION
+   ======================================== */
+
+.products-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--secondary-color) 0%, var(--white) 100%);
+}
+
+/* Product note (replaces Add to Cart button) */
+.product-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   BULK DISCOUNT BANNER
+   ======================================== */
+
+.bulk-discount-banner {
+    background: linear-gradient(135deg, #42b72a 0%, #5cd63c 100%);
+    padding: 3rem 0;
+    color: var(--white);
+    margin: 0;
+}
+
+.bulk-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+}
+
+.bulk-icon {
+    font-size: 4rem;
+    animation: bounce 2s ease infinite;
+}
+
+.bulk-text h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.bulk-text p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bulk-text a {
+    color: var(--white);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.bulk-text a:hover {
+    opacity: 0.9;
+}
+
+/* ========================================
+   FORM ROW (Two-column layout)
+   ======================================== */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ========================================
+   CONTACT INFO PROMINENCE
+   ======================================== */
+
+.phone-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.phone-link:hover {
+    color: var(--primary-hover);
+}
+
+/* ========================================
+   HERO BUTTONS
+   ======================================== */
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   RESPONSIVE ADDITIONS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .bulk-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bulk-icon {
+        font-size: 3rem;
+    }
+
+    .bulk-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
