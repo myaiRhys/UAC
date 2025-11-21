@@ -387,6 +387,42 @@ shakeStyles.textContent = `
 document.head.appendChild(shakeStyles);
 
 // ========================================
+// CATEGORY FILTER
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    if (categoryBtns.length > 0 && productCards.length > 0) {
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                // Filter products with animation
+                productCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+
+                    if (category === 'all' || cardCategory === category) {
+                        card.classList.remove('hidden', 'fade-out');
+                        card.style.display = '';
+                    } else {
+                        card.classList.add('fade-out');
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+});
+
+// ========================================
 // EXPORT UTILITIES
 // ========================================
 
