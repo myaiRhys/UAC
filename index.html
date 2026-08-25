@@ -3,27 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAC Services - Car Wash Supplies for Petrol Stations</title>
-    <meta name="description" content="Quality squeegees, soaps, garage rolls, and cleaning supplies for petrol station forecourts across Cape Town. Call 082 826 1003 to order.">
+    <title>UAC Services — Cape Town Squeegee Manufacturer | Buy Direct or Wholesale</title>
+    <meta name="description" content="UAC Services manufactures squeegees and forecourt cleaning supplies in Retreat, Cape Town. Buy direct for your petrol station or order at wholesale/trade pricing. Own delivery across Cape Town, courier nationwide. WhatsApp 082 826 1003.">
+    <meta name="theme-color" content="#0B5CAD">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="UAC Services — Cape Town Squeegee Manufacturer">
+    <meta property="og:description" content="Squeegees & forecourt supplies, made in Retreat. Buy direct or wholesale. Own delivery across Cape Town, courier nationwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Local business structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Manufacturer",
+      "name": "UAC Services",
+      "description": "Manufacturer of squeegees and forecourt cleaning supplies for petrol stations in Cape Town.",
+      "telephone": "+27828261003",
+      "areaServed": "Cape Town and Western Cape, delivery nationwide",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Celie Industrial Park, Celie Road, Retreat",
+        "addressLocality": "Cape Town",
+        "addressRegion": "Western Cape",
+        "addressCountry": "ZA"
+      }
+    }
+    </script>
 </head>
 <body>
+    <!-- Delivery advantage strip -->
+    <div class="topbar">
+        <div class="container">
+            <p>🚚 Own delivery across Cape Town &nbsp;·&nbsp; Nationwide courier &nbsp;·&nbsp; Manufactured in Retreat, Cape Town</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>UAC Services</h1>
-                </div>
+                <a href="#top" class="logo">
+                    <span class="logo-mark">UAC</span>
+                    <span class="logo-sub">Forecourt Supplies</span>
+                </a>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#products">Products</a></li>
+                    <li><a href="#audiences">Buy Direct / Wholesale</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" class="btn-nav btn-nav-wa" target="_blank" rel="noopener">WhatsApp Order</a></li>
                     <li><a href="tel:0828261003" class="btn-nav">082 826 1003</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
+                <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -33,15 +70,77 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <header class="hero" id="top">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">UAC Services</h1>
-                <p class="hero-tagline">Professional Car Wash Supplies for Petrol Stations</p>
-                <p class="hero-description">Quality squeegees, soaps, garage rolls, and cleaning supplies for petrol station forecourts across Cape Town</p>
-                <div class="hero-buttons">
-                    <a href="tel:0828261003" class="btn btn-primary btn-large">Call Now: 082 826 1003</a>
-                    <a href="#products" class="btn btn-secondary btn-large">View Products</a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Cape Town Squeegee Manufacturer</span>
+                    <h1 class="hero-title">Squeegees &amp; forecourt supplies, <span>made direct.</span></h1>
+                    <p class="hero-description">We manufacture squeegees and stock the cleaning supplies petrol station forecourts run on — soaps, garage rolls, sponges and more. Buy direct for your station, or order at wholesale pricing as a reseller.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" class="btn btn-wa btn-large" target="_blank" rel="noopener">
+                            <svg class="btn-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+                            Order on WhatsApp
+                        </a>
+                        <a href="tel:0828261003" class="btn btn-outline btn-large">Call 082 826 1003</a>
+                    </div>
+                    <ul class="hero-trust">
+                        <li><strong>Made in Retreat</strong><span>Cape Town manufacturer</span></li>
+                        <li><strong>Bulk from R28</strong><span>50+ squeegees</span></li>
+                        <li><strong>Own delivery</strong><span>Cape Town · courier nationwide</span></li>
+                    </ul>
+                </div>
+
+                <!-- Colour range showcase (doubles as hero visual until photos land) -->
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="range-card">
+                        <p class="range-title">The squeegee range</p>
+                        <div class="swatch-row">
+                            <span class="swatch" style="background:#dc3545;"><i>Red</i></span>
+                            <span class="swatch" style="background:#1565C0;"><i>Blue</i></span>
+                            <span class="swatch" style="background:#111;"><i>Black</i></span>
+                            <span class="swatch" style="background:#555;"><i>Dark grey</i></span>
+                            <span class="swatch" style="background:#9aa3ab;"><i>Light grey</i></span>
+                        </div>
+                        <div class="range-foot">
+                            <span class="range-price">R30<small>/each</small></span>
+                            <span class="range-bulk">R28 each for 50+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Two Audiences -->
+    <section class="audiences" id="audiences">
+        <div class="container">
+            <div class="section-header">
+                <h2>Two ways to order</h2>
+                <p>Whether you run one forecourt or resell to many, order the way that suits you.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-tag">Petrol Stations</div>
+                    <h3>Buy Direct</h3>
+                    <p>Keep your forecourt stocked — squeegees, pink soap, garage rolls, sponges and covers, straight from the manufacturer. No middleman markup.</p>
+                    <ul class="tick-list">
+                        <li>Order by WhatsApp or phone in minutes</li>
+                        <li>Own delivery around Cape Town</li>
+                        <li>Reliable, consistent stock</li>
+                    </ul>
+                    <a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%20run%20a%20petrol%20station%20and%20would%20like%20to%20place%20an%20order" class="btn btn-primary" target="_blank" rel="noopener">Order for my station</a>
+                </div>
+                <div class="audience-card audience-card--trade">
+                    <div class="audience-tag audience-tag--accent">Resellers &amp; Trade</div>
+                    <h3>Wholesale / Trade</h3>
+                    <p>Reselling into forecourts or the cleaning trade? Buy at wholesale pricing on volume, with courier nationwide. Ask us for a trade price list.</p>
+                    <ul class="tick-list">
+                        <li>Wholesale pricing on volume</li>
+                        <li>Courier delivery nationwide</li>
+                        <li>Branded / custom squeegees on request</li>
+                    </ul>
+                    <a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%27m%20a%20reseller%20and%20would%20like%20your%20wholesale%2Ftrade%20price%20list" class="btn btn-accent" target="_blank" rel="noopener">Request trade pricing</a>
                 </div>
             </div>
         </div>
@@ -52,116 +151,104 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Products</h2>
-                <p>Complete price list for petrol stations</p>
+                <p>Complete price list for forecourts. Call or WhatsApp to order.</p>
             </div>
 
             <!-- Category Filter Tabs -->
-            <div class="category-filter">
+            <div class="category-filter" role="tablist">
                 <button class="category-btn active" data-category="all">All Products</button>
                 <button class="category-btn" data-category="squeegees">Squeegees</button>
                 <button class="category-btn" data-category="cleaning">Cleaning</button>
                 <button class="category-btn" data-category="parts">Parts</button>
-                <button class="category-btn" data-category="signage">Signage</button>
+                <button class="category-btn" data-category="signage">Forecourt Signage</button>
             </div>
 
             <div class="products-grid" id="productsGrid">
                 <!-- Red Squeegee -->
                 <div class="product-card" data-category="squeegees">
                     <div class="product-image" style="background-color: #dc3545;">
+                        <span class="product-badge">Made by UAC</span>
                         <span class="product-image-text">Red Squeegee</span>
                     </div>
                     <div class="product-info">
                         <h3>Red Squeegee</h3>
-                        <p class="product-price">R30.00 each</p>
-                        <p class="product-bulk">R28.00 for 50+</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R30.00 <small>each</small></p>
+                        <p class="product-bulk">R28.00 each for 50+</p>
                     </div>
                 </div>
 
                 <!-- Blue Squeegee -->
                 <div class="product-card" data-category="squeegees">
-                    <div class="product-image" style="background-image: url('https://res.cloudinary.com/dgol2ulhi/image/upload/v1762252933/9034b808-b793-4a42-989d-6ba88363d51a_onp8a2.jpg'); background-size: cover; background-position: center;">
+                    <div class="product-image" style="background-color: #1565C0; background-image: url('https://res.cloudinary.com/dgol2ulhi/image/upload/v1762252933/9034b808-b793-4a42-989d-6ba88363d51a_onp8a2.jpg'); background-size: cover; background-position: center;">
+                        <span class="product-badge">Made by UAC</span>
                     </div>
                     <div class="product-info">
                         <h3>Blue Squeegee</h3>
-                        <p class="product-price">R30.00 each</p>
-                        <p class="product-bulk">R28.00 for 50+</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R30.00 <small>each</small></p>
+                        <p class="product-bulk">R28.00 each for 50+</p>
                     </div>
                 </div>
 
                 <!-- Black Squeegee -->
                 <div class="product-card" data-category="squeegees">
-                    <div class="product-image" style="background-color: #000;">
+                    <div class="product-image" style="background-color: #111;">
+                        <span class="product-badge">Made by UAC</span>
                         <span class="product-image-text">Black Squeegee</span>
                     </div>
                     <div class="product-info">
                         <h3>Black Squeegee</h3>
-                        <p class="product-price">R30.00 each</p>
-                        <p class="product-bulk">R28.00 for 50+</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R30.00 <small>each</small></p>
+                        <p class="product-bulk">R28.00 each for 50+</p>
                     </div>
                 </div>
 
                 <!-- Dark Grey Squeegee -->
                 <div class="product-card" data-category="squeegees">
                     <div class="product-image" style="background-color: #555;">
+                        <span class="product-badge">Made by UAC</span>
                         <span class="product-image-text">Dark Grey Squeegee</span>
                     </div>
                     <div class="product-info">
                         <h3>Dark Grey Squeegee</h3>
-                        <p class="product-price">R30.00 each</p>
-                        <p class="product-bulk">R28.00 for 50+</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R30.00 <small>each</small></p>
+                        <p class="product-bulk">R28.00 each for 50+</p>
                     </div>
                 </div>
 
                 <!-- Light Grey Squeegee -->
                 <div class="product-card" data-category="squeegees">
-                    <div class="product-image" style="background-color: #999;">
+                    <div class="product-image" style="background-color: #9aa3ab;">
+                        <span class="product-badge">Made by UAC</span>
                         <span class="product-image-text">Light Grey Squeegee</span>
                     </div>
                     <div class="product-info">
                         <h3>Light Grey Squeegee</h3>
-                        <p class="product-price">R30.00 each</p>
-                        <p class="product-bulk">R28.00 for 50+</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R30.00 <small>each</small></p>
+                        <p class="product-bulk">R28.00 each for 50+</p>
                     </div>
                 </div>
 
                 <!-- Garage Roll -->
                 <div class="product-card" data-category="cleaning">
-                    <div class="product-image" style="background-color: #666;">
+                    <div class="product-image" style="background-color: #6b7280;">
                         <span class="product-image-text">Garage Roll</span>
                     </div>
                     <div class="product-info">
                         <h3>Garage Roll</h3>
-                        <p class="product-price">R240.00 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R240.00 <small>each</small></p>
+                        <p class="product-note">Forecourt paper towel</p>
                     </div>
                 </div>
 
                 <!-- Reject Garage Roll -->
                 <div class="product-card" data-category="cleaning">
-                    <div class="product-image" style="background-color: #888;">
+                    <div class="product-image" style="background-color: #8b93a1;">
                         <span class="product-image-text">Reject Garage Roll</span>
                     </div>
                     <div class="product-info">
                         <h3>Reject Garage Roll</h3>
-                        <p class="product-price">R180.00 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
-                    </div>
-                </div>
-
-                <!-- Replacement Rubber 5-Pack -->
-                <div class="product-card" data-category="parts">
-                    <div class="product-image" style="background-color: #333;">
-                        <span class="product-image-text">Replacement Rubber</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Replacement Rubber 5-Pack</h3>
-                        <p class="product-price">R40.00 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R180.00 <small>each</small></p>
+                        <p class="product-note">Budget-grade roll</p>
                     </div>
                 </div>
 
@@ -172,47 +259,63 @@
                     </div>
                     <div class="product-info">
                         <h3>Pink Soap</h3>
-                        <p class="product-price">R400.00 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R400.00 <small>each</small></p>
+                        <p class="product-note">Forecourt hand &amp; screen soap</p>
+                    </div>
+                </div>
+
+                <!-- Replacement Rubber 5-Pack -->
+                <div class="product-card" data-category="parts">
+                    <div class="product-image" style="background-color: #334155;">
+                        <span class="product-image-text">Replacement Rubber</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Replacement Rubber 5-Pack</h3>
+                        <p class="product-price">R40.00 <small>per pack</small></p>
+                        <p class="product-note">Fits UAC squeegees</p>
                     </div>
                 </div>
 
                 <!-- Replacement Sponges 5-Pack -->
                 <div class="product-card" data-category="parts">
-                    <div class="product-image" style="background-color: #ffa500;">
+                    <div class="product-image" style="background-color: #f59e0b;">
                         <span class="product-image-text">Replacement Sponges</span>
                     </div>
                     <div class="product-info">
                         <h3>Replacement Sponges 5-Pack</h3>
-                        <p class="product-price">R40.50 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R40.50 <small>per pack</small></p>
+                        <p class="product-note">Fits UAC squeegees</p>
                     </div>
                 </div>
 
                 <!-- Out of Order Cover -->
                 <div class="product-card" data-category="signage">
-                    <div class="product-image" style="background-color: #ff4444;">
+                    <div class="product-image" style="background-color: #ef4444;">
                         <span class="product-image-text">Out of Order Cover</span>
                     </div>
                     <div class="product-info">
                         <h3>Out of Order Cover</h3>
-                        <p class="product-price">R120.00 each</p>
-                        <p class="product-note">Call to order: 082 826 1003</p>
+                        <p class="product-price">R120.00 <small>each</small></p>
+                        <p class="product-note">Pump / bay cover</p>
                     </div>
                 </div>
             </div>
+
+            <p class="products-cta">
+                Ready to order? <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener">WhatsApp us your list</a> or call <a href="tel:0828261003">082 826 1003</a>.
+            </p>
         </div>
     </section>
 
-    <!-- Bulk Discount Banner -->
+    <!-- Bulk / delivery advantage -->
     <section class="bulk-discount-banner">
         <div class="container">
             <div class="bulk-content">
                 <div class="bulk-icon">📦</div>
                 <div class="bulk-text">
-                    <h3>Bulk Orders Save More</h3>
-                    <p>Order 50+ squeegees and pay only <strong>R28 each</strong> - save R2 per unit!</p>
-                    <p>Need 100+ garage rolls or custom quantities? <a href="tel:0828261003">Call us for a quote: 082 826 1003</a></p>
+                    <h3>Bulk orders save more</h3>
+                    <p>Order 50+ squeegees and pay <strong>R28 each</strong> — save R2 a unit. Need 100+ garage rolls, standing orders or trade volumes?</p>
+                    <p><a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%27d%20like%20a%20bulk%20quote" target="_blank" rel="noopener">Ask for a bulk quote on WhatsApp</a> or call <a href="tel:0828261003">082 826 1003</a>.</p>
                 </div>
             </div>
         </div>
@@ -222,24 +325,28 @@
     <section class="why-choose-us">
         <div class="container">
             <div class="section-header">
-                <h2>Why Choose UAC Services?</h2>
+                <h2>Why buy from UAC?</h2>
             </div>
             <div class="reasons-grid">
                 <div class="reason-card">
-                    <h3>Quality Products</h3>
-                    <p>Durable supplies built for high-traffic forecourts. Our products withstand daily use in demanding petrol station environments.</p>
+                    <div class="reason-ico">🏭</div>
+                    <h3>Straight from the manufacturer</h3>
+                    <p>We make the squeegees ourselves in Retreat — so you buy direct, at manufacturer pricing, with no reseller markup.</p>
                 </div>
                 <div class="reason-card">
-                    <h3>Reliable Stock</h3>
-                    <p>Consistent availability and dependable delivery. We ensure your forecourt never runs out of essential car cleaning supplies.</p>
+                    <div class="reason-ico">📦</div>
+                    <h3>Reliable stock</h3>
+                    <p>Consistent availability on the essentials your forecourt runs through every week. We keep you stocked.</p>
                 </div>
                 <div class="reason-card">
-                    <h3>Bulk Discounts</h3>
-                    <p>Competitive pricing with generous bulk savings. Order 50+ squeegees and save R2 per unit on every order.</p>
+                    <div class="reason-ico">🚚</div>
+                    <h3>Delivery sorted</h3>
+                    <p>Own delivery around Cape Town and courier nationwide, so distance is never a reason to run out.</p>
                 </div>
                 <div class="reason-card">
-                    <h3>Industry Expertise</h3>
-                    <p>We understand petrol station forecourt needs. Years of experience serving Cape Town petrol stations.</p>
+                    <div class="reason-ico">💰</div>
+                    <h3>Bulk &amp; trade pricing</h3>
+                    <p>Competitive bulk savings for stations and wholesale pricing for resellers. Ask for a trade price list.</p>
                 </div>
             </div>
         </div>
@@ -249,48 +356,30 @@
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Ready to order? Send us an enquiry or call us directly</p>
+                <h2>Place an order</h2>
+                <p>WhatsApp is the fastest way to order — send your list and we'll confirm price and delivery.</p>
             </div>
 
             <div class="contact-layout">
-                <!-- Contact Form -->
-                <div class="contact-form-container">
-                    <h3>Send Us an Enquiry</h3>
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="company">Company / Petrol Station *</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Contact Person *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">What do you need? *</label>
-                            <textarea id="message" name="message" rows="4" placeholder="List products and quantities, e.g.: 100 red squeegees, 50 garage rolls..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
-                    </form>
-                    <div id="formMessage" class="form-message"></div>
+                <!-- WhatsApp-first order card -->
+                <div class="order-card">
+                    <h3>Order in two taps</h3>
+                    <p class="order-lead">Tap below to open WhatsApp with an order message ready to go. Just add your products and quantities.</p>
+                    <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" class="btn btn-wa btn-block btn-large" target="_blank" rel="noopener">
+                        <svg class="btn-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+                        WhatsApp your order
+                    </a>
+                    <div class="order-or"><span>or call us</span></div>
+                    <a href="tel:0828261003" class="btn btn-outline btn-block btn-large">📞 082 826 1003</a>
+                    <p class="order-hint">Prefer email? <a href="mailto:uac@gmail.com">uac@gmail.com</a></p>
                 </div>
 
                 <!-- Contact Information -->
                 <div class="contact-info-container">
-                    <h3>Contact Information</h3>
+                    <h3>Contact &amp; hours</h3>
 
                     <div class="contact-info-item">
-                        <h4>Phone</h4>
+                        <h4>Phone / WhatsApp</h4>
                         <p><a href="tel:0828261003" class="phone-link">082 826 1003</a></p>
                     </div>
 
@@ -300,16 +389,16 @@
                     </div>
 
                     <div class="contact-info-item">
-                        <h4>Address</h4>
+                        <h4>Where we are</h4>
                         <p>10 Celie Industrial Park<br>
                         Celie Road, Retreat<br>
                         Cape Town</p>
                     </div>
 
                     <div class="contact-info-item">
-                        <h4>Business Hours</h4>
-                        <p>Monday - Friday: 8AM - 5PM<br>
-                        Saturday: 8AM - 1PM<br>
+                        <h4>Business hours</h4>
+                        <p>Monday – Friday: 8AM – 5PM<br>
+                        Saturday: 8AM – 1PM<br>
                         Sunday: Closed</p>
                     </div>
                 </div>
@@ -323,12 +412,13 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>UAC Services</h4>
-                    <p>Professional car wash supplies for petrol stations across Cape Town</p>
+                    <p>Cape Town's squeegee manufacturer. Forecourt cleaning supplies direct to petrol stations and resellers.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#products">Products</a></li>
+                        <li><a href="#audiences">Buy Direct / Wholesale</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -340,14 +430,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 UAC Services. All rights reserved.</p>
+                <p>&copy; 2026 UAC Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
-        <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I'd%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="WhatsApp">
+        <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
         <a href="tel:0828261003" class="fab fab-call" aria-label="Call Us">
@@ -355,7 +445,6 @@
         </a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
