@@ -108,21 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========================================
 // ORDER BUILDER
-// Pick quantities -> live total (with bulk squeegee rule) -> prefilled WhatsApp.
-// Prices mirror what's shown in the products list above. Squeegees share one
-// bulk threshold: 50+ squeegees TOTAL (any colour mix) drops every squeegee to
-// the bulk unit price — same rule the UAC-Management app uses.
+// Pick quantities -> live list-price estimate -> prefilled WhatsApp.
+// Prices mirror what's shown in the products list above. We deliberately do
+// NOT quote bulk prices here: public bulk figures aren't advertised. When an
+// order crosses the bulk threshold we nudge the customer that they may qualify
+// for better pricing and let UAC confirm the actual number on WhatsApp.
 // ========================================
 const OB = {
     waNumber: '27828261003',
     bulkThreshold: 50,
-    // group 'sq' = squeegees (shared bulk threshold). unit = label shown after qty.
+    // group 'sq' = squeegees (share one threshold for the bulk nudge). unit = label after qty.
     products: [
-        { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
-        { id: 'sq-blue',   name: 'Blue Squeegee',               group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
-        { id: 'sq-black',  name: 'Black Squeegee',              group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
-        { id: 'sq-dgrey',  name: 'Dark Grey Squeegee',          group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
-        { id: 'sq-lgrey',  name: 'Light Grey Squeegee',         group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 30 },
+        { id: 'sq-blue',   name: 'Blue Squeegee',               group: 'sq', unit: 'each',     price: 30 },
+        { id: 'sq-black',  name: 'Black Squeegee',              group: 'sq', unit: 'each',     price: 30 },
+        { id: 'sq-dgrey',  name: 'Dark Grey Squeegee',          group: 'sq', unit: 'each',     price: 30 },
+        { id: 'sq-lgrey',  name: 'Light Grey Squeegee',         group: 'sq', unit: 'each',     price: 30 },
         { id: 'garage',    name: 'Garage Roll',                 group: null, unit: 'each',     price: 240 },
         { id: 'garage-r',  name: 'Reject Garage Roll',          group: null, unit: 'each',     price: 180 },
         { id: 'pinksoap',  name: 'Pink Soap',                   group: null, unit: 'each',     price: 400 },
@@ -139,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalEl = document.getElementById('obTotal');
     const sendBtn = document.getElementById('obSend');
     const sendLabel = document.getElementById('obSendLabel');
+    const bulkNote = document.getElementById('obBulkNote');
     if (!list || !sendBtn) return;
 
     const qty = {};                       // id -> quantity
@@ -150,12 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     OB.products.forEach(p => {
         const row = document.createElement('div');
         row.className = 'ob-row';
-        const bulkHint = p.group === 'sq'
-            ? `<span class="ob-bulk-hint">${fmt(p.bulkPrice)} at ${OB.bulkThreshold}+</span>` : '';
         row.innerHTML = `
             <div class="ob-info">
                 <span class="ob-name">${p.name}</span>
-                <span class="ob-price">${fmt(p.price)} <small>${p.unit}</small>${bulkHint}</span>
+                <span class="ob-price">${fmt(p.price)} <small>${p.unit}</small></span>
             </div>
             <div class="ob-stepper" data-id="${p.id}">
                 <button type="button" class="ob-btn ob-minus" aria-label="Decrease ${p.name}">&minus;</button>
@@ -165,49 +165,52 @@ document.addEventListener('DOMContentLoaded', () => {
         list.appendChild(row);
     });
 
-    // Compute per-line and total, applying the shared squeegee bulk rule.
+    // Compute per-line and total at list price. Bulk pricing is not quoted here;
+    // bulkEligible just drives a "you may qualify" nudge and a note in the message.
     function compute() {
         const sqTotal = OB.products
             .filter(p => p.group === 'sq')
             .reduce((s, p) => s + qty[p.id], 0);
-        const sqBulk = sqTotal >= OB.bulkThreshold;
+        const bulkEligible = sqTotal >= OB.bulkThreshold;
 
         const lines = [];
         let total = 0;
         OB.products.forEach(p => {
             const q = qty[p.id];
             if (q <= 0) return;
-            const unit = (p.group === 'sq' && sqBulk) ? p.bulkPrice : p.price;
-            const lineTotal = unit * q;
+            const lineTotal = p.price * q;
             total += lineTotal;
-            lines.push({ name: p.name, q, unit, lineTotal });
+            lines.push({ name: p.name, q, unit: p.price, lineTotal });
         });
-        return { lines, total, sqBulk };
+        return { lines, total, bulkEligible };
     }
 
     function render() {
-        const { lines, total } = compute();
+        const { lines, total, bulkEligible } = compute();
         if (!lines.length) {
             summary.hidden = true;
+            if (bulkNote) bulkNote.hidden = true;
             sendLabel.textContent = 'Send order on WhatsApp';
             sendBtn.href = `https://wa.me/${OB.waNumber}?text=` +
                 encodeURIComponent("Hi UAC Services, I'd like to order:\n- ");
             return;
         }
         summary.hidden = false;
+        if (bulkNote) bulkNote.hidden = !bulkEligible;
         linesEl.innerHTML = lines.map(l =>
             `<div class="ob-line"><span>${l.q} &times; ${l.name} <small>@ ${fmt(l.unit)}</small></span>` +
             `<span>${fmt(l.lineTotal)}</span></div>`
         ).join('');
         totalEl.textContent = fmt(total);
         sendLabel.textContent = 'Send order on WhatsApp';
-        sendBtn.href = `https://wa.me/${OB.waNumber}?text=${encodeURIComponent(buildMessage(lines, total))}`;
+        sendBtn.href = `https://wa.me/${OB.waNumber}?text=${encodeURIComponent(buildMessage(lines, total, bulkEligible))}`;
     }
 
-    function buildMessage(lines, total) {
+    function buildMessage(lines, total, bulkEligible) {
         let msg = "Hi UAC Services, I'd like to order:\n";
         lines.forEach(l => { msg += `- ${l.q} x ${l.name} @ ${fmt(l.unit)} = ${fmt(l.lineTotal)}\n`; });
         msg += `\nEstimated total: ${fmt(total)} (excl. delivery)\n`;
+        if (bulkEligible) msg += "This looks like a bulk order — please quote me your best price.\n";
         msg += 'Please confirm price and delivery. Thanks!';
         return msg;
     }
