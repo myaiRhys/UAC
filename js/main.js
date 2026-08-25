@@ -107,6 +107,136 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================
+// ORDER BUILDER
+// Pick quantities -> live total (with bulk squeegee rule) -> prefilled WhatsApp.
+// Prices mirror what's shown in the products list above. Squeegees share one
+// bulk threshold: 50+ squeegees TOTAL (any colour mix) drops every squeegee to
+// the bulk unit price — same rule the UAC-Management app uses.
+// ========================================
+const OB = {
+    waNumber: '27828261003',
+    bulkThreshold: 50,
+    // group 'sq' = squeegees (shared bulk threshold). unit = label shown after qty.
+    products: [
+        { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'sq-blue',   name: 'Blue Squeegee',               group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'sq-black',  name: 'Black Squeegee',              group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'sq-dgrey',  name: 'Dark Grey Squeegee',          group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'sq-lgrey',  name: 'Light Grey Squeegee',         group: 'sq', unit: 'each',     price: 30,   bulkPrice: 28 },
+        { id: 'garage',    name: 'Garage Roll',                 group: null, unit: 'each',     price: 240 },
+        { id: 'garage-r',  name: 'Reject Garage Roll',          group: null, unit: 'each',     price: 180 },
+        { id: 'pinksoap',  name: 'Pink Soap',                   group: null, unit: 'each',     price: 400 },
+        { id: 'rubber',    name: 'Replacement Rubber 5-Pack',   group: null, unit: 'per pack', price: 40 },
+        { id: 'sponge',    name: 'Replacement Sponges 5-Pack',  group: null, unit: 'per pack', price: 40.50 },
+        { id: 'ooo',       name: 'Out of Order Cover',          group: null, unit: 'each',     price: 120 }
+    ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('obList');
+    const summary = document.getElementById('obSummary');
+    const linesEl = document.getElementById('obLines');
+    const totalEl = document.getElementById('obTotal');
+    const sendBtn = document.getElementById('obSend');
+    const sendLabel = document.getElementById('obSendLabel');
+    if (!list || !sendBtn) return;
+
+    const qty = {};                       // id -> quantity
+    OB.products.forEach(p => { qty[p.id] = 0; });
+    const fmt = n => 'R' + n.toFixed(2);
+
+    // Build the picker rows
+    list.innerHTML = '';
+    OB.products.forEach(p => {
+        const row = document.createElement('div');
+        row.className = 'ob-row';
+        const bulkHint = p.group === 'sq'
+            ? `<span class="ob-bulk-hint">${fmt(p.bulkPrice)} at ${OB.bulkThreshold}+</span>` : '';
+        row.innerHTML = `
+            <div class="ob-info">
+                <span class="ob-name">${p.name}</span>
+                <span class="ob-price">${fmt(p.price)} <small>${p.unit}</small>${bulkHint}</span>
+            </div>
+            <div class="ob-stepper" data-id="${p.id}">
+                <button type="button" class="ob-btn ob-minus" aria-label="Decrease ${p.name}">&minus;</button>
+                <input class="ob-qty" type="number" inputmode="numeric" min="0" step="1" value="0" aria-label="${p.name} quantity">
+                <button type="button" class="ob-btn ob-plus" aria-label="Increase ${p.name}">+</button>
+            </div>`;
+        list.appendChild(row);
+    });
+
+    // Compute per-line and total, applying the shared squeegee bulk rule.
+    function compute() {
+        const sqTotal = OB.products
+            .filter(p => p.group === 'sq')
+            .reduce((s, p) => s + qty[p.id], 0);
+        const sqBulk = sqTotal >= OB.bulkThreshold;
+
+        const lines = [];
+        let total = 0;
+        OB.products.forEach(p => {
+            const q = qty[p.id];
+            if (q <= 0) return;
+            const unit = (p.group === 'sq' && sqBulk) ? p.bulkPrice : p.price;
+            const lineTotal = unit * q;
+            total += lineTotal;
+            lines.push({ name: p.name, q, unit, lineTotal });
+        });
+        return { lines, total, sqBulk };
+    }
+
+    function render() {
+        const { lines, total } = compute();
+        if (!lines.length) {
+            summary.hidden = true;
+            sendLabel.textContent = 'Send order on WhatsApp';
+            sendBtn.href = `https://wa.me/${OB.waNumber}?text=` +
+                encodeURIComponent("Hi UAC Services, I'd like to order:\n- ");
+            return;
+        }
+        summary.hidden = false;
+        linesEl.innerHTML = lines.map(l =>
+            `<div class="ob-line"><span>${l.q} &times; ${l.name} <small>@ ${fmt(l.unit)}</small></span>` +
+            `<span>${fmt(l.lineTotal)}</span></div>`
+        ).join('');
+        totalEl.textContent = fmt(total);
+        sendLabel.textContent = 'Send order on WhatsApp';
+        sendBtn.href = `https://wa.me/${OB.waNumber}?text=${encodeURIComponent(buildMessage(lines, total))}`;
+    }
+
+    function buildMessage(lines, total) {
+        let msg = "Hi UAC Services, I'd like to order:\n";
+        lines.forEach(l => { msg += `- ${l.q} x ${l.name} @ ${fmt(l.unit)} = ${fmt(l.lineTotal)}\n`; });
+        msg += `\nEstimated total: ${fmt(total)} (excl. delivery)\n`;
+        msg += 'Please confirm price and delivery. Thanks!';
+        return msg;
+    }
+
+    function setQty(id, val) {
+        const v = Math.max(0, Math.floor(Number(val) || 0));
+        qty[id] = v;
+        const stepper = list.querySelector(`.ob-stepper[data-id="${id}"] .ob-qty`);
+        if (stepper && String(v) !== stepper.value) stepper.value = v;
+        render();
+    }
+
+    list.addEventListener('click', (e) => {
+        const stepper = e.target.closest('.ob-stepper');
+        if (!stepper) return;
+        const id = stepper.dataset.id;
+        if (e.target.classList.contains('ob-plus'))  setQty(id, qty[id] + 1);
+        if (e.target.classList.contains('ob-minus')) setQty(id, qty[id] - 1);
+    });
+    list.addEventListener('input', (e) => {
+        if (!e.target.classList.contains('ob-qty')) return;
+        const stepper = e.target.closest('.ob-stepper');
+        setQty(stepper.dataset.id, e.target.value);
+    });
+
+    render();
+});
+
+// ========================================
 // BUTTON RIPPLE EFFECT
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
