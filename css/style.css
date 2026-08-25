@@ -481,6 +481,24 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
 }
 .product-note { font-size: .84rem; color: var(--muted); margin: .35rem 0 0; }
 
+.product-colours {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    margin: .45rem 0 0;
+}
+.mini-swatch {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
+    flex: 0 0 auto;
+}
+.product-colours-label {
+    font-size: .78rem;
+    color: var(--muted);
+    margin-left: .25rem;
+}
+
 .products-cta { text-align: center; margin: 2.5rem 0 0; font-size: 1.05rem; color: var(--body); }
 
 /* ---------- Bulk banner ---------- */
@@ -700,7 +718,6 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-visual { order: -1; }
     .range-card { max-width: 320px; transform: none; }
     .contact-layout { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }
