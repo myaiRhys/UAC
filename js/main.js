@@ -42,18 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hamburger || !navMenu) return;
 
     const toggle = () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
+        const open = navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', open);
     };
     const close = () => {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
     };
 
     hamburger.addEventListener('click', toggle);
-    hamburger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
 
     navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
 
@@ -95,11 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cards.forEach(card => {
                 const match = category === 'all' || card.dataset.category === category;
+                clearTimeout(card._hideTimer);
+                card.style.transitionDelay = '';   // drop the entrance stagger delay
                 if (match) {
                     card.classList.remove('hidden', 'fade-out');
                 } else {
                     card.classList.add('fade-out');
-                    setTimeout(() => card.classList.add('hidden'), 250);
+                    card._hideTimer = setTimeout(() => card.classList.add('hidden'), 250);
                 }
             });
         });
@@ -116,7 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 const OB = {
     waNumber: '27828261003',
-    bulkThreshold: 50,
+    bulkThreshold: 50,        // squeegee quantity that counts as bulk
+    bulkValueThreshold: 2000, // rand total that counts as bulk regardless of mix
     // group 'sq' = squeegees (share one threshold for the bulk nudge). unit = label after qty.
     products: [
         { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 30 },
@@ -171,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const sqTotal = OB.products
             .filter(p => p.group === 'sq')
             .reduce((s, p) => s + qty[p.id], 0);
-        const bulkEligible = sqTotal >= OB.bulkThreshold;
 
         const lines = [];
         let total = 0;
@@ -182,6 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
             total += lineTotal;
             lines.push({ name: p.name, q, unit: p.price, lineTotal });
         });
+        // Bulk nudge fires on squeegee volume OR overall order value, so big
+        // garage-roll / soap orders also hear about better pricing.
+        const bulkEligible = sqTotal >= OB.bulkThreshold || total >= OB.bulkValueThreshold;
         return { lines, total, bulkEligible };
     }
 

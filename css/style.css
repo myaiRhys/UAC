@@ -192,7 +192,11 @@ img { max-width: 100%; display: block; }
 .btn-nav-wa { background: var(--wa); }
 .btn-nav-wa:hover { background: var(--wa-600); }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 6px;
+    border: 0; background: transparent;
+}
 .hamburger span {
     width: 26px; height: 3px; border-radius: 3px;
     background: var(--navy);
@@ -413,13 +417,17 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .25s ease;
     display: flex;
     flex-direction: column;
 }
 .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .product-card.hidden { display: none; }
-.product-card.fade-out { opacity: 0; transform: scale(.96); }
+.product-card.fade-out {
+    opacity: 0;
+    transform: scale(.96);
+    transition: opacity .25s ease, transform .25s ease;
+}
 
 .product-image {
     position: relative;
@@ -480,6 +488,24 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     margin: .5rem 0 0;
 }
 .product-note { font-size: .84rem; color: var(--muted); margin: .35rem 0 0; }
+
+.product-colours {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    margin: .45rem 0 0;
+}
+.mini-swatch {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
+    flex: 0 0 auto;
+}
+.product-colours-label {
+    font-size: .78rem;
+    color: var(--muted);
+    margin-left: .25rem;
+}
 
 .products-cta { text-align: center; margin: 2.5rem 0 0; font-size: 1.05rem; color: var(--body); }
 
@@ -700,7 +726,6 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-visual { order: -1; }
     .range-card { max-width: 320px; transform: none; }
     .contact-layout { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }

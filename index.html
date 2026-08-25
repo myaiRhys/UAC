@@ -72,11 +72,11 @@
                     <li><a href="#orderBuilder" class="btn-nav btn-nav-wa">Start an order</a></li>
                     <li><a href="tel:0828261003" class="btn-nav">082 826 1003</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+                <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </div>
     </nav>
@@ -179,67 +179,23 @@
             </div>
 
             <div class="products-grid" id="productsGrid">
-                <!-- Red Squeegee -->
-                <div class="product-card" data-category="squeegees">
-                    <div class="product-image pi" style="color:#dc3545;">
-                        <span class="product-badge">Made by UAC</span>
-                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="Red window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".22"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".26"/><g fill="#fff" opacity=".5"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".12"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".18"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#1c1e21"/><path d="M46 83 H154 L148 92 H52 Z" fill="#111315"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".2"/><circle cx="100" cy="60" r="9" fill="none" stroke="#0A2540" stroke-width="1.6" opacity=".25"/><circle cx="100" cy="60" r="3.6" fill="#0A2540" opacity=".18"/><g stroke="#fff" stroke-width="1.4" opacity=".38"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#0A2540" opacity=".16"/><g stroke="#0A2540" stroke-width="1.2" opacity=".22"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
-                    </div>
-                    <div class="product-info">
-                        <h3>Red Squeegee</h3>
-                        <p class="product-price">R30.00 <small>each</small></p>
-                        <p class="product-bulk">Bulk pricing available</p>
-                    </div>
-                </div>
-
-                <!-- Blue Squeegee -->
+                <!-- UAC Squeegee (5 colours) -->
                 <div class="product-card" data-category="squeegees">
                     <div class="product-image pi" style="color:#1565C0;">
                         <span class="product-badge">Made by UAC</span>
-                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="Blue window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".22"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".26"/><g fill="#fff" opacity=".5"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".12"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".18"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#1c1e21"/><path d="M46 83 H154 L148 92 H52 Z" fill="#111315"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".2"/><circle cx="100" cy="60" r="9" fill="none" stroke="#0A2540" stroke-width="1.6" opacity=".25"/><circle cx="100" cy="60" r="3.6" fill="#0A2540" opacity=".18"/><g stroke="#fff" stroke-width="1.4" opacity=".38"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#0A2540" opacity=".16"/><g stroke="#0A2540" stroke-width="1.2" opacity=".22"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
+                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="UAC window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".22"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".26"/><g fill="#fff" opacity=".5"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".12"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".18"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#1c1e21"/><path d="M46 83 H154 L148 92 H52 Z" fill="#111315"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".2"/><circle cx="100" cy="60" r="9" fill="none" stroke="#0A2540" stroke-width="1.6" opacity=".25"/><circle cx="100" cy="60" r="3.6" fill="#0A2540" opacity=".18"/><g stroke="#fff" stroke-width="1.4" opacity=".38"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#0A2540" opacity=".16"/><g stroke="#0A2540" stroke-width="1.2" opacity=".22"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
                     </div>
                     <div class="product-info">
-                        <h3>Blue Squeegee</h3>
+                        <h3>UAC Squeegee</h3>
                         <p class="product-price">R30.00 <small>each</small></p>
-                        <p class="product-bulk">Bulk pricing available</p>
-                    </div>
-                </div>
-
-                <!-- Black Squeegee -->
-                <div class="product-card" data-category="squeegees">
-                    <div class="product-image pi" style="color:#23282d;">
-                        <span class="product-badge">Made by UAC</span>
-                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="Black window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".18"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".2"/><g fill="#fff" opacity=".4"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".1"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".14"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#0c0d0f"/><rect x="38" y="74" width="124" height="3" rx="1.5" fill="#fff" opacity=".08"/><path d="M46 83 H154 L148 92 H52 Z" fill="#050506"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".14"/><circle cx="100" cy="60" r="9" fill="none" stroke="#fff" stroke-width="1.4" opacity=".22"/><circle cx="100" cy="60" r="3.6" fill="#000" opacity=".3"/><g stroke="#fff" stroke-width="1.4" opacity=".3"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#fff" opacity=".12"/><g stroke="#fff" stroke-width="1.2" opacity=".18"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
-                    </div>
-                    <div class="product-info">
-                        <h3>Black Squeegee</h3>
-                        <p class="product-price">R30.00 <small>each</small></p>
-                        <p class="product-bulk">Bulk pricing available</p>
-                    </div>
-                </div>
-
-                <!-- Dark Grey Squeegee -->
-                <div class="product-card" data-category="squeegees">
-                    <div class="product-image pi" style="color:#5b636b;">
-                        <span class="product-badge">Made by UAC</span>
-                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="Dark grey window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".22"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".26"/><g fill="#fff" opacity=".5"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".12"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".18"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#1c1e21"/><path d="M46 83 H154 L148 92 H52 Z" fill="#111315"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".2"/><circle cx="100" cy="60" r="9" fill="none" stroke="#0A2540" stroke-width="1.6" opacity=".25"/><circle cx="100" cy="60" r="3.6" fill="#0A2540" opacity=".18"/><g stroke="#fff" stroke-width="1.4" opacity=".38"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#0A2540" opacity=".16"/><g stroke="#0A2540" stroke-width="1.2" opacity=".22"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
-                    </div>
-                    <div class="product-info">
-                        <h3>Dark Grey Squeegee</h3>
-                        <p class="product-price">R30.00 <small>each</small></p>
-                        <p class="product-bulk">Bulk pricing available</p>
-                    </div>
-                </div>
-
-                <!-- Light Grey Squeegee -->
-                <div class="product-card" data-category="squeegees">
-                    <div class="product-image pi" style="color:#9aa3ab;">
-                        <span class="product-badge">Made by UAC</span>
-                        <svg class="pi-illus sq" viewBox="0 0 200 200" role="img" aria-label="Light grey window squeegee with handle"><ellipse cx="100" cy="184" rx="44" ry="7" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 100)"><rect x="93" y="58" width="14" height="108" rx="7" fill="currentColor"/><rect x="94" y="58" width="5" height="108" rx="2.5" fill="#fff" opacity=".3"/><rect x="36" y="33" width="128" height="12" rx="5" fill="currentColor"/><rect x="36" y="33" width="128" height="12" rx="5" fill="#fff" opacity=".32"/><g fill="#fff" opacity=".55"><circle cx="50" cy="39" r="1.5"/><circle cx="62" cy="39" r="1.5"/><circle cx="74" cy="39" r="1.5"/><circle cx="86" cy="39" r="1.5"/><circle cx="114" cy="39" r="1.5"/><circle cx="126" cy="39" r="1.5"/><circle cx="138" cy="39" r="1.5"/><circle cx="150" cy="39" r="1.5"/></g><rect x="32" y="45" width="136" height="30" rx="7" fill="currentColor"/><rect x="32" y="45" width="136" height="8" rx="4" fill="#fff" opacity=".2"/><rect x="32" y="45" width="9" height="30" rx="4" fill="#fff" opacity=".26"/><rect x="38" y="74" width="124" height="9" rx="3" fill="#1c1e21"/><path d="M46 83 H154 L148 92 H52 Z" fill="#111315"/><g><circle cx="52" cy="60" r="3.4" fill="#e2e8f0"/><path d="M52 57.4 V62.6 M49.4 60 H54.6" stroke="#94a3b8" stroke-width="1"/></g><g><circle cx="148" cy="60" r="3.4" fill="#e2e8f0"/><path d="M148 57.4 V62.6 M145.4 60 H150.6" stroke="#94a3b8" stroke-width="1"/></g><circle cx="100" cy="60" r="9" fill="#fff" opacity=".28"/><circle cx="100" cy="60" r="9" fill="none" stroke="#0A2540" stroke-width="1.6" opacity=".22"/><circle cx="100" cy="60" r="3.6" fill="#0A2540" opacity=".16"/><g stroke="#fff" stroke-width="1.4" opacity=".45"><line x1="94" y1="97" x2="106" y2="97"/><line x1="94" y1="102" x2="106" y2="102"/><line x1="94" y1="107" x2="106" y2="107"/></g><rect x="91" y="122" width="18" height="34" rx="8" fill="#0A2540" opacity=".14"/><g stroke="#0A2540" stroke-width="1.2" opacity=".2"><line x1="95" y1="128" x2="105" y2="128"/><line x1="95" y1="135" x2="105" y2="135"/><line x1="95" y1="142" x2="105" y2="142"/><line x1="95" y1="149" x2="105" y2="149"/></g><path d="M96 166 L100 176 L104 166 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></g></svg>
-                    </div>
-                    <div class="product-info">
-                        <h3>Light Grey Squeegee</h3>
-                        <p class="product-price">R30.00 <small>each</small></p>
+                        <div class="product-colours" role="img" aria-label="Available in red, blue, black, dark grey and light grey">
+                            <span class="mini-swatch" style="background:#dc3545;" title="Red"></span>
+                            <span class="mini-swatch" style="background:#1565C0;" title="Blue"></span>
+                            <span class="mini-swatch" style="background:#111;" title="Black"></span>
+                            <span class="mini-swatch" style="background:#555;" title="Dark grey"></span>
+                            <span class="mini-swatch" style="background:#9aa3ab;" title="Light grey"></span>
+                            <span class="product-colours-label">5 colours</span>
+                        </div>
                         <p class="product-bulk">Bulk pricing available</p>
                     </div>
                 </div>
