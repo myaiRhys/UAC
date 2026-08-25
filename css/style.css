@@ -150,13 +150,8 @@ img { max-width: 100%; display: block; }
 }
 .logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
 .logo:hover { text-decoration: none; }
-.logo-mark {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.55rem;
-    letter-spacing: .02em;
-    color: var(--navy);
-}
+.logo-mark { display: block; }
+.logo-svg { height: 34px; width: auto; display: block; }
 .logo-sub {
     font-size: .68rem;
     font-weight: 600;
