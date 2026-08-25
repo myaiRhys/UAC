@@ -192,7 +192,11 @@ img { max-width: 100%; display: block; }
 .btn-nav-wa { background: var(--wa); }
 .btn-nav-wa:hover { background: var(--wa-600); }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 6px;
+    border: 0; background: transparent;
+}
 .hamburger span {
     width: 26px; height: 3px; border-radius: 3px;
     background: var(--navy);
@@ -413,13 +417,17 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .25s ease;
     display: flex;
     flex-direction: column;
 }
 .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .product-card.hidden { display: none; }
-.product-card.fade-out { opacity: 0; transform: scale(.96); }
+.product-card.fade-out {
+    opacity: 0;
+    transform: scale(.96);
+    transition: opacity .25s ease, transform .25s ease;
+}
 
 .product-image {
     position: relative;
