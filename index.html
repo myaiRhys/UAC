@@ -374,16 +374,31 @@
             </div>
 
             <div class="contact-layout">
-                <!-- WhatsApp-first order card -->
-                <div class="order-card">
-                    <h3>Order in two taps</h3>
-                    <p class="order-lead">Tap below to open WhatsApp with an order message ready to go. Just add your products and quantities.</p>
-                    <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" class="btn btn-wa btn-block btn-large" target="_blank" rel="noopener">
+                <!-- Interactive order builder -->
+                <div class="order-card" id="orderBuilder">
+                    <h3>Build your order</h3>
+                    <p class="order-lead">Set your quantities — we total it up and apply bulk squeegee pricing automatically. Then send the list straight to us on WhatsApp.</p>
+
+                    <div class="ob-list" id="obList">
+                        <!-- Product rows injected by js/main.js -->
+                        <p class="ob-fallback">Loading products… <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" target="_blank" rel="noopener">or WhatsApp your list directly</a>.</p>
+                    </div>
+
+                    <div class="ob-summary" id="obSummary" hidden>
+                        <div class="ob-lines" id="obLines"></div>
+                        <div class="ob-total-row">
+                            <span>Estimated total</span>
+                            <span class="ob-total" id="obTotal">R0.00</span>
+                        </div>
+                        <p class="ob-note">Estimate excludes delivery. We confirm the final price &amp; delivery when you send.</p>
+                    </div>
+
+                    <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" class="btn btn-wa btn-block btn-large ob-send" id="obSend" target="_blank" rel="noopener">
                         <svg class="btn-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
-                        WhatsApp your order
+                        <span id="obSendLabel">Send order on WhatsApp</span>
                     </a>
-                    <div class="order-or"><span>or call us</span></div>
-                    <a href="tel:0828261003" class="btn btn-outline btn-block btn-large">📞 082 826 1003</a>
+                    <div class="order-or"><span>or</span></div>
+                    <a href="tel:0828261003" class="btn btn-outline btn-block">📞 Call 082 826 1003</a>
                     <p class="order-hint">Prefer email? <a href="mailto:uac@gmail.com">uac@gmail.com</a></p>
                 </div>
 
