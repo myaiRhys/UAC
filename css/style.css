@@ -287,6 +287,17 @@ img { max-width: 100%; display: block; }
     font-size: .72rem;
     margin: 0 0 1rem;
 }
+.range-photo {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .6rem;
+    margin-bottom: 1.2rem;
+}
 .swatch-row { display: flex; gap: .55rem; margin-bottom: 1.4rem; }
 .swatch {
     flex: 1;
@@ -450,6 +461,16 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     transition: transform .25s ease;
 }
 .product-card:hover .pi-illus { transform: translateY(-4px) rotate(-1deg); }
+/* Real-photo variant: product shot on a clean white backdrop */
+.product-image.photo { background: #fff; }
+.product-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 7%;
+    transition: transform .3s ease, opacity .18s ease;
+}
+.product-card:hover .product-photo { transform: scale(1.05); }
 .product-image-text {
     font-family: var(--font-head);
     font-weight: 700;
@@ -502,6 +523,24 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
     flex: 0 0 auto;
 }
+/* Interactive colour picker: mini-swatches are buttons that swap the photo */
+button.mini-swatch {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+button.mini-swatch:hover { transform: scale(1.15); }
+button.mini-swatch:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12), 0 0 0 3px rgba(21,101,192,.45);
+}
+button.mini-swatch.is-active {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12), 0 0 0 2px #fff, 0 0 0 3.5px var(--navy);
+}
+/* Photo cross-fade while a new colour loads */
+.product-photo { opacity: 1; }
+.product-photo.is-swapping { opacity: 0; }
 .product-colours-label {
     font-size: .78rem;
     color: var(--muted);
