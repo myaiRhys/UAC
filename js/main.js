@@ -88,8 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            btns.forEach(b => b.classList.remove('active'));
+            btns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
             const category = btn.dataset.category;
 
             cards.forEach(card => {
