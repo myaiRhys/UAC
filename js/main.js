@@ -112,6 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================
+// PRODUCT COLOUR PICKER
+// Click a mini-swatch to swap the squeegee product photo to that colour.
+// Progressive enhancement: without JS the photo just stays on its default.
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.product-colours[data-photo-target]').forEach(group => {
+        const photo = document.getElementById(group.dataset.photoTarget);
+        const swatches = group.querySelectorAll('.mini-swatch[data-photo]');
+        if (!photo || !swatches.length) return;
+
+        // Preload the alternates so switching is instant.
+        swatches.forEach(s => { const img = new Image(); img.src = s.dataset.photo; });
+
+        const select = (swatch) => {
+            if (swatch.classList.contains('is-active')) return;
+            swatches.forEach(s => {
+                const on = s === swatch;
+                s.classList.toggle('is-active', on);
+                s.setAttribute('aria-pressed', on);
+            });
+            photo.classList.add('is-swapping');
+            const swap = () => {
+                photo.src = swatch.dataset.photo;
+                photo.alt = `UAC squeegee with handle — ${swatch.dataset.colour}, one of five available colours`;
+                photo.classList.remove('is-swapping');
+            };
+            // Fade out, swap once the alt image is ready (cached), then fade in.
+            const ready = new Image();
+            ready.onload = swap;
+            ready.src = swatch.dataset.photo;
+            if (ready.complete) swap();
+        };
+
+        swatches.forEach(swatch => swatch.addEventListener('click', () => select(swatch)));
+    });
+});
+
+// ========================================
 // ORDER BUILDER
 // Pick quantities -> live list-price estimate -> prefilled WhatsApp.
 // Prices mirror what's shown in the products list above. We deliberately do
