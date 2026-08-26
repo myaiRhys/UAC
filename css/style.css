@@ -596,6 +596,67 @@ button.mini-swatch.is-active {
 .reason-card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: .4rem; }
 .reason-card p { color: var(--body); margin: 0; font-size: .96rem; }
 
+/* ---------- Delivery zones ---------- */
+.delivery-zones { background: var(--bg-alt); }
+.delivery-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    background: var(--white);
+}
+.delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .95rem;
+    min-width: 640px;
+}
+.delivery-table thead th {
+    background: var(--navy);
+    color: #fff;
+    font-family: var(--font-head);
+    font-weight: 600;
+    text-align: left;
+    padding: .9rem 1.1rem;
+    white-space: nowrap;
+}
+.delivery-table td {
+    padding: 1rem 1.1rem;
+    border-top: 1px solid var(--line);
+    color: var(--body);
+    vertical-align: top;
+}
+.delivery-table tbody tr:nth-child(even) td { background: var(--bg); }
+.delivery-table td:first-child {
+    font-family: var(--font-head);
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+}
+.delivery-table td strong { color: var(--navy); }
+.zone-range {
+    display: inline-block;
+    margin-top: .2rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: .82rem;
+    color: var(--muted);
+}
+.zone-note {
+    display: inline-block;
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--muted);
+    font-weight: 400;
+}
+.delivery-note {
+    text-align: center;
+    margin: 1.5rem auto 0;
+    color: var(--muted);
+    font-size: .98rem;
+}
+.delivery-note a { color: var(--brand); font-weight: 600; }
+
 /* ---------- Contact ---------- */
 .contact-section { background: var(--bg); }
 .contact-layout {
