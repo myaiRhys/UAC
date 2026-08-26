@@ -163,16 +163,16 @@ const OB = {
     bulkValueThreshold: 2000, // rand total that counts as bulk regardless of mix
     // group 'sq' = squeegees (share one threshold for the bulk nudge). unit = label after qty.
     products: [
-        { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 30 },
-        { id: 'sq-blue',   name: 'Blue Squeegee',               group: 'sq', unit: 'each',     price: 30 },
-        { id: 'sq-black',  name: 'Black Squeegee',              group: 'sq', unit: 'each',     price: 30 },
-        { id: 'sq-dgrey',  name: 'Dark Grey Squeegee',          group: 'sq', unit: 'each',     price: 30 },
-        { id: 'sq-lgrey',  name: 'Light Grey Squeegee',         group: 'sq', unit: 'each',     price: 30 },
-        { id: 'garage',    name: 'Garage Roll',                 group: null, unit: 'each',     price: 240 },
-        { id: 'garage-r',  name: 'Reject Garage Roll',          group: null, unit: 'each',     price: 180 },
-        { id: 'pinksoap',  name: 'Pink Soap',                   group: null, unit: 'each',     price: 400 },
-        { id: 'rubber',    name: 'Replacement Rubber 5-Pack',   group: null, unit: 'per pack', price: 40 },
-        { id: 'sponge',    name: 'Replacement Sponges 5-Pack',  group: null, unit: 'per pack', price: 40.50 },
+        { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 35 },
+        { id: 'sq-blue',   name: 'Blue Squeegee',               group: 'sq', unit: 'each',     price: 35 },
+        { id: 'sq-black',  name: 'Black Squeegee',              group: 'sq', unit: 'each',     price: 35 },
+        { id: 'sq-dgrey',  name: 'Dark Grey Squeegee',          group: 'sq', unit: 'each',     price: 35 },
+        { id: 'sq-lgrey',  name: 'Light Grey Squeegee',         group: 'sq', unit: 'each',     price: 35 },
+        { id: 'garage',    name: 'Garage Roll',                 group: null, unit: 'each',     price: 235 },
+        { id: 'garage-r',  name: 'Reject Garage Roll',          group: null, unit: 'each',     price: 190 },
+        { id: 'pinksoap',  name: 'Pink Multi Purpose Soap',     group: null, unit: 'each',     price: 450 },
+        { id: 'rubber',    name: 'Replacement Squeegee Rubber 5-Pack',   group: null, unit: 'per pack', price: 40 },
+        { id: 'sponge',    name: 'Replacement Squeegee Sponges 5-Pack',  group: null, unit: 'per pack', price: 40.50 },
         { id: 'ooo',       name: 'Out of Order Cover',          group: null, unit: 'each',     price: 120 }
     ]
 };
