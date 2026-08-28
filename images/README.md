@@ -23,6 +23,16 @@ white box:
 `originals/` holds the untouched source JPGs (shot on a white background).
 Keep them — they're the source for regenerating the cut-outs if needed.
 
+## Garage roll
+
+| File | Product |
+|------|---------|
+| `garage-roll.png` | Garage roll (jumbo wiper roll, 160mm × 1250m) |
+
+Supplier product photo, background-removed to a transparent cut-out so it
+sits on the same soft studio backdrop as the squeegees. Source shot on a
+white background is in `originals/garage-roll.jpg`.
+
 ## Regenerating the cut-outs
 
 The transparent PNGs were produced from the originals with `rembg`
