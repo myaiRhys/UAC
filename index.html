@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAC Services — Cape Town Squeegee Manufacturer | Buy Direct or Wholesale</title>
-    <meta name="description" content="UAC Services manufactures squeegees and forecourt cleaning supplies in Cape Town, South Africa. Buy direct for your petrol station or order at wholesale/trade pricing. Own delivery across Cape Town; outside Cape Town you arrange your own courier (UAC courier coming soon). WhatsApp 082 826 1003.">
-    <meta name="theme-color" content="#0B5CAD">
+    <title>Supply Station — Cape Town Squeegee Manufacturer | Buy Direct or Wholesale</title>
+    <meta name="description" content="Supply Station (formerly UAC Services) manufactures squeegees and forecourt cleaning supplies in Cape Town, South Africa. Buy direct for your petrol station or order at wholesale/trade pricing. Own delivery across Cape Town; outside Cape Town you arrange your own courier. WhatsApp 082 826 1003.">
+    <meta name="theme-color" content="#143F66">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16.png">
@@ -13,19 +13,22 @@
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="UAC Services — Cape Town Squeegee Manufacturer">
-    <meta property="og:description" content="Squeegees & forecourt supplies, made in Cape Town, South Africa. Buy direct or wholesale. Own delivery across Cape Town; you arrange your own courier elsewhere (UAC courier coming soon).">
+    <meta property="og:title" content="Supply Station — Cape Town Squeegee Manufacturer">
+    <meta property="og:description" content="Squeegees & forecourt supplies, made in Cape Town, South Africa. Buy direct or wholesale. Own delivery across Cape Town; you arrange your own courier elsewhere.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_ZA">
+    <meta property="og:site_name" content="Supply Station">
     <!-- Social share image. NOTE: WhatsApp/Facebook need an ABSOLUTE URL here —
          once the live domain is set, change these to https://DOMAIN/images/og-image.jpg
-         and add <meta property="og:url"> + <link rel="canonical">. -->
+         and add <meta property="og:url"> + <link rel="canonical">.
+         TODO before launch: og-image.jpg still carries the old UAC branding —
+         regenerate it with the final Supply Station logo. -->
     <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="UAC Services — squeegees and forecourt supplies, made in Cape Town. WhatsApp 082 826 1003.">
+    <meta property="og:image:alt" content="Supply Station — squeegees and forecourt supplies, made in Cape Town. WhatsApp 082 826 1003.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UAC Services — Cape Town Squeegee Manufacturer">
+    <meta name="twitter:title" content="Supply Station — Cape Town Squeegee Manufacturer">
     <meta name="twitter:description" content="Squeegees & forecourt supplies, made in Cape Town. Buy direct or wholesale.">
     <meta name="twitter:image" content="images/og-image.jpg">
 
@@ -39,11 +42,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Manufacturer",
-      "name": "UAC Services",
-      "description": "Manufacturer of squeegees and forecourt cleaning supplies for petrol stations in Cape Town.",
+      "name": "Supply Station",
+      "alternateName": "UAC Services",
+      "legalName": "True Motives 1130 CC",
+      "description": "Manufacturer of squeegees and forecourt cleaning supplies for petrol stations in Cape Town. Formerly trading as UAC Services.",
       "telephone": "+27828261003",
       "email": "uac@gmail.com",
-      "priceRange": "R35–R450",
+      "priceRange": "R35–R450 (excl. VAT)",
       "areaServed": "Cape Town and Western Cape (own delivery); elsewhere via the customer's own courier",
       "address": {
         "@type": "PostalAddress",
@@ -69,9 +74,10 @@
     }
     </script>
 
-    <!-- Product catalogue for richer Google results. Prices in ZAR, mirroring the
-         products list. NOTE: when the live domain is set, prefix each "image" with
-         https://DOMAIN/ so Google can crawl absolute image URLs. -->
+    <!-- Product catalogue for richer Google results. Prices in ZAR excl. VAT
+         (valueAddedTaxIncluded: false), mirroring the products list. NOTE: when the
+         live domain is set, prefix each "image" with https://DOMAIN/ so Google can
+         crawl absolute image URLs. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,48 +85,55 @@
       "itemListElement": [
         {
           "@type": "Product",
-          "name": "UAC Squeegee",
-          "description": "Forecourt squeegee with handle, made in Cape Town. Available in 5 colours.",
+          "name": "Supply Station Squeegee",
+          "description": "Forecourt squeegee with handle, made in Cape Town: a foam block wrapped in shade cloth plus a rubber blade. Available in 5 colours.",
           "image": "images/squeegee-blue.png",
-          "brand": { "@type": "Brand", "name": "UAC" },
-          "offers": { "@type": "Offer", "price": "35.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "brand": { "@type": "Brand", "name": "Supply Station" },
+          "offers": { "@type": "Offer", "price": "35.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "35.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Garage Roll",
           "description": "Forecourt paper towel / jumbo wiper roll.",
           "image": "images/garage-roll.png",
-          "offers": { "@type": "Offer", "price": "235.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "offers": { "@type": "Offer", "price": "235.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "235.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Reject Garage Roll",
           "description": "Budget-grade forecourt paper towel roll.",
-          "offers": { "@type": "Offer", "price": "190.00", "priceCurrency": "ZAR" }
+          "offers": { "@type": "Offer", "price": "190.00", "priceCurrency": "ZAR",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "190.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Pink Multi Purpose Soap",
           "description": "25L multi-purpose soap.",
-          "offers": { "@type": "Offer", "price": "450.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "offers": { "@type": "Offer", "price": "450.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "450.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Replacement Squeegee Rubber 5-Pack",
-          "description": "Replacement rubber blades that fit UAC squeegees.",
-          "offers": { "@type": "Offer", "price": "40.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "description": "Replacement rubber blades that fit our squeegees.",
+          "offers": { "@type": "Offer", "price": "40.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Replacement Squeegee Sponges 5-Pack",
-          "description": "Replacement sponges that fit UAC squeegees.",
-          "offers": { "@type": "Offer", "price": "40.50", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "description": "Replacement sponges that fit our squeegees.",
+          "offers": { "@type": "Offer", "price": "40.50", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.50", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         },
         {
           "@type": "Product",
           "name": "Out of Order Cover",
           "description": "Forecourt pump / bay out-of-order cover.",
-          "offers": { "@type": "Offer", "price": "120.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock" }
+          "offers": { "@type": "Offer", "price": "120.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
+                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
         }
       ]
     }
@@ -138,20 +151,22 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#top" class="logo" aria-label="UAC Forecourt Supplies — home">
+                <a href="#top" class="logo" aria-label="Supply Station — home">
                     <span class="logo-mark">
-                        <svg class="logo-svg" viewBox="0 0 150 46" role="img" aria-label="UAC">
-                            <defs><linearGradient id="uacShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0B5CAD" stop-opacity="0"/><stop offset="1" stop-color="#0B5CAD" stop-opacity=".26"/></linearGradient></defs>
-                            <path d="M4 12 L96 5 L99 17 L8 24 Z" fill="url(#uacShine)"/>
-                            <text x="1" y="41" font-family="Poppins, system-ui, sans-serif" font-weight="800" font-size="36" fill="#0A2540">UAC</text>
-                            <g transform="translate(93,1) rotate(15)">
-                                <rect x="0" y="0" width="44" height="8" rx="4" fill="#0A2540"/>
-                                <rect x="0" y="8" width="44" height="3.6" rx="1.8" fill="#FF7A1A"/>
-                                <rect x="18" y="-15" width="7" height="17" rx="3.5" fill="#0A2540"/>
+                        <!-- Interim logo: four-hexagon mark + SUPPLY / STATION wordmark.
+                             Replace with the designer's final SVG when it lands. -->
+                        <svg class="logo-svg" viewBox="0 0 158 52" role="img" aria-label="Supply Station">
+                            <defs><path id="ssHex" d="M0-9 L7.79-4.5 L7.79 4.5 L0 9 L-7.79 4.5 L-7.79-4.5 Z"/></defs>
+                            <g transform="translate(20,26) scale(1.02)">
+                                <use href="#ssHex" x="0" y="-15" fill="#14A39A"/>
+                                <use href="#ssHex" x="-8.66" y="0" fill="#143F66"/>
+                                <use href="#ssHex" x="8.66" y="0" fill="#143F66"/>
+                                <use href="#ssHex" x="0" y="15" fill="#14A39A"/>
                             </g>
+                            <text x="48" y="27" textLength="106" lengthAdjust="spacingAndGlyphs" font-family="Poppins, system-ui, sans-serif" font-weight="800" font-size="25" fill="#143F66">SUPPLY</text>
+                            <text x="49" y="45" textLength="104" lengthAdjust="spacing" font-family="Poppins, system-ui, sans-serif" font-weight="600" font-size="12.5" fill="#14A39A">STATION</text>
                         </svg>
                     </span>
-                    <span class="logo-sub">Forecourt Supplies</span>
                 </a>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#products">Products</a></li>
@@ -178,13 +193,13 @@
                 <div class="hero-content">
                     <span class="hero-eyebrow">Cape Town Squeegee Manufacturer</span>
                     <h1 class="hero-title">Squeegees &amp; forecourt supplies, <span>made direct.</span></h1>
-                    <p class="hero-description">We manufacture squeegees and stock the cleaning supplies petrol station forecourts run on — soaps, garage rolls, sponges and more. Buy direct for your station, or order at wholesale pricing as a reseller.</p>
+                    <p class="hero-description">We manufacture squeegees and stock the cleaning supplies petrol station forecourts run on — soaps, garage rolls, sponges and more. Buy direct for your station, or order at wholesale pricing as a reseller. Formerly UAC Services — same team, same factory, new name.</p>
                     <div class="hero-buttons">
                         <a href="#orderBuilder" class="btn btn-primary btn-large">
                             <svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
                             Build your order
                         </a>
-                        <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" class="btn btn-wa btn-large" target="_blank" rel="noopener">
+                        <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20place%20an%20order" class="btn btn-wa btn-large" target="_blank" rel="noopener">
                             <svg class="btn-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
                             Order on WhatsApp
                         </a>
@@ -200,7 +215,7 @@
                 <div class="hero-visual">
                     <div class="range-card">
                         <p class="range-title">The squeegee range</p>
-                        <img class="range-photo" src="images/squeegee-blue.png" alt="UAC squeegee with handle, made in Cape Town" loading="lazy" width="513" height="1280">
+                        <img class="range-photo" src="images/squeegee-blue.png" alt="Supply Station squeegee with handle, made in Cape Town" loading="lazy" width="513" height="1280">
                         <div class="swatch-row" aria-hidden="true">
                             <span class="swatch" style="background:#dc3545;"><i>Red</i></span>
                             <span class="swatch" style="background:#1565C0;"><i>Blue</i></span>
@@ -209,7 +224,7 @@
                             <span class="swatch" style="background:#9aa3ab;"><i>Light grey</i></span>
                         </div>
                         <div class="range-foot">
-                            <span class="range-price">R35<small>/each</small></span>
+                            <span class="range-price">R35<small>/each excl. VAT</small></span>
                             <span class="range-bulk">Bulk pricing available</span>
                         </div>
                     </div>
@@ -235,18 +250,18 @@
                         <li>Own delivery around Cape Town</li>
                         <li>Reliable, consistent stock</li>
                     </ul>
-                    <a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%20run%20a%20petrol%20station%20and%20would%20like%20to%20place%20an%20order" class="btn btn-primary" target="_blank" rel="noopener">Order for my station</a>
+                    <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%20run%20a%20petrol%20station%20and%20would%20like%20to%20place%20an%20order" class="btn btn-primary" target="_blank" rel="noopener">Order for my station</a>
                 </div>
                 <div class="audience-card audience-card--trade">
                     <div class="audience-tag audience-tag--accent">Resellers &amp; Trade</div>
                     <h3>Wholesale / Trade</h3>
-                    <p>Reselling into forecourts or the cleaning trade? Buy at wholesale pricing on volume. We deliver around Cape Town; outside the city you arrange your own courier for now (our own courier is coming soon). Ask us for a trade price list.</p>
+                    <p>Reselling into forecourts or the cleaning trade? Buy at wholesale pricing on volume. We deliver around Cape Town; outside the city your courier collects from us in Retreat. Ask us for a trade price list.</p>
                     <ul class="tick-list">
                         <li>Wholesale pricing on volume</li>
-                        <li>Courier elsewhere — you arrange (own courier soon)</li>
+                        <li>Outside Cape Town — your courier collects</li>
                         <li>Branded / custom squeegees on request</li>
                     </ul>
-                    <a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%27m%20a%20reseller%20and%20would%20like%20your%20wholesale%2Ftrade%20price%20list" class="btn btn-accent" target="_blank" rel="noopener">Request trade pricing</a>
+                    <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27m%20a%20reseller%20and%20would%20like%20your%20wholesale%2Ftrade%20price%20list" class="btn btn-accent" target="_blank" rel="noopener">Request trade pricing</a>
                 </div>
             </div>
         </div>
@@ -257,7 +272,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Products</h2>
-                <p>Complete price list for forecourts. Call or WhatsApp to order.</p>
+                <p>Complete price list for forecourts. All prices exclude VAT. Call or WhatsApp to order.</p>
             </div>
 
             <!-- Category Filter Tabs -->
@@ -270,15 +285,16 @@
             </div>
 
             <div class="products-grid" id="productsGrid">
-                <!-- UAC Squeegee (5 colours) -->
+                <!-- Squeegee (5 colours) -->
                 <div class="product-card" data-category="squeegees">
                     <div class="product-image photo">
-                        <span class="product-badge">Made by UAC</span>
-                        <img class="product-photo" id="squeegeePhoto" src="images/squeegee-blue.png" alt="UAC squeegee with handle — blue, one of five available colours" loading="lazy" width="513" height="1280">
+                        <span class="product-badge">Made by us</span>
+                        <img class="product-photo" id="squeegeePhoto" src="images/squeegee-blue.png" alt="Supply Station squeegee with handle — blue, one of five available colours" loading="lazy" width="513" height="1280">
                     </div>
                     <div class="product-info">
-                        <h3>UAC Squeegee</h3>
-                        <p class="product-price">R35.00 <small>each</small></p>
+                        <h3>Squeegee</h3>
+                        <p class="product-price">R35.00 <small>each excl. VAT</small></p>
+                        <p class="product-note">Foam block wrapped in shade cloth + rubber blade, with handle</p>
                         <div class="product-colours" role="group" aria-label="Choose squeegee colour" data-photo-target="squeegeePhoto">
                             <button type="button" class="mini-swatch" style="background:#dc3545;" title="Red" aria-label="Show red squeegee" aria-pressed="false" data-photo="images/squeegee-red.png" data-colour="red"></button>
                             <button type="button" class="mini-swatch is-active" style="background:#1565C0;" title="Blue" aria-label="Show blue squeegee" aria-pressed="true" data-photo="images/squeegee-blue.png" data-colour="blue"></button>
@@ -298,7 +314,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Garage Roll</h3>
-                        <p class="product-price">R235.00 <small>each</small></p>
+                        <p class="product-price">R235.00 <small>each excl. VAT</small></p>
                         <p class="product-note">Forecourt paper towel · 160mm × 1250m</p>
                     </div>
                 </div>
@@ -306,11 +322,11 @@
                 <!-- Reject Garage Roll -->
                 <div class="product-card" data-category="cleaning">
                     <div class="product-image pi" style="color:#b4bcc4;">
-                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Reject garage roll"><ellipse cx="100" cy="180" rx="56" ry="8" fill="#0A2540" opacity=".08"/><path d="M150 80 h28 v76 q-14 7 -28 0 z" fill="#fff" stroke="#dbe2ea" stroke-width="2"/><line x1="150" y1="100" x2="178" y2="100" stroke="#c6cfd8" stroke-width="2" stroke-dasharray="4 4"/><rect x="44" y="66" width="112" height="92" rx="10" fill="currentColor"/><rect x="44" y="66" width="26" height="92" rx="10" fill="#fff" opacity=".2"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="#f4f7fb"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="none" stroke="#0A2540" stroke-width="1.5" opacity=".12"/><ellipse cx="100" cy="66" rx="20" ry="5.5" fill="#0A2540" opacity=".16"/><line x1="50" y1="112" x2="150" y2="112" stroke="#0A2540" stroke-width="1.5" opacity=".12"/><line x1="50" y1="132" x2="150" y2="132" stroke="#0A2540" stroke-width="1.5" opacity=".12"/></svg>
+                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Reject garage roll"><ellipse cx="100" cy="180" rx="56" ry="8" fill="#143F66" opacity=".08"/><path d="M150 80 h28 v76 q-14 7 -28 0 z" fill="#fff" stroke="#dbe2ea" stroke-width="2"/><line x1="150" y1="100" x2="178" y2="100" stroke="#c6cfd8" stroke-width="2" stroke-dasharray="4 4"/><rect x="44" y="66" width="112" height="92" rx="10" fill="currentColor"/><rect x="44" y="66" width="26" height="92" rx="10" fill="#fff" opacity=".2"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="#f4f7fb"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="none" stroke="#143F66" stroke-width="1.5" opacity=".12"/><ellipse cx="100" cy="66" rx="20" ry="5.5" fill="#143F66" opacity=".16"/><line x1="50" y1="112" x2="150" y2="112" stroke="#143F66" stroke-width="1.5" opacity=".12"/><line x1="50" y1="132" x2="150" y2="132" stroke="#143F66" stroke-width="1.5" opacity=".12"/></svg>
                     </div>
                     <div class="product-info">
                         <h3>Reject Garage Roll</h3>
-                        <p class="product-price">R190.00 <small>each</small></p>
+                        <p class="product-price">R190.00 <small>each excl. VAT</small></p>
                         <p class="product-note">Budget-grade roll · approx. 160mm × 1250m · sizes vary</p>
                     </div>
                 </div>
@@ -318,11 +334,11 @@
                 <!-- Pink Multi Purpose Soap -->
                 <div class="product-card" data-category="cleaning">
                     <div class="product-image pi" style="color:#ff69b4;">
-                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Pink multi purpose soap container"><ellipse cx="100" cy="182" rx="50" ry="8" fill="#0A2540" opacity=".08"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="currentColor"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="#fff" opacity=".12"/><rect x="82" y="36" width="36" height="18" rx="4" fill="#0A2540" opacity=".75"/><rect x="88" y="52" width="26" height="16" fill="currentColor"/><rect x="60" y="66" width="92" height="106" rx="16" fill="currentColor"/><rect x="60" y="66" width="20" height="106" rx="10" fill="#fff" opacity=".2"/><rect x="72" y="94" width="68" height="54" rx="8" fill="#fff" opacity=".92"/><rect x="80" y="106" width="52" height="7" rx="3.5" fill="currentColor" opacity=".55"/><rect x="80" y="120" width="40" height="6" rx="3" fill="#0A2540" opacity=".18"/><rect x="80" y="132" width="46" height="6" rx="3" fill="#0A2540" opacity=".14"/></svg>
+                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Pink multi purpose soap container"><ellipse cx="100" cy="182" rx="50" ry="8" fill="#143F66" opacity=".08"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="currentColor"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="#fff" opacity=".12"/><rect x="82" y="36" width="36" height="18" rx="4" fill="#143F66" opacity=".75"/><rect x="88" y="52" width="26" height="16" fill="currentColor"/><rect x="60" y="66" width="92" height="106" rx="16" fill="currentColor"/><rect x="60" y="66" width="20" height="106" rx="10" fill="#fff" opacity=".2"/><rect x="72" y="94" width="68" height="54" rx="8" fill="#fff" opacity=".92"/><rect x="80" y="106" width="52" height="7" rx="3.5" fill="currentColor" opacity=".55"/><rect x="80" y="120" width="40" height="6" rx="3" fill="#143F66" opacity=".18"/><rect x="80" y="132" width="46" height="6" rx="3" fill="#143F66" opacity=".14"/></svg>
                     </div>
                     <div class="product-info">
                         <h3>Pink Multi Purpose Soap</h3>
-                        <p class="product-price">R450.00 <small>each</small></p>
+                        <p class="product-price">R450.00 <small>each excl. VAT</small></p>
                         <p class="product-note">25L multi-purpose soap</p>
                     </div>
                 </div>
@@ -330,35 +346,35 @@
                 <!-- Replacement Squeegee Rubber 5-Pack -->
                 <div class="product-card" data-category="parts">
                     <div class="product-image pi" style="color:#3a444f;">
-                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement rubber blades"><ellipse cx="100" cy="180" rx="54" ry="8" fill="#0A2540" opacity=".08"/><g transform="rotate(-10 100 108)"><rect x="40" y="66" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="66" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="82" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="82" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="98" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="98" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="114" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="114" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="130" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="130" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="86" y="58" width="28" height="92" rx="6" fill="#0A2540" opacity=".16"/></g></svg>
+                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement rubber blades"><ellipse cx="100" cy="180" rx="54" ry="8" fill="#143F66" opacity=".08"/><g transform="rotate(-10 100 108)"><rect x="40" y="66" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="66" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="82" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="82" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="98" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="98" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="114" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="114" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="130" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="130" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="86" y="58" width="28" height="92" rx="6" fill="#143F66" opacity=".16"/></g></svg>
                     </div>
                     <div class="product-info">
                         <h3>Replacement Squeegee Rubber 5-Pack</h3>
-                        <p class="product-price">R40.00 <small>per pack</small></p>
-                        <p class="product-note">Fits UAC squeegees</p>
+                        <p class="product-price">R40.00 <small>per pack excl. VAT</small></p>
+                        <p class="product-note">Fits our squeegees</p>
                     </div>
                 </div>
 
                 <!-- Replacement Squeegee Sponges 5-Pack -->
                 <div class="product-card" data-category="parts">
                     <div class="product-image pi" style="color:#f5a623;">
-                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement sponges"><ellipse cx="100" cy="182" rx="54" ry="8" fill="#0A2540" opacity=".08"/><rect x="50" y="124" width="100" height="34" rx="9" fill="currentColor"/><rect x="50" y="124" width="100" height="10" rx="5" fill="#fff" opacity=".18"/><rect x="54" y="92" width="96" height="34" rx="9" fill="currentColor"/><rect x="54" y="92" width="96" height="10" rx="5" fill="#fff" opacity=".22"/><rect x="50" y="58" width="100" height="36" rx="9" fill="currentColor"/><rect x="50" y="58" width="100" height="11" rx="5" fill="#fff" opacity=".28"/><g fill="#0A2540" opacity=".14"><circle cx="70" cy="76" r="3.5"/><circle cx="90" cy="82" r="3"/><circle cx="110" cy="74" r="4"/><circle cx="128" cy="80" r="3"/><circle cx="80" cy="70" r="2.5"/><circle cx="118" cy="86" r="2.5"/></g></svg>
+                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement sponges"><ellipse cx="100" cy="182" rx="54" ry="8" fill="#143F66" opacity=".08"/><rect x="50" y="124" width="100" height="34" rx="9" fill="currentColor"/><rect x="50" y="124" width="100" height="10" rx="5" fill="#fff" opacity=".18"/><rect x="54" y="92" width="96" height="34" rx="9" fill="currentColor"/><rect x="54" y="92" width="96" height="10" rx="5" fill="#fff" opacity=".22"/><rect x="50" y="58" width="100" height="36" rx="9" fill="currentColor"/><rect x="50" y="58" width="100" height="11" rx="5" fill="#fff" opacity=".28"/><g fill="#143F66" opacity=".14"><circle cx="70" cy="76" r="3.5"/><circle cx="90" cy="82" r="3"/><circle cx="110" cy="74" r="4"/><circle cx="128" cy="80" r="3"/><circle cx="80" cy="70" r="2.5"/><circle cx="118" cy="86" r="2.5"/></g></svg>
                     </div>
                     <div class="product-info">
                         <h3>Replacement Squeegee Sponges 5-Pack</h3>
-                        <p class="product-price">R40.50 <small>per pack</small></p>
-                        <p class="product-note">Fits UAC squeegees</p>
+                        <p class="product-price">R40.50 <small>per pack excl. VAT</small></p>
+                        <p class="product-note">Fits our squeegees</p>
                     </div>
                 </div>
 
                 <!-- Out of Order Cover -->
                 <div class="product-card" data-category="signage">
                     <div class="product-image pi" style="color:#ef4444;">
-                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Out of order pump cover"><ellipse cx="100" cy="182" rx="48" ry="8" fill="#0A2540" opacity=".08"/><path d="M100 30 a12 12 0 0 1 12 12 v8 h-10 v-8 a2 2 0 0 0 -4 0 v8 h-10 v-8 a12 12 0 0 1 12 -12 z" fill="#0A2540" opacity=".55"/><rect x="52" y="52" width="96" height="112" rx="16" fill="currentColor"/><rect x="52" y="52" width="22" height="112" rx="11" fill="#fff" opacity=".18"/><path d="M100 74 L128 122 H72 Z" fill="#fff" opacity=".95"/><rect x="96" y="90" width="8" height="20" rx="4" fill="currentColor"/><circle cx="100" cy="116" r="4.5" fill="currentColor"/></svg>
+                        <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Out of order pump cover"><ellipse cx="100" cy="182" rx="48" ry="8" fill="#143F66" opacity=".08"/><path d="M100 30 a12 12 0 0 1 12 12 v8 h-10 v-8 a2 2 0 0 0 -4 0 v8 h-10 v-8 a12 12 0 0 1 12 -12 z" fill="#143F66" opacity=".55"/><rect x="52" y="52" width="96" height="112" rx="16" fill="currentColor"/><rect x="52" y="52" width="22" height="112" rx="11" fill="#fff" opacity=".18"/><path d="M100 74 L128 122 H72 Z" fill="#fff" opacity=".95"/><rect x="96" y="90" width="8" height="20" rx="4" fill="currentColor"/><circle cx="100" cy="116" r="4.5" fill="currentColor"/></svg>
                     </div>
                     <div class="product-info">
                         <h3>Out of Order Cover</h3>
-                        <p class="product-price">R120.00 <small>each</small></p>
+                        <p class="product-price">R120.00 <small>each excl. VAT</small></p>
                         <p class="product-note">Pump / bay cover</p>
                     </div>
                 </div>
@@ -378,7 +394,7 @@
                 <div class="bulk-text">
                     <h3>Buying in volume?</h3>
                     <p>Bulk pricing is available on squeegees, garage rolls, standing orders and trade volumes. Tell us what you need and we'll quote your best price.</p>
-                    <p><a href="https://wa.me/27828261003?text=Hi%20UAC%2C%20I%27d%20like%20a%20bulk%20quote" target="_blank" rel="noopener">Ask for a bulk quote on WhatsApp</a> or call <a href="tel:0828261003">082 826 1003</a>.</p>
+                    <p><a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20a%20bulk%20quote" target="_blank" rel="noopener">Ask for a bulk quote on WhatsApp</a> or call <a href="tel:0828261003">082 826 1003</a>.</p>
                 </div>
             </div>
         </div>
@@ -388,7 +404,7 @@
     <section class="why-choose-us">
         <div class="container">
             <div class="section-header">
-                <h2>Why buy from UAC?</h2>
+                <h2>Why buy from Supply Station?</h2>
             </div>
             <div class="reasons-grid">
                 <div class="reason-card">
@@ -404,7 +420,7 @@
                 <div class="reason-card">
                     <div class="reason-ico">🚚</div>
                     <h3>Delivery &amp; courier</h3>
-                    <p>We deliver around Cape Town ourselves. Further afield, you arrange your own courier for now — and our own courier service is coming soon.</p>
+                    <p>We deliver around Cape Town ourselves. Further afield, your courier collects from our factory in Retreat.</p>
                 </div>
                 <div class="reason-card">
                     <div class="reason-ico">💰</div>
@@ -420,7 +436,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Where We Deliver</h2>
-                <p>We deliver ourselves around Cape Town. Further out, it's your own courier for now — our courier service is coming soon.</p>
+                <p>We deliver ourselves around Cape Town. Further out, you book your own courier to collect from us.</p>
             </div>
             <div class="delivery-table-wrap">
                 <table class="delivery-table">
@@ -445,7 +461,7 @@
                         <tr>
                             <td>Zone 3<br><span class="zone-range">40km+</span></td>
                             <td>Rest of the Western Cape and South Africa — Stellenbosch, Somerset West, Paarl, Malmesbury, Worcester, and beyond</td>
-                            <td><strong>Courier</strong><br><span class="zone-note">Cost quoted on order</span></td>
+                            <td><strong>Your own courier</strong><br><span class="zone-note">Your courier collects from us in Retreat</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -470,20 +486,28 @@
 
                     <div class="ob-list" id="obList">
                         <!-- Product rows injected by js/main.js -->
-                        <p class="ob-fallback">Loading products… <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" target="_blank" rel="noopener">or WhatsApp your list directly</a>.</p>
+                        <p class="ob-fallback">Loading products… <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20order%3A%0A-%20" target="_blank" rel="noopener">or WhatsApp your list directly</a>.</p>
                     </div>
 
                     <div class="ob-summary" id="obSummary" hidden>
                         <div class="ob-lines" id="obLines"></div>
+                        <div class="ob-sub-row">
+                            <span>Subtotal (excl. VAT)</span>
+                            <span id="obSubtotal">R0.00</span>
+                        </div>
+                        <div class="ob-sub-row" id="obVatRow">
+                            <span>VAT 15%</span>
+                            <span id="obVat">R0.00</span>
+                        </div>
                         <div class="ob-total-row">
-                            <span>Estimated total</span>
+                            <span id="obTotalLabel">Estimated total (incl. VAT)</span>
                             <span class="ob-total" id="obTotal">R0.00</span>
                         </div>
                         <p class="ob-bulk-note" id="obBulkNote" hidden>📦 That's a bulk order — you may qualify for better pricing. We'll confirm your best price when you send.</p>
-                        <p class="ob-note">Estimate excludes delivery. We deliver around Cape Town; elsewhere you arrange your own courier for now. We confirm the final price when you send.</p>
+                        <p class="ob-note">Estimate excludes delivery. We deliver around Cape Town; elsewhere your courier collects from us. We confirm the final price when you send.</p>
                     </div>
 
-                    <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20order%3A%0A-%20" class="btn btn-wa btn-block btn-large ob-send" id="obSend" target="_blank" rel="noopener">
+                    <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20order%3A%0A-%20" class="btn btn-wa btn-block btn-large ob-send" id="obSend" target="_blank" rel="noopener">
                         <svg class="btn-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
                         <span id="obSendLabel">Send order on WhatsApp</span>
                     </a>
@@ -530,8 +554,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>UAC Services</h4>
-                    <p>Cape Town's squeegee manufacturer. Forecourt cleaning supplies direct to petrol stations and resellers.</p>
+                    <h4>Supply Station</h4>
+                    <p>Cape Town's squeegee manufacturer. Forecourt cleaning supplies direct to petrol stations and resellers. Formerly UAC Services.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
@@ -550,14 +574,17 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 UAC Services. All rights reserved.</p>
+                <p>&copy; 2026 Supply Station. All rights reserved.</p>
+                <!-- TODO before launch: add CC registration number and VAT number, e.g.
+                     "Reg. no. 20xx/xxxxxx/23 · VAT no. 4xxxxxxxxx" -->
+                <p class="footer-legal">Supply Station is a trading name of True Motives 1130 CC. All prices exclude VAT.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
-        <a href="https://wa.me/27828261003?text=Hi%20UAC%20Services%2C%20I%27d%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
+        <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
         <a href="tel:0828261003" class="fab fab-call" aria-label="Call Us">
