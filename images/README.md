@@ -1,12 +1,13 @@
 # Images
 
-Product and site photography for the UAC Services website.
+Product and site photography for the Supply Station website (formerly UAC
+Services).
 
 ## Squeegee range
 
-Real product photos of the UAC squeegee, one per colour in the range. Each
-shows the head (with blue bristle scrubber + black rubber blade) beside its
-matching handle.
+Real product photos of our squeegee, one per colour in the range. Each shows
+the head (a foam block wrapped in blue shade cloth, plus a black rubber blade)
+beside its matching handle.
 
 The site uses **background-removed PNG cut-outs** (transparent), so the
 product floats on the card's soft studio backdrop rather than sitting in a
@@ -45,11 +46,15 @@ matching `originals/*.jpg` and save it here under the same PNG name.
 
 - `icons/` — favicons and app icons rendered from `favicon.svg`
   (`apple-touch-icon.png` 180px, `icon-192.png` / `icon-512.png` for
-  Android/PWA on a solid navy square, `favicon-16/32.png` PNG fallbacks).
+  Android/PWA on a solid navy `#143F66` square, `favicon-16/32.png` PNG
+  fallbacks). `favicon.svg` is now the **interim** four-hexagon mark, but
+  these PNGs **still show the old UAC mark** — re-render them from
+  `favicon.svg` (and again when the designer's final logo lands).
 - `og-image.jpg` — 1200×630 social share card (WhatsApp/Facebook/Twitter
   preview). Referenced by the `og:image` / `twitter:image` tags in
-  `index.html`. When the live domain is set, switch those tags to an
-  absolute `https://DOMAIN/images/og-image.jpg` URL so scrapers pick it up.
+  `index.html`. **Still shows the old UAC branding — regenerate before
+  launch.** When the live domain is set, switch those tags to an absolute
+  `https://DOMAIN/images/og-image.jpg` URL so scrapers pick it up.
 
 ## Conventions
 

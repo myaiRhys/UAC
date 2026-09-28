@@ -1,240 +1,135 @@
-# UAC Services Website
+# Supply Station Website
 
-A single-page marketing website for UAC Services, a supplier of car wash equipment and cleaning supplies to petrol stations in Cape Town. This is a reference site for repeat customers who place orders by phone.
+Single-page marketing site for **Supply Station** (formerly UAC Services), a
+Cape Town manufacturer of squeegees and supplier of forecourt cleaning
+supplies to petrol stations and resellers.
 
-## Overview
+Supply Station is a trading name of **True Motives 1130 CC**.
 
-UAC Services supplies squeegees, soaps, garage rolls (paper towels), and other cleaning supplies for petrol station forecourts. Most customers are repeat buyers who call to place orders, so this site serves as a product catalog and contact reference.
-
-**Phone Orders:** 082 826 1003
+- **Phone / WhatsApp orders:** 082 826 1003
+- **Address:** 10 Celie Industrial Park, Celie Road, Retreat, Cape Town
+- **Live (interim):** https://myairhys.github.io/UAC/
 
 ---
 
-## File Structure
+## File structure
 
 ```
 UAC/
-├── index.html          # Single-page site with all content
-├── README.md           # This documentation
-├── css/
-│   └── style.css       # All styles (1,800+ lines)
-└── js/
-    └── main.js         # Navigation, animations, contact form
+├── index.html          # The whole site (content, meta tags, JSON-LD)
+├── favicon.svg         # Interim four-hexagon mark (source for images/icons/)
+├── site.webmanifest    # PWA / home-screen metadata
+├── css/style.css       # All styles; brand colours are CSS variables in :root
+├── js/main.js          # Nav, filters, colour picker, order builder
+└── images/             # Product photos, icons, social share image (see images/README.md)
 ```
 
-### No Build Process
-
-This is a **vanilla HTML/CSS/JavaScript** project:
-- No webpack, bundlers, or transpilation
-- No npm dependencies
-- Deploy files directly to any static host
+Vanilla HTML/CSS/JS — no build step, no npm dependencies. Deploy the files
+as-is to any static host (currently GitHub Pages from `main`).
 
 ---
 
-## Site Structure
+## Brand
 
-The single-page site contains these sections:
+| Token | Value | Use |
+|-------|-------|-----|
+| `--brand` | `#143F66` | Logo navy — buttons, links, headings accents |
+| `--navy` | `#0E2C48` | Deep navy — top bar, footer, dark panels |
+| `--accent` | `#14A39A` | Logo teal — trade card, accents (sparingly) |
+| `--accent-text` | `#0B6E68` | Teal text on pale teal backgrounds (AA contrast) |
 
-1. **Navigation** - Sticky header with Products/Contact links and phone button
-2. **Hero Section** - Main title and call-to-action buttons
-3. **Products Section** - Price list of all 11 products
-4. **Bulk Discount Banner** - Highlights squeegee bulk pricing
-5. **Why Choose Us** - 4 feature cards
-6. **Contact Section** - Enquiry form and contact information
-7. **Footer** - Quick links and contact details
+The logo in the navbar and `favicon.svg` are an **interim** version of the
+four-hexagon concept. When the designer delivers the final logo:
 
----
-
-## Products
-
-| Product | Price | Bulk Price |
-|---------|-------|------------|
-| Red Squeegee | R30 | R28 (50+) |
-| Blue Squeegee | R30 | R28 (50+) |
-| Black Squeegee | R30 | R28 (50+) |
-| Dark Grey Squeegee | R30 | R28 (50+) |
-| Light Grey Squeegee | R30 | R28 (50+) |
-| Garage Roll | R240 | - |
-| Reject Garage Roll | R180 | - |
-| Replacement Rubber 5-Pack | R40 | - |
-| Pink Soap | R400 | - |
-| Replacement Sponges 5-Pack | R40.50 | - |
-| Out of Order Cover | R120 | - |
+1. Replace the inline `<svg class="logo-svg">` in `index.html`.
+2. Replace `favicon.svg` and re-render `images/icons/*.png` from it.
+3. Regenerate `images/og-image.jpg` (1200×630) with the new branding.
 
 ---
 
-## Features
+## Sections
 
-- **Single-Page Design** - All content on one scrollable page
-- **Responsive Layout** - Works on desktop, tablet, and mobile
-- **Modern Visual Design** - Animated gradients, glassmorphism effects
-- **Scroll Animations** - Elements fade in as you scroll
-- **Contact Form** - EmailJS integration for enquiries
-- **Click-to-Call** - Phone links work on mobile devices
-- **Smooth Scrolling** - Navigation links scroll to sections
-
----
-
-## EmailJS Configuration
-
-The contact form uses EmailJS to send enquiries. To configure:
-
-### Step 1: Create an EmailJS Account
-
-1. Go to [EmailJS.com](https://www.emailjs.com/)
-2. Sign up for a free account (200 emails/month)
-3. Verify your email address
-
-### Step 2: Add an Email Service
-
-1. In the dashboard, go to **Email Services**
-2. Click **Add New Service**
-3. Choose your email provider (Gmail, Outlook, etc.)
-4. Note your **Service ID** (e.g., `service_abc123`)
-
-### Step 3: Create Email Template
-
-1. Go to **Email Templates** → **Create New Template**
-2. Name it "Contact Form"
-
-**Subject:** `UAC Enquiry: {{from_company}}`
-
-**Body:**
-```
-New Enquiry from Website
-
-Company: {{from_company}}
-Contact: {{from_name}}
-Phone: {{from_phone}}
-Email: {{from_email}}
-
-Message:
-{{message}}
-```
-
-3. In Settings, set **To Email** to `uac@gmail.com`
-4. Note the **Template ID**
-
-### Step 4: Get Your Public Key
-
-1. Go to **Account** → **General**
-2. Copy your **Public Key**
-
-### Step 5: Update the Code
-
-Edit `js/main.js` and replace these values:
-
-```javascript
-// Line 9 - Replace with your public key
-emailjs.init('YOUR_PUBLIC_KEY');
-
-// Line 185 - Replace with your service and template IDs
-await emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', {
-```
+1. Top bar (delivery strip) and sticky navbar
+2. Hero with squeegee colour range
+3. Two ways to order (Buy Direct / Wholesale-Trade)
+4. Products with category filter and squeegee colour picker
+5. Bulk pricing banner
+6. Why buy from Supply Station
+7. Delivery zones
+8. Order builder (WhatsApp) and contact details
+9. Footer with trading-name line
 
 ---
 
-## Customization
+## Products and prices
 
-### Changing Colors
+All prices are **excluding VAT**. Keep these three places in sync when a
+price changes:
 
-Edit CSS variables in `css/style.css` (lines 13-73):
+1. The product cards in `index.html` (`.product-price`)
+2. The `Product` JSON-LD block in the `<head>` of `index.html`
+3. `OB.products` in `js/main.js` (order builder)
 
-```css
-:root {
-    --primary-color: #1877F2;  /* Main brand color */
-    --primary-hover: #0e5fc2;  /* Hover state */
-}
-```
+| Product | Price (excl. VAT) |
+|---------|-------------------|
+| Squeegee (red, blue, black, dark grey, light grey) | R35.00 each |
+| Garage Roll (160mm × 1250m) | R235.00 each |
+| Reject Garage Roll | R190.00 each |
+| Pink Multi Purpose Soap (25L) | R450.00 each |
+| Replacement Squeegee Rubber 5-Pack | R40.00 per pack |
+| Replacement Squeegee Sponges 5-Pack | R40.50 per pack |
+| Out of Order Cover | R120.00 each |
 
-### Updating Contact Information
-
-Search and replace in `index.html`:
-- **Phone:** 082 826 1003
-- **Email:** uac@gmail.com
-- **Address:** 10 Celie Industrial Park, Celie Road, Retreat, Cape Town
-
-### Updating Prices
-
-Edit the product cards in `index.html` (lines 57-193). Update the price text in `.product-price` and `.product-bulk` elements.
-
-### Adding/Removing Products
-
-Copy an existing product card structure and update:
-
-```html
-<div class="product-card">
-    <div class="product-image" style="background-color: #YOUR_COLOR;">
-        <span class="product-image-text">Product Name</span>
-    </div>
-    <div class="product-info">
-        <h3>Product Name</h3>
-        <p class="product-price">R100.00 each</p>
-        <p class="product-note">Call to order: 082 826 1003</p>
-    </div>
-</div>
-```
-
-### Adding Product Images
-
-Replace the colored background with an image:
-
-```html
-<!-- Before (color placeholder) -->
-<div class="product-image" style="background-color: #dc3545;">
-    <span class="product-image-text">Red Squeegee</span>
-</div>
-
-<!-- After (with image) -->
-<div class="product-image" style="background-image: url('YOUR_IMAGE_URL'); background-size: cover; background-position: center;">
-</div>
-```
+The squeegee head is a **foam block wrapped in shade cloth** with a rubber
+blade, on a handle. Bulk prices are not published; the order builder nudges
+bulk-sized orders to ask for a quote.
 
 ---
 
-## Deployment
+## Order builder
 
-### GitHub Pages
+`js/main.js` builds the product rows, totals the order and prefills a
+WhatsApp message. It shows **Subtotal (excl. VAT)**, **VAT 15%** and
+**Estimated total (incl. VAT)**.
 
-1. Create a GitHub repository
-2. Upload all files
-3. Go to Settings → Pages
-4. Select "main" branch as source
-5. Site will be live at `https://username.github.io/repo-name/`
+```js
+const OB = {
+    vatRegistered: true,   // false hides the VAT line; total = subtotal
+    vatRate: 0.15,
+    ...
+};
+```
 
-### Any Static Host
-
-Simply upload all files to any static hosting provider (Netlify, Vercel, Cloudflare Pages, etc.)
+Only set `vatRegistered: false` if the site is live while the business is not
+VAT registered.
 
 ---
 
-## Testing Locally
+## Delivery
 
-**Using Python:**
+| Zone | Areas | Delivery |
+|------|-------|----------|
+| Zone 1 (~15km) | Retreat, Tokai, Wynberg, Claremont, Constantia, etc. | Free |
+| Zone 2 (~15–40km) | CBD, Bellville, Table View, Hout Bay, etc. | Fee confirmed on order |
+| Zone 3 (40km+) | Rest of the Western Cape and South Africa | Customer's own courier collects from Retreat |
+
+---
+
+## Before launch
+
+- [ ] Re-render `images/icons/*.png` from `favicon.svg` (they still show the old UAC mark)
+- [ ] Final logo SVG from the designer, then re-render icons again (see Brand)
+- [ ] New `og-image.jpg` with Supply Station branding
+- [ ] New business email to replace `uac@gmail.com` (index.html, JSON-LD)
+- [ ] CC registration number and VAT number in the footer (`.footer-legal`)
+- [ ] Domain, then absolute `og:image` / `og:url` / canonical and JSON-LD image URLs
+- [ ] Google Business Profile under the new name
+
+---
+
+## Testing locally
+
 ```bash
-python -m http.server 8000
-# Visit http://localhost:8000
+python3 -m http.server 8000
+# open http://localhost:8000
 ```
-
-**Using VS Code:**
-Install "Live Server" extension, right-click `index.html`, select "Open with Live Server"
-
----
-
-## Browser Support
-
-- Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- Mobile: iOS Safari 14+, Chrome Mobile, Samsung Internet
-- Glassmorphism effects may not appear in older browsers
-
----
-
-## Contact
-
-- **Phone:** 082 826 1003
-- **Email:** uac@gmail.com
-- **Address:** 10 Celie Industrial Park, Celie Road, Retreat, Cape Town
-
----
-
-**Built for UAC Services** - Professional car wash supplies for petrol stations

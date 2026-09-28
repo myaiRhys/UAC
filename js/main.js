@@ -1,4 +1,4 @@
-// Main JavaScript for UAC Services — Forecourt Supplies
+// Main JavaScript for Supply Station — Forecourt Supplies (formerly UAC Services)
 // Vanilla, no dependencies. Nav, filter, scroll animations, ripple.
 
 // ========================================
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             photo.classList.add('is-swapping');
             const swap = () => {
                 photo.src = swatch.dataset.photo;
-                photo.alt = `UAC squeegee with handle — ${swatch.dataset.colour}, one of five available colours`;
+                photo.alt = `Supply Station squeegee with handle — ${swatch.dataset.colour}, one of five available colours`;
                 photo.classList.remove('is-swapping');
             };
             // Fade out, swap once the alt image is ready (cached), then fade in.
@@ -152,13 +152,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 // ORDER BUILDER
 // Pick quantities -> live list-price estimate -> prefilled WhatsApp.
-// Prices mirror what's shown in the products list above. We deliberately do
-// NOT quote bulk prices here: public bulk figures aren't advertised. When an
-// order crosses the bulk threshold we nudge the customer that they may qualify
-// for better pricing and let UAC confirm the actual number on WhatsApp.
+// Prices mirror what's shown in the products list above and are EXCL. VAT.
+// We deliberately do NOT quote bulk prices here: public bulk figures aren't
+// advertised. When an order crosses the bulk threshold we nudge the customer
+// that they may qualify for better pricing and confirm the number on WhatsApp.
 // ========================================
 const OB = {
     waNumber: '27828261003',
+    // true  -> show Subtotal / VAT 15% / Total incl. VAT.
+    // false -> hide the VAT line; total = subtotal (use only while not VAT registered).
+    vatRegistered: true,
+    vatRate: 0.15,
     bulkThreshold: 50,        // squeegee quantity that counts as bulk
     bulkValueThreshold: 2000, // rand total that counts as bulk regardless of mix
     // group 'sq' = squeegees (share one threshold for the bulk nudge). unit = label after qty.
@@ -182,6 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const summary = document.getElementById('obSummary');
     const linesEl = document.getElementById('obLines');
     const totalEl = document.getElementById('obTotal');
+    const totalLabel = document.getElementById('obTotalLabel');
+    const subtotalEl = document.getElementById('obSubtotal');
+    const vatEl = document.getElementById('obVat');
+    const vatRow = document.getElementById('obVatRow');
     const sendBtn = document.getElementById('obSend');
     const sendLabel = document.getElementById('obSendLabel');
     const bulkNote = document.getElementById('obBulkNote');
@@ -199,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.innerHTML = `
             <div class="ob-info">
                 <span class="ob-name">${p.name}</span>
-                <span class="ob-price">${fmt(p.price)} <small>${p.unit}</small></span>
+                <span class="ob-price">${fmt(p.price)} <small>${p.unit} excl. VAT</small></span>
             </div>
             <div class="ob-stepper" data-id="${p.id}">
                 <button type="button" class="ob-btn ob-minus" aria-label="Decrease ${p.name}">&minus;</button>
@@ -217,28 +225,31 @@ document.addEventListener('DOMContentLoaded', () => {
             .reduce((s, p) => s + qty[p.id], 0);
 
         const lines = [];
-        let total = 0;
+        let subtotal = 0;
         OB.products.forEach(p => {
             const q = qty[p.id];
             if (q <= 0) return;
             const lineTotal = p.price * q;
-            total += lineTotal;
+            subtotal += lineTotal;
             lines.push({ name: p.name, q, unit: p.price, lineTotal });
         });
-        // Bulk nudge fires on squeegee volume OR overall order value, so big
-        // garage-roll / soap orders also hear about better pricing.
-        const bulkEligible = sqTotal >= OB.bulkThreshold || total >= OB.bulkValueThreshold;
-        return { lines, total, bulkEligible };
+        // Round VAT to the cent so subtotal + VAT always equals the total shown.
+        const vat = OB.vatRegistered ? Math.round(subtotal * OB.vatRate * 100) / 100 : 0;
+        const total = subtotal + vat;
+        // Bulk nudge fires on squeegee volume OR overall order value (excl. VAT),
+        // so big garage-roll / soap orders also hear about better pricing.
+        const bulkEligible = sqTotal >= OB.bulkThreshold || subtotal >= OB.bulkValueThreshold;
+        return { lines, subtotal, vat, total, bulkEligible };
     }
 
     function render() {
-        const { lines, total, bulkEligible } = compute();
+        const { lines, subtotal, vat, total, bulkEligible } = compute();
         if (!lines.length) {
             summary.hidden = true;
             if (bulkNote) bulkNote.hidden = true;
             sendLabel.textContent = 'Send order on WhatsApp';
             sendBtn.href = `https://wa.me/${OB.waNumber}?text=` +
-                encodeURIComponent("Hi UAC Services, I'd like to order:\n- ");
+                encodeURIComponent("Hi Supply Station, I'd like to order:\n- ");
             return;
         }
         summary.hidden = false;
@@ -247,15 +258,21 @@ document.addEventListener('DOMContentLoaded', () => {
             `<div class="ob-line"><span>${l.q} &times; ${l.name} <small>@ ${fmt(l.unit)}</small></span>` +
             `<span>${fmt(l.lineTotal)}</span></div>`
         ).join('');
+        subtotalEl.textContent = fmt(subtotal);
+        vatRow.hidden = !OB.vatRegistered;
+        vatEl.textContent = fmt(vat);
+        totalLabel.textContent = OB.vatRegistered ? 'Estimated total (incl. VAT)' : 'Estimated total';
         totalEl.textContent = fmt(total);
         sendLabel.textContent = 'Send order on WhatsApp';
-        sendBtn.href = `https://wa.me/${OB.waNumber}?text=${encodeURIComponent(buildMessage(lines, total, bulkEligible))}`;
+        sendBtn.href = `https://wa.me/${OB.waNumber}?text=${encodeURIComponent(buildMessage(lines, subtotal, vat, total, bulkEligible))}`;
     }
 
-    function buildMessage(lines, total, bulkEligible) {
-        let msg = "Hi UAC Services, I'd like to order:\n";
+    function buildMessage(lines, subtotal, vat, total, bulkEligible) {
+        let msg = "Hi Supply Station, I'd like to order:\n";
         lines.forEach(l => { msg += `- ${l.q} x ${l.name} @ ${fmt(l.unit)} = ${fmt(l.lineTotal)}\n`; });
-        msg += `\nEstimated total: ${fmt(total)} (excl. delivery)\n`;
+        msg += `\nSubtotal: ${fmt(subtotal)} (excl. VAT)\n`;
+        if (OB.vatRegistered) msg += `VAT 15%: ${fmt(vat)}\n`;
+        msg += `Estimated total: ${fmt(total)}${OB.vatRegistered ? ' incl. VAT' : ''} (excl. delivery)\n`;
         if (bulkEligible) msg += "This looks like a bulk order — please quote me your best price.\n";
         msg += 'Please confirm price and delivery. Thanks!';
         return msg;

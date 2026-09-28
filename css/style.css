@@ -1,17 +1,17 @@
 /* ============================================================
-   UAC Services — Forecourt Supplies
+   Supply Station — Forecourt Supplies (formerly UAC Services)
    B2B manufacturer marketing site. Vanilla CSS, no build.
    ============================================================ */
 
 :root {
-    /* Brand */
-    --navy:        #0A2540;
-    --brand:       #0B5CAD;
-    --brand-600:   #0D47A1;
-    --brand-700:   #093a73;
-    --accent:      #FF7A1A;   /* industrial orange — used sparingly */
-    --accent-600:  #e56a0f;
-    --accent-text: #b34e00;   /* AA contrast on the cream pill backgrounds */
+    /* Brand — taken from the Supply Station logo (navy + teal) */
+    --navy:        #0E2C48;   /* deep navy for dark bands (topbar, footer) */
+    --brand:       #143F66;   /* logo navy */
+    --brand-600:   #0F3354;
+    --brand-700:   #0B2840;
+    --accent:      #14A39A;   /* logo teal — used sparingly */
+    --accent-600:  #0F8A82;
+    --accent-text: #0B6E68;   /* AA contrast on the pale teal pill backgrounds */
     --wa:          #25D366;   /* WhatsApp */
     --wa-600:      #1eb85a;
 
@@ -149,18 +149,12 @@ img { max-width: 100%; display: block; }
     justify-content: space-between;
     height: var(--nav-h);
 }
-.logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo { display: flex; align-items: center; line-height: 1; text-decoration: none; }
 .logo:hover { text-decoration: none; }
 .logo-mark { display: block; }
-.logo-svg { height: 34px; width: auto; display: block; }
-.logo-sub {
-    font-size: .68rem;
-    font-weight: 600;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--brand);
-    margin-top: 2px;
-}
+/* Interim logo (hexagon mark + SUPPLY / STATION wordmark) until the
+   designer's final SVG lands — swap the inline SVG in index.html. */
+.logo-svg { height: 42px; width: auto; display: block; }
 
 .nav-menu {
     display: flex;
@@ -211,7 +205,7 @@ img { max-width: 100%; display: block; }
 .hero {
     position: relative;
     background:
-        radial-gradient(1100px 500px at 85% -10%, rgba(11,92,173,.18), transparent 60%),
+        radial-gradient(1100px 500px at 85% -10%, rgba(20,163,154,.14), transparent 60%),
         linear-gradient(180deg, #fff 0%, var(--bg) 100%);
     padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
     overflow: hidden;
@@ -327,7 +321,7 @@ img { max-width: 100%; display: block; }
     font-size: .82rem;
     font-weight: 600;
     color: var(--accent-text);
-    background: #FFF2E7;
+    background: #E6F6F4;
     padding: .35rem .7rem;
     border-radius: 999px;
 }
@@ -360,7 +354,7 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     transition: transform .2s ease, box-shadow .2s ease;
 }
 .audience-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.audience-card--trade { background: linear-gradient(180deg, #fff, #FFF7EF); border-color: #F6E0CB; }
+.audience-card--trade { background: linear-gradient(180deg, #fff, #F1FAF9); border-color: #C9EAE6; }
 .audience-tag {
     align-self: flex-start;
     font-family: var(--font-head);
@@ -374,7 +368,7 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     border-radius: 999px;
     margin-bottom: 1rem;
 }
-.audience-tag--accent { color: var(--accent-text); background: #FFEAD6; }
+.audience-tag--accent { color: var(--accent-text); background: #D8F1EE; }
 .audience-card h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: .5rem; }
 .audience-card > p { color: var(--body); }
 .tick-list { list-style: none; margin: .5rem 0 1.6rem; padding: 0; flex: 1; }
@@ -507,7 +501,7 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
     font-size: .78rem;
     font-weight: 600;
     color: var(--accent-text);
-    background: #FFF2E7;
+    background: #E6F6F4;
     padding: .25rem .6rem;
     border-radius: 999px;
     margin: .5rem 0 0;
@@ -709,8 +703,8 @@ button.mini-swatch.is-active {
 .ob-bulk-note {
     margin: .6rem 0 0;
     padding: .55rem .7rem;
-    background: #fff4ea;
-    border: 1px solid #ffd9b8;
+    background: #EAF7F5;
+    border: 1px solid #BFE6E1;
     border-radius: var(--radius-sm);
     color: var(--accent-text);
     font-size: .82rem;
@@ -744,7 +738,7 @@ button.mini-swatch.is-active {
 .ob-btn:focus-visible { outline: none; background: var(--bg-alt); }
 .ob-stepper:focus-within {
     border-color: var(--brand);
-    box-shadow: 0 0 0 3px rgba(11, 92, 173, .22);
+    box-shadow: 0 0 0 3px rgba(20, 63, 102, .22);
 }
 
 .ob-summary {
@@ -766,6 +760,14 @@ button.mini-swatch.is-active {
     font-family: var(--font-head); font-weight: 600; color: var(--ink);
 }
 .ob-total { font-size: 1.35rem; color: var(--navy); }
+.ob-sub-row {
+    display: flex; justify-content: space-between;
+    font-size: .9rem; color: var(--body);
+    padding: .15rem 0;
+}
+.ob-sub-row[hidden] { display: none; }
+.ob-lines + .ob-sub-row { padding-top: .6rem; border-top: 1px solid var(--line); }
+.ob-sub-row + .ob-total-row { margin-top: .35rem; }
 .ob-note { font-size: .78rem; color: var(--muted); margin: .5rem 0 0; }
 
 .contact-info-container {
@@ -777,7 +779,7 @@ button.mini-swatch.is-active {
 .contact-info-container h3 { color: #fff; font-size: 1.4rem; margin-bottom: 1.2rem; }
 .contact-info-item { margin-bottom: 1.3rem; }
 .contact-info-item h4 {
-    color: #7fb0e6;
+    color: #6FD3CB;
     font-size: .74rem;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -803,6 +805,8 @@ button.mini-swatch.is-active {
 .footer-col a { color: #cfe0f2; font-size: .92rem; }
 .footer-col a:hover { color: #fff; }
 .footer-bottom { text-align: center; padding-top: 1.5rem; font-size: .84rem; color: #7f93a9; }
+.footer-bottom p { margin: 0 0 .35rem; }
+.footer-legal { font-size: .78rem; }
 
 /* ---------- Floating buttons ---------- */
 .floating-buttons {
