@@ -8,7 +8,7 @@ Supply Station is a trading name of **True Motives 1130 CC**.
 
 - **Phone / WhatsApp orders:** 082 826 1003
 - **Address:** 10 Celie Industrial Park, Celie Road, Retreat, Cape Town
-- **Live (interim):** https://myairhys.github.io/UAC/
+- **Live:** https://thesupplystation.co.za (Cloudflare Pages; interim copy at https://myairhys.github.io/UAC/)
 
 ---
 
@@ -122,7 +122,8 @@ VAT registered.
 - [ ] New `og-image.jpg` with Supply Station branding
 - [ ] New business email to replace `uac@gmail.com` (index.html, JSON-LD)
 - [ ] CC registration number and VAT number in the footer (`.footer-legal`)
-- [ ] Domain, then absolute `og:image` / `og:url` / canonical and JSON-LD image URLs
+- [x] Absolute `og:image` / `og:url` / canonical and JSON-LD image URLs on https://thesupplystation.co.za
+- [ ] Cloudflare Pages project + DNS for thesupplystation.co.za
 - [ ] Google Business Profile under the new name
 
 ---
