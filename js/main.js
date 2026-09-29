@@ -320,3 +320,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ========================================
+// REBRAND TOAST (temporary — remove with the #rebrandToast block in index.html)
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const toast = document.getElementById('rebrandToast');
+    const close = document.getElementById('rebrandToastClose');
+    if (!toast || !close) return;
+
+    const KEY = 'ss-rebrand-toast-dismissed';
+    try {
+        if (localStorage.getItem(KEY)) return;
+    } catch (e) { /* storage blocked: just show it */ }
+
+    const dismiss = () => {
+        toast.classList.remove('show');
+        setTimeout(() => { toast.hidden = true; }, 350);
+        try { localStorage.setItem(KEY, '1'); } catch (e) { /* ignore */ }
+    };
+    close.addEventListener('click', dismiss);
+    toast.querySelector('a')?.addEventListener('click', dismiss);
+
+    setTimeout(() => {
+        toast.hidden = false;
+        void toast.offsetWidth; // flush styles so the slide-in transition runs
+        toast.classList.add('show');
+    }, 2000);
+});
