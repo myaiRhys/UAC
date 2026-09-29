@@ -828,6 +828,43 @@ button.mini-swatch.is-active {
 .fab-whatsapp { background: var(--wa); }
 .fab-call { background: var(--brand); }
 
+/* ---------- Rebrand toast (temporary) ---------- */
+.rebrand-toast {
+    position: fixed;
+    left: 20px; bottom: 20px;
+    max-width: 340px;
+    padding: 1rem 2.6rem 1rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    z-index: 95;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .35s ease, transform .35s ease;
+}
+.rebrand-toast.show { opacity: 1; transform: translateY(0); }
+.rebrand-toast-title { margin: 0 0 .3rem; font-family: var(--font-head); font-weight: 600; font-size: .98rem; color: var(--ink); }
+.rebrand-toast-text { margin: 0; font-size: .88rem; color: var(--body); }
+.rebrand-toast-text a { color: var(--accent-text); font-weight: 600; }
+.rebrand-toast-close {
+    position: absolute;
+    top: .35rem; right: .45rem;
+    width: 32px; height: 32px;
+    border: 0; background: none;
+    font-size: 1.4rem; line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 50%;
+}
+.rebrand-toast-close:hover { color: var(--ink); background: var(--bg-alt); }
+
+@media (max-width: 520px) {
+    /* Leave room for the floating WhatsApp/call buttons on the right */
+    .rebrand-toast { left: 16px; right: 90px; bottom: 16px; max-width: none; }
+}
+
 /* ---------- Scroll animations ---------- */
 .animate-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
@@ -835,6 +872,7 @@ button.mini-swatch.is-active {
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .animate-on-scroll { opacity: 1; transform: none; transition: none; }
+    .rebrand-toast { transition: none; transform: none; }
     .btn:hover, .product-card:hover, .reason-card:hover, .audience-card:hover, .fab:hover { transform: none; }
 }
 

@@ -583,6 +583,15 @@
         </div>
     </footer>
 
+    <!-- Rebrand notice (temporary). Shown once per device after a short delay;
+         dismissal is remembered in localStorage. Safe to delete this block, its
+         CSS (.rebrand-toast) and JS (REBRAND TOAST) once the new name is settled. -->
+    <aside class="rebrand-toast" id="rebrandToast" role="status" aria-live="polite" hidden>
+        <button type="button" class="rebrand-toast-close" id="rebrandToastClose" aria-label="Dismiss notice">&times;</button>
+        <p class="rebrand-toast-title">UAC Services is now Supply Station</p>
+        <p class="rebrand-toast-text">Same team, same factory, new name. Spotted something that doesn&rsquo;t look right? <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%20noticed%20something%20on%20your%20website%3A%20" target="_blank" rel="noopener">WhatsApp us</a> and let us know.</p>
+    </aside>
+
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
         <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
