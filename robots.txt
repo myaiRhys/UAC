@@ -1,0 +1,27 @@
+# robots.txt for Supply Station: https://thesupplystation.co.za
+# Search engines and AI assistants are all welcome. The more places that
+# can read this site, the easier we are to find.
+
+User-agent: *
+Allow: /
+
+# AI search and assistant crawlers, listed by name so it's clear they're
+# allowed (some hosts block them by default).
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: meta-externalagent
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://thesupplystation.co.za/sitemap.xml
