@@ -7,7 +7,8 @@ supplies to petrol stations and resellers.
 Supply Station is a trading name of **True Motives 1130 CC**.
 
 - **Phone / WhatsApp orders:** 082 826 1003
-- **Address:** 10 Celie Industrial Park, Celie Road, Retreat, Cape Town
+- **Address:** Unit 10, Celie Industrial Park, 4 Celie Road, Retreat, Cape Town, 7945
+- **GPS:** factory (unit 10) -34.0731766, 18.4601875 · park entrance -34.0732030,18.4606152
 - **Live:** https://thesupplystation.co.za (Cloudflare Pages; interim copy at https://myairhys.github.io/UAC/)
 
 ---
@@ -135,8 +136,11 @@ VAT registered.
 - **FAQ**: the `#faq` section and the `FAQPage` JSON-LD hold the same text.
   Edit both together.
 - **NAP**: name, address and phone must match the Google Business Profile
-  exactly: Supply Station, 10 Celie Industrial Park, Celie Road, Retreat,
-  Cape Town 7945, 082 826 1003.
+  exactly: Supply Station, Unit 10, Celie Industrial Park, 4 Celie Road,
+  Retreat, Cape Town, 7945, 082 826 1003. The Business Profile map pin goes
+  on the factory (unit 10 GPS above); the site's "Get directions" link goes
+  to the park entrance, because the factory backs onto a road with no gate.
+  Same premises as PSS, BRK and SecureSeal.
 - **Cloudflare**: under *AI Crawl Control* / *Bots*, make sure AI crawlers
   are **not** blocked and "managed robots.txt" is **off**, or Cloudflare will
   override `robots.txt`. Turn on *Crawler Hints* (pings Bing via IndexNow).
