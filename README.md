@@ -8,7 +8,7 @@ Supply Station is a trading name of **True Motives 1130 CC**.
 
 - **Phone / WhatsApp orders:** 082 826 1003
 - **Address:** Unit 10, Celie Industrial Park, 4 Celie Road, Retreat, Cape Town, 7945
-- **GPS:** factory (unit 10) -34.0731766, 18.4601875 · park entrance -34.0732163,18.460666
+- **GPS:** factory (unit 10) -34.0731766, 18.4601875 · park entrance -34.0732030,18.4606152
 - **Live:** https://thesupplystation.co.za (Cloudflare Pages; interim copy at https://myairhys.github.io/UAC/)
 
 ---
