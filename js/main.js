@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) close();
     });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            close();
+            hamburger.focus();
+        }
+    });
 });
 
 // ========================================
@@ -72,8 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(href);
             if (!target) return;
             e.preventDefault();
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const offset = target.getBoundingClientRect().top + window.pageYOffset - 88;
-            window.scrollTo({ top: offset, behavior: 'smooth' });
+            window.scrollTo({ top: offset, behavior: reduceMotion ? 'auto' : 'smooth' });
+            // Keep the section in the address bar (shareable links) and move
+            // keyboard focus there so Tab continues from the section.
+            if (history.pushState) history.pushState(null, '', href);
+            if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
         });
     });
 });
@@ -125,8 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Preload the alternates so switching is instant.
         swatches.forEach(s => { const img = new Image(); img.src = s.dataset.photo; });
 
+        let latest = null; // the swatch the user picked last
         const select = (swatch) => {
             if (swatch.classList.contains('is-active')) return;
+            latest = swatch;
             swatches.forEach(s => {
                 const on = s === swatch;
                 s.classList.toggle('is-active', on);
@@ -134,15 +149,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             photo.classList.add('is-swapping');
             const swap = () => {
+                // A slower image finishing after a later click must not win.
+                if (latest !== swatch) return;
                 photo.src = swatch.dataset.photo;
                 photo.alt = `Supply Station squeegee with handle — ${swatch.dataset.colour}, one of five available colours`;
                 photo.classList.remove('is-swapping');
             };
-            // Fade out, swap once the alt image is ready (cached), then fade in.
+            // Fade out, then swap once the image is ready (cached) and fade in.
             const ready = new Image();
-            ready.onload = swap;
             ready.src = swatch.dataset.photo;
-            if (ready.complete) swap();
+            const loaded = ready.decode ? ready.decode().catch(() => {}) : new Promise(r => { ready.onload = ready.onerror = r; });
+            Promise.all([loaded, new Promise(r => setTimeout(r, 150))]).then(swap);
         };
 
         swatches.forEach(swatch => swatch.addEventListener('click', () => select(swatch)));
@@ -278,11 +295,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return msg;
     }
 
-    function setQty(id, val) {
+    // `fromTyping`: leave the field as typed (e.g. empty while the user
+    // replaces the number); it is tidied up on blur.
+    function setQty(id, val, fromTyping) {
         const v = Math.max(0, Math.floor(Number(val) || 0));
         qty[id] = v;
         const stepper = list.querySelector(`.ob-stepper[data-id="${id}"] .ob-qty`);
-        if (stepper && String(v) !== stepper.value) stepper.value = v;
+        if (stepper && !fromTyping && String(v) !== stepper.value) stepper.value = v;
         render();
     }
 
@@ -294,6 +313,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.classList.contains('ob-minus')) setQty(id, qty[id] - 1);
     });
     list.addEventListener('input', (e) => {
+        if (!e.target.classList.contains('ob-qty')) return;
+        const stepper = e.target.closest('.ob-stepper');
+        setQty(stepper.dataset.id, e.target.value, true);
+    });
+    list.addEventListener('focusout', (e) => {
         if (!e.target.classList.contains('ob-qty')) return;
         const stepper = e.target.closest('.ob-stepper');
         setQty(stepper.dataset.id, e.target.value);
@@ -342,9 +366,23 @@ document.addEventListener('DOMContentLoaded', () => {
     close.addEventListener('click', dismiss);
     toast.querySelector('a')?.addEventListener('click', dismiss);
 
-    setTimeout(() => {
+    const show = () => {
         toast.hidden = false;
         void toast.offsetWidth; // flush styles so the slide-in transition runs
         toast.classList.add('show');
-    }, 2000);
+    };
+    // Wait until the visitor has scrolled past most of the hero, so the notice
+    // never lands on top of the "Build your order" / WhatsApp buttons.
+    const hero = document.querySelector('.hero');
+    if (hero && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            if (entries.some(en => en.intersectionRatio < 0.35 && en.boundingClientRect.top < 0)) {
+                io.disconnect();
+                setTimeout(show, 600);
+            }
+        }, { threshold: [0, 0.35, 0.7] });
+        io.observe(hero);
+    } else {
+        setTimeout(show, 2000);
+    }
 });

@@ -22,13 +22,13 @@
     --accent:      #14A39A;   /* logo teal — used sparingly */
     --accent-600:  #0F8A82;
     --accent-text: #0B6E68;   /* AA contrast on the pale teal pill backgrounds */
-    --wa:          #25D366;   /* WhatsApp */
-    --wa-600:      #1eb85a;
+    --wa:          #15803D;   /* WhatsApp buttons: white text at 5.0:1 (brand #25D366 was 1.98:1) */
+    --wa-600:      #116A33;
 
     /* Neutrals */
     --ink:     #0F1E2E;
     --body:    #384857;
-    --muted:   #6B7A88;
+    --muted:   #5A6876;   /* 5.3:1 on --bg (was #6B7A88, 4.1:1) */
     --line:    #E4E9EF;
     --bg:      #F5F8FC;
     --bg-alt:  #EDF2F8;
@@ -110,11 +110,11 @@ img { max-width: 100%; display: block; }
 .btn-primary { background: var(--brand); color: #fff; box-shadow: var(--shadow-sm); }
 .btn-primary:hover { background: var(--brand-600); box-shadow: var(--shadow-md); color:#fff; }
 
-.btn-accent { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
-.btn-accent:hover { background: var(--accent-600); box-shadow: var(--shadow-md); color:#fff; }
+.btn-accent { background: #0C7770; color: #fff; box-shadow: var(--shadow-sm); } /* 5.4:1 with white; logo teal is 3.1:1 */
+.btn-accent:hover { background: var(--accent-text); box-shadow: var(--shadow-md); color:#fff; }
 
-.btn-wa { background: var(--wa); color: #fff; box-shadow: 0 6px 18px rgba(37,211,102,.30); }
-.btn-wa:hover { background: var(--wa-600); color:#fff; box-shadow: 0 10px 26px rgba(37,211,102,.38); }
+.btn-wa { background: var(--wa); color: #fff; box-shadow: 0 6px 18px rgba(21,128,61,.30); }
+.btn-wa:hover { background: var(--wa-600); color:#fff; box-shadow: 0 10px 26px rgba(21,128,61,.38); }
 
 .btn-outline { background: transparent; color: var(--brand); border-color: var(--line); }
 .btn-outline:hover { border-color: var(--brand); color: var(--brand-600); background: #fff; }
@@ -313,11 +313,12 @@ img { max-width: 100%; display: block; }
     bottom: 6px; left: 0; right: 0;
     text-align: center;
     font-style: normal;
-    font-size: .58rem;
+    font-size: .68rem;
     font-weight: 600;
-    color: rgba(255,255,255,.92);
-    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.55);
 }
+.swatch:nth-child(5) i { color: var(--navy); text-shadow: none; }
 .range-foot {
     display: flex;
     align-items: baseline;
@@ -523,11 +524,12 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
 .product-colours {
     display: flex;
     align-items: center;
-    gap: .35rem;
-    margin: .45rem 0 0;
+    gap: .5rem;
+    margin: .6rem 0 0;
+    flex-wrap: wrap;
 }
 .mini-swatch {
-    width: 16px; height: 16px;
+    width: 26px; height: 26px;
     border-radius: 50%;
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
     flex: 0 0 auto;
@@ -792,6 +794,8 @@ button.mini-swatch.is-active {
 .ob-note { font-size: .78rem; color: var(--muted); margin: .5rem 0 0; }
 
 .contact-info-container {
+    position: sticky;
+    top: calc(var(--nav-h) + 20px);
     background: var(--navy);
     color: #cfe0f2;
     border-radius: var(--radius);
@@ -876,6 +880,7 @@ button.mini-swatch.is-active {
 .nf-card h1 { font-size: 1.6rem; color: var(--navy); margin: .6rem 0 .6rem; }
 .nf-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin: 1.5rem 0 1rem; }
 .nf-help { color: var(--muted); font-size: .92rem; margin: 0; }
+.nf-help a { text-decoration: underline; }
 
 /* ---------- Floating buttons ---------- */
 .floating-buttons {
@@ -950,6 +955,7 @@ button.mini-swatch.is-active {
     .hero-grid { grid-template-columns: 1fr; }
     .range-card { max-width: 320px; transform: none; }
     .contact-layout { grid-template-columns: 1fr; }
+    .contact-info-container { position: static; }
     .audience-grid { grid-template-columns: 1fr; }
 }
 
@@ -1017,3 +1023,6 @@ button.mini-swatch.is-active {
     .container { padding: 0 16px; }
     .hero-buttons .btn { width: 100%; }
 }
+
+/* Sections focused by in-page links (js/main.js) need no ring of their own */
+[tabindex="-1"]:focus { outline: none; }
