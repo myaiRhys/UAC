@@ -11,7 +11,10 @@ Last updated: 2026-09-30
 - Phone / WhatsApp: 082 826 1003 (international: +27 82 826 1003)
 - WhatsApp link: https://wa.me/27828261003
 - Email: uac@gmail.com
-- Address: 10 Celie Industrial Park, Celie Road, Retreat, Cape Town, Western Cape, South Africa
+- Address: Unit 10, Celie Industrial Park, 4 Celie Road, Retreat, Cape Town, 7945, Western Cape, South Africa
+- Factory location (GPS): -34.0731766, 18.4601875
+- Park entrance (GPS, use this for directions and courier collections): -34.0732163,18.460666
+- Directions: https://www.google.com/maps/dir/?api=1&destination=-34.0732163,18.460666
 - Hours: Monday to Friday 08:00–17:00, Saturday 08:00–13:00, Sunday closed (South African time, SAST)
 
 ## Products and prices
