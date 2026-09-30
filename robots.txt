@@ -1,8 +1,12 @@
 # robots.txt for Supply Station: https://thesupplystation.co.za
 # Search engines and AI assistants are all welcome. The more places that
 # can read this site, the easier we are to find.
+#
+# Content-Signal (https://contentsignals.org): we allow our content to be used
+# for search results, for AI answers (ai-input) and for AI model training.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # AI search and assistant crawlers, listed by name so it's clear they're
@@ -22,6 +26,7 @@ User-agent: Amazonbot
 User-agent: DuckAssistBot
 User-agent: meta-externalagent
 User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://thesupplystation.co.za/sitemap.xml
