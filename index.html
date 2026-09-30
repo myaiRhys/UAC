@@ -1,140 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supply Station — Cape Town Squeegee Manufacturer | Buy Direct or Wholesale</title>
-    <meta name="description" content="Supply Station (formerly UAC Services) manufactures squeegees and forecourt cleaning supplies in Cape Town, South Africa. Buy direct for your petrol station or order at wholesale/trade pricing. Own delivery across Cape Town; outside Cape Town you arrange your own courier. WhatsApp 082 826 1003.">
+    <script>
+        // The old GitHub Pages copy (myairhys.github.io/UAC/) mirrors this repo.
+        // Send anyone who lands there to the real domain so only one site gets indexed.
+        if (location.hostname.endsWith('github.io')) location.replace('https://thesupplystation.co.za/' + location.hash);
+    </script>
+    <title>Squeegees &amp; Forecourt Supplies Cape Town | Supply Station</title>
+    <meta name="description" content="Cape Town squeegee manufacturer &amp; forecourt cleaning supplies (formerly UAC Services). Buy direct or wholesale. Own delivery in Cape Town. WhatsApp 082 826 1003.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="https://thesupplystation.co.za/">
     <meta name="theme-color" content="#143F66">
+    <meta name="geo.region" content="ZA-WC">
+    <meta name="geo.placename" content="Retreat, Cape Town">
+
+    <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="canonical" href="https://thesupplystation.co.za/">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Supply Station — Cape Town Squeegee Manufacturer">
-    <meta property="og:description" content="Squeegees & forecourt supplies, made in Cape Town, South Africa. Buy direct or wholesale. Own delivery across Cape Town; you arrange your own courier elsewhere.">
+    <!-- Open Graph / social share (absolute URLs so WhatsApp/Facebook can fetch them) -->
+    <meta property="og:title" content="Supply Station: Squeegees &amp; Forecourt Supplies, Cape Town">
+    <meta property="og:description" content="Squeegees made in Cape Town, plus the soaps, garage rolls and parts forecourts run on. Buy direct or wholesale. WhatsApp 082 826 1003.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_ZA">
     <meta property="og:site_name" content="Supply Station">
     <meta property="og:url" content="https://thesupplystation.co.za/">
-    <!-- Social share image: WhatsApp/Facebook need an ABSOLUTE URL.
-         TODO before launch: og-image.jpg still carries the old UAC branding —
-         regenerate it with the final Supply Station logo. -->
     <meta property="og:image" content="https://thesupplystation.co.za/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Supply Station — squeegees and forecourt supplies, made in Cape Town. WhatsApp 082 826 1003.">
+    <meta property="og:image:alt" content="Supply Station: squeegees and forecourt supplies, made in Cape Town. WhatsApp 082 826 1003.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Supply Station — Cape Town Squeegee Manufacturer">
-    <meta name="twitter:description" content="Squeegees & forecourt supplies, made in Cape Town. Buy direct or wholesale.">
+    <meta name="twitter:title" content="Supply Station: Squeegees &amp; Forecourt Supplies, Cape Town">
+    <meta name="twitter:description" content="Squeegees made in Cape Town, plus the soaps, garage rolls and parts forecourts run on. Buy direct or wholesale.">
     <meta name="twitter:image" content="https://thesupplystation.co.za/images/og-image.jpg">
 
+    <!-- Self-hosted fonts (fonts/). Preload the two the first screen needs. -->
+    <link rel="preload" href="fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Local business structured data for Google -->
+    <!-- Business + website structured data. Keep NAP (name, address, phone)
+         identical to the Google Business Profile. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Manufacturer",
-      "name": "Supply Station",
-      "alternateName": "UAC Services",
-      "legalName": "True Motives 1130 CC",
-      "url": "https://thesupplystation.co.za/",
-      "image": "https://thesupplystation.co.za/images/og-image.jpg",
-      "description": "Manufacturer of squeegees and forecourt cleaning supplies for petrol stations in Cape Town. Formerly trading as UAC Services.",
-      "telephone": "+27828261003",
-      "email": "uac@gmail.com",
-      "priceRange": "R35–R450 (excl. VAT)",
-      "areaServed": "Cape Town and Western Cape (own delivery); elsewhere via the customer's own courier",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10 Celie Industrial Park, Celie Road, Retreat",
-        "addressLocality": "Cape Town",
-        "addressRegion": "Western Cape",
-        "addressCountry": "ZA"
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "17:00"
+          "@type": "WholesaleStore",
+          "@id": "https://thesupplystation.co.za/#business",
+          "name": "Supply Station",
+          "alternateName": "UAC Services",
+          "legalName": "True Motives 1130 CC",
+          "url": "https://thesupplystation.co.za/",
+          "logo": "https://thesupplystation.co.za/images/icons/icon-512.png",
+          "image": [
+            "https://thesupplystation.co.za/images/og-image.jpg",
+            "https://thesupplystation.co.za/images/squeegee-blue.png"
+          ],
+          "description": "Cape Town manufacturer of forecourt squeegees and supplier of forecourt cleaning supplies (garage rolls, pink multi-purpose soap, replacement rubbers and sponges, out-of-order covers) to petrol stations and resellers. Buy direct or wholesale. Formerly trading as UAC Services.",
+          "telephone": "+27828261003",
+          "email": "uac@gmail.com",
+          "priceRange": "R35–R450",
+          "currenciesAccepted": "ZAR",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 Celie Industrial Park, Celie Road",
+            "addressLocality": "Retreat, Cape Town",
+            "addressRegion": "Western Cape",
+            "postalCode": "7945",
+            "addressCountry": "ZA"
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=10+Celie+Road+Retreat+Cape+Town",
+          "areaServed": [
+            { "@type": "City", "name": "Cape Town" },
+            { "@type": "AdministrativeArea", "name": "Western Cape" },
+            { "@type": "Country", "name": "South Africa" }
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+27828261003",
+            "contactType": "sales",
+            "areaServed": "ZA",
+            "availableLanguage": "English"
+          },
+          "knowsAbout": ["Squeegees", "Forecourt cleaning supplies", "Petrol station supplies", "Garage rolls", "Wholesale cleaning supplies"],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "08:00",
+              "closes": "13:00"
+            }
+          ]
         },
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "08:00",
-          "closes": "13:00"
+          "@type": "WebSite",
+          "@id": "https://thesupplystation.co.za/#website",
+          "name": "Supply Station",
+          "alternateName": ["UAC Services", "thesupplystation.co.za"],
+          "url": "https://thesupplystation.co.za/",
+          "inLanguage": "en-ZA",
+          "publisher": { "@id": "https://thesupplystation.co.za/#business" }
         }
       ]
     }
     </script>
 
-    <!-- Product catalogue for richer Google results. Prices in ZAR excl. VAT
-         (valueAddedTaxIncluded: false), mirroring the products list. Image URLs are
-         absolute so Google can crawl them. -->
+    <!-- Product catalogue. Prices in ZAR excl. VAT (valueAddedTaxIncluded: false).
+         Keep in sync with the product cards and OB.products in js/main.js. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
+      "name": "Supply Station forecourt supplies price list",
       "itemListElement": [
         {
-          "@type": "Product",
-          "name": "Supply Station Squeegee",
-          "description": "Forecourt squeegee with handle, made in Cape Town: a foam block wrapped in shade cloth plus a rubber blade. Available in 5 colours.",
-          "image": "https://thesupplystation.co.za/images/squeegee-blue.png",
-          "brand": { "@type": "Brand", "name": "Supply Station" },
-          "offers": { "@type": "Offer", "price": "35.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "35.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 1,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-squeegee",
+            "name": "Supply Station Squeegee",
+            "description": "Forecourt squeegee with handle, made in Cape Town: a foam block wrapped in shade cloth plus a rubber blade. Available in red, blue, black, dark grey and light grey.",
+            "image": [
+              "https://thesupplystation.co.za/images/squeegee-blue.png",
+              "https://thesupplystation.co.za/images/squeegee-red.png",
+              "https://thesupplystation.co.za/images/squeegee-black.png",
+              "https://thesupplystation.co.za/images/squeegee-dark-grey.png",
+              "https://thesupplystation.co.za/images/squeegee-light-grey.png"
+            ],
+            "color": "Red, Blue, Black, Dark grey, Light grey",
+            "brand": { "@type": "Brand", "name": "Supply Station" },
+            "manufacturer": { "@id": "https://thesupplystation.co.za/#business" },
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-squeegee", "price": "35.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "35.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Garage Roll",
-          "description": "Forecourt paper towel / jumbo wiper roll.",
-          "image": "https://thesupplystation.co.za/images/garage-roll.png",
-          "offers": { "@type": "Offer", "price": "235.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "235.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 2,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-garage-roll",
+            "name": "Garage Roll 160mm × 1250m",
+            "description": "Forecourt paper towel / jumbo wiper roll, 160mm × 1250m.",
+            "image": "https://thesupplystation.co.za/images/garage-roll.png",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-garage-roll", "price": "235.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "235.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Reject Garage Roll",
-          "description": "Budget-grade forecourt paper towel roll.",
-          "offers": { "@type": "Offer", "price": "190.00", "priceCurrency": "ZAR",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "190.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 3,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-reject-garage-roll",
+            "name": "Reject Garage Roll",
+            "description": "Budget-grade forecourt paper towel roll, approx. 160mm × 1250m (sizes vary).",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-reject-garage-roll", "price": "190.00", "priceCurrency": "ZAR", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "190.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Pink Multi Purpose Soap",
-          "description": "25L multi-purpose soap.",
-          "offers": { "@type": "Offer", "price": "450.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "450.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 4,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-pink-soap",
+            "name": "Pink Multi Purpose Soap 25L",
+            "description": "25 litre pink multi-purpose soap for forecourt cleaning.",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-pink-soap", "price": "450.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "450.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Replacement Squeegee Rubber 5-Pack",
-          "description": "Replacement rubber blades that fit our squeegees.",
-          "offers": { "@type": "Offer", "price": "40.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-rubber",
+            "name": "Replacement Squeegee Rubber 5-Pack",
+            "description": "Five replacement rubber blades that fit Supply Station squeegees.",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-rubber", "price": "40.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Replacement Squeegee Sponges 5-Pack",
-          "description": "Replacement sponges that fit our squeegees.",
-          "offers": { "@type": "Offer", "price": "40.50", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.50", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 6,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-sponges",
+            "name": "Replacement Squeegee Sponges 5-Pack",
+            "description": "Five replacement sponges that fit Supply Station squeegees.",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-sponges", "price": "40.50", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.50", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
         },
         {
-          "@type": "Product",
-          "name": "Out of Order Cover",
-          "description": "Forecourt pump / bay out-of-order cover.",
-          "offers": { "@type": "Offer", "price": "120.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock",
-                      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          "@type": "ListItem", "position": 7,
+          "item": {
+            "@type": "Product",
+            "@id": "https://thesupplystation.co.za/#product-out-of-order-cover",
+            "name": "Out of Order Cover",
+            "description": "Forecourt pump / bay out-of-order cover.",
+            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-out-of-order-cover", "price": "120.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
+                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ: mirrors the visible #faq section word for word. Edit both together. -->
+    <script type="application/ld+json" id="faqSchema">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Supply Station the same company as UAC Services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. UAC Services is now called Supply Station. Same team, same factory in Retreat, Cape Town, new name."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I buy squeegees in Cape Town?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Directly from us. We make our squeegees at our factory in Retreat, Cape Town, and sell them at R35.00 each excl. VAT in five colours: red, blue, black, dark grey and light grey. Order on WhatsApp or call 082 826 1003."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I place an order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pick your products and quantities in the order builder on this page, then send the list to us on WhatsApp. You can also call 082 826 1003. We confirm the final price and delivery before anything is sent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do your prices include VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All prices on this site exclude VAT. The order builder adds 15% VAT and shows your estimated total."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you deliver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We deliver around Cape Town ourselves: free in Zone 1 (about 15km from Retreat) and for a fee in Zone 2 (about 15 to 40km), confirmed when you order. Further out, you book your own courier to collect from us in Retreat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer bulk or wholesale pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Petrol stations get bulk pricing on volume, and resellers can buy at wholesale / trade pricing. WhatsApp us for a bulk quote or our trade price list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you make branded or custom squeegees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, on request. WhatsApp us with what you need and we'll quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your business hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monday to Friday 8am to 5pm, Saturday 8am to 1pm. Closed on Sundays."
+          }
         }
       ]
     }
@@ -144,7 +294,7 @@
     <!-- Delivery advantage strip -->
     <div class="topbar">
         <div class="container">
-            <p>🚚 Own delivery across Cape Town &nbsp;·&nbsp; Courier elsewhere — you arrange &nbsp;·&nbsp; Made in Cape Town, South Africa</p>
+            <p>Own delivery across Cape Town<span class="tb-more"> &nbsp;·&nbsp; Courier elsewhere, you arrange</span> &nbsp;·&nbsp; Made in Cape Town</p>
         </div>
     </div>
 
@@ -175,7 +325,7 @@
                     <li><a href="#delivery">Delivery</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#orderBuilder" class="btn-nav btn-nav-wa">Start an order</a></li>
-                    <li><a href="tel:0828261003" class="btn-nav">082 826 1003</a></li>
+                    <li><a href="tel:+27828261003" class="btn-nav">082 826 1003</a></li>
                 </ul>
                 <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
@@ -192,9 +342,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <span class="hero-eyebrow">Cape Town Squeegee Manufacturer</span>
-                    <h1 class="hero-title">Squeegees &amp; forecourt supplies, <span>made direct.</span></h1>
-                    <p class="hero-description">We manufacture squeegees and stock the cleaning supplies petrol station forecourts run on — soaps, garage rolls, sponges and more. Buy direct for your station, or order at wholesale pricing as a reseller. Formerly UAC Services — same team, same factory, new name.</p>
+                    <span class="hero-eyebrow">Forecourt supplies for petrol stations</span>
+                    <h1 class="hero-title">Squeegees &amp; forecourt supplies, <span>made in Cape Town.</span></h1>
+                    <p class="hero-description">We manufacture squeegees in Retreat, Cape Town, and stock the cleaning supplies petrol station forecourts run on — soaps, garage rolls, sponges and more. Buy direct for your station, or order at wholesale pricing as a reseller. Formerly UAC Services — same team, same factory, new name.</p>
                     <div class="hero-buttons">
                         <a href="#orderBuilder" class="btn btn-primary btn-large">
                             <svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
@@ -216,7 +366,7 @@
                 <div class="hero-visual">
                     <div class="range-card">
                         <p class="range-title">The squeegee range</p>
-                        <img class="range-photo" src="images/squeegee-blue.png" alt="Supply Station squeegee with handle, made in Cape Town" loading="lazy" width="513" height="1280">
+                        <img class="range-photo" src="images/squeegee-blue.png" alt="Supply Station squeegee with handle, made in Cape Town" fetchpriority="high" width="513" height="1280">
                         <div class="swatch-row" aria-hidden="true">
                             <span class="swatch" style="background:#dc3545;"><i>Red</i></span>
                             <span class="swatch" style="background:#1565C0;"><i>Blue</i></span>
@@ -225,7 +375,7 @@
                             <span class="swatch" style="background:#9aa3ab;"><i>Light grey</i></span>
                         </div>
                         <div class="range-foot">
-                            <span class="range-price">R35<small>/each excl. VAT</small></span>
+                            <span class="range-price">R35<small>each, excl. VAT</small></span>
                             <span class="range-bulk">Bulk pricing available</span>
                         </div>
                     </div>
@@ -287,7 +437,7 @@
 
             <div class="products-grid" id="productsGrid">
                 <!-- Squeegee (5 colours) -->
-                <div class="product-card" data-category="squeegees">
+                <div class="product-card" id="product-squeegee" data-category="squeegees">
                     <div class="product-image photo">
                         <span class="product-badge">Made by us</span>
                         <img class="product-photo" id="squeegeePhoto" src="images/squeegee-blue.png" alt="Supply Station squeegee with handle — blue, one of five available colours" loading="lazy" width="513" height="1280">
@@ -309,9 +459,9 @@
                 </div>
 
                 <!-- Garage Roll -->
-                <div class="product-card" data-category="cleaning">
+                <div class="product-card" id="product-garage-roll" data-category="cleaning">
                     <div class="product-image photo">
-                        <img class="product-photo" src="images/garage-roll.png" alt="Garage roll — jumbo wiper roll, 160mm × 1250m" loading="lazy" width="640" height="574">
+                        <img class="product-photo" src="images/garage-roll.png" alt="Garage roll, jumbo wiper roll 160mm × 1250m" loading="lazy" width="640" height="574">
                     </div>
                     <div class="product-info">
                         <h3>Garage Roll</h3>
@@ -321,7 +471,7 @@
                 </div>
 
                 <!-- Reject Garage Roll -->
-                <div class="product-card" data-category="cleaning">
+                <div class="product-card" id="product-reject-garage-roll" data-category="cleaning">
                     <div class="product-image pi" style="color:#b4bcc4;">
                         <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Reject garage roll"><ellipse cx="100" cy="180" rx="56" ry="8" fill="#143F66" opacity=".08"/><path d="M150 80 h28 v76 q-14 7 -28 0 z" fill="#fff" stroke="#dbe2ea" stroke-width="2"/><line x1="150" y1="100" x2="178" y2="100" stroke="#c6cfd8" stroke-width="2" stroke-dasharray="4 4"/><rect x="44" y="66" width="112" height="92" rx="10" fill="currentColor"/><rect x="44" y="66" width="26" height="92" rx="10" fill="#fff" opacity=".2"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="#f4f7fb"/><ellipse cx="100" cy="66" rx="56" ry="14" fill="none" stroke="#143F66" stroke-width="1.5" opacity=".12"/><ellipse cx="100" cy="66" rx="20" ry="5.5" fill="#143F66" opacity=".16"/><line x1="50" y1="112" x2="150" y2="112" stroke="#143F66" stroke-width="1.5" opacity=".12"/><line x1="50" y1="132" x2="150" y2="132" stroke="#143F66" stroke-width="1.5" opacity=".12"/></svg>
                     </div>
@@ -333,7 +483,7 @@
                 </div>
 
                 <!-- Pink Multi Purpose Soap -->
-                <div class="product-card" data-category="cleaning">
+                <div class="product-card" id="product-pink-soap" data-category="cleaning">
                     <div class="product-image pi" style="color:#ff69b4;">
                         <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Pink multi purpose soap container"><ellipse cx="100" cy="182" rx="50" ry="8" fill="#143F66" opacity=".08"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="currentColor"/><path d="M120 58 q28 0 28 28 v12 h-14 v-10 q0 -14 -14 -16 z" fill="#fff" opacity=".12"/><rect x="82" y="36" width="36" height="18" rx="4" fill="#143F66" opacity=".75"/><rect x="88" y="52" width="26" height="16" fill="currentColor"/><rect x="60" y="66" width="92" height="106" rx="16" fill="currentColor"/><rect x="60" y="66" width="20" height="106" rx="10" fill="#fff" opacity=".2"/><rect x="72" y="94" width="68" height="54" rx="8" fill="#fff" opacity=".92"/><rect x="80" y="106" width="52" height="7" rx="3.5" fill="currentColor" opacity=".55"/><rect x="80" y="120" width="40" height="6" rx="3" fill="#143F66" opacity=".18"/><rect x="80" y="132" width="46" height="6" rx="3" fill="#143F66" opacity=".14"/></svg>
                     </div>
@@ -345,7 +495,7 @@
                 </div>
 
                 <!-- Replacement Squeegee Rubber 5-Pack -->
-                <div class="product-card" data-category="parts">
+                <div class="product-card" id="product-rubber" data-category="parts">
                     <div class="product-image pi" style="color:#3a444f;">
                         <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement rubber blades"><ellipse cx="100" cy="180" rx="54" ry="8" fill="#143F66" opacity=".08"/><g transform="rotate(-10 100 108)"><rect x="40" y="66" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="66" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="82" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="82" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="98" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="98" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="114" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="114" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="40" y="130" width="120" height="11" rx="5" fill="currentColor"/><rect x="40" y="130" width="120" height="4" rx="2" fill="#fff" opacity=".18"/><rect x="86" y="58" width="28" height="92" rx="6" fill="#143F66" opacity=".16"/></g></svg>
                     </div>
@@ -357,7 +507,7 @@
                 </div>
 
                 <!-- Replacement Squeegee Sponges 5-Pack -->
-                <div class="product-card" data-category="parts">
+                <div class="product-card" id="product-sponges" data-category="parts">
                     <div class="product-image pi" style="color:#f5a623;">
                         <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Replacement sponges"><ellipse cx="100" cy="182" rx="54" ry="8" fill="#143F66" opacity=".08"/><rect x="50" y="124" width="100" height="34" rx="9" fill="currentColor"/><rect x="50" y="124" width="100" height="10" rx="5" fill="#fff" opacity=".18"/><rect x="54" y="92" width="96" height="34" rx="9" fill="currentColor"/><rect x="54" y="92" width="96" height="10" rx="5" fill="#fff" opacity=".22"/><rect x="50" y="58" width="100" height="36" rx="9" fill="currentColor"/><rect x="50" y="58" width="100" height="11" rx="5" fill="#fff" opacity=".28"/><g fill="#143F66" opacity=".14"><circle cx="70" cy="76" r="3.5"/><circle cx="90" cy="82" r="3"/><circle cx="110" cy="74" r="4"/><circle cx="128" cy="80" r="3"/><circle cx="80" cy="70" r="2.5"/><circle cx="118" cy="86" r="2.5"/></g></svg>
                     </div>
@@ -369,7 +519,7 @@
                 </div>
 
                 <!-- Out of Order Cover -->
-                <div class="product-card" data-category="signage">
+                <div class="product-card" id="product-out-of-order-cover" data-category="signage">
                     <div class="product-image pi" style="color:#ef4444;">
                         <svg class="pi-illus" viewBox="0 0 200 200" role="img" aria-label="Out of order pump cover"><ellipse cx="100" cy="182" rx="48" ry="8" fill="#143F66" opacity=".08"/><path d="M100 30 a12 12 0 0 1 12 12 v8 h-10 v-8 a2 2 0 0 0 -4 0 v8 h-10 v-8 a12 12 0 0 1 12 -12 z" fill="#143F66" opacity=".55"/><rect x="52" y="52" width="96" height="112" rx="16" fill="currentColor"/><rect x="52" y="52" width="22" height="112" rx="11" fill="#fff" opacity=".18"/><path d="M100 74 L128 122 H72 Z" fill="#fff" opacity=".95"/><rect x="96" y="90" width="8" height="20" rx="4" fill="currentColor"/><circle cx="100" cy="116" r="4.5" fill="currentColor"/></svg>
                     </div>
@@ -382,49 +532,49 @@
             </div>
 
             <p class="products-cta">
-                Ready to order? <a href="#orderBuilder">Build your order</a> or call <a href="tel:0828261003">082 826 1003</a>.
+                Ready to order? <a href="#orderBuilder">Build your order</a> or call <a href="tel:+27828261003">082 826 1003</a>.
             </p>
         </div>
     </section>
 
     <!-- Bulk / delivery advantage -->
-    <section class="bulk-discount-banner">
+    <section class="bulk-discount-banner" aria-label="Bulk pricing">
         <div class="container">
             <div class="bulk-content">
-                <div class="bulk-icon">📦</div>
+                <div class="bulk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
                 <div class="bulk-text">
                     <h3>Buying in volume?</h3>
                     <p>Bulk pricing is available on squeegees, garage rolls, standing orders and trade volumes. Tell us what you need and we'll quote your best price.</p>
-                    <p><a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20a%20bulk%20quote" target="_blank" rel="noopener">Ask for a bulk quote on WhatsApp</a> or call <a href="tel:0828261003">082 826 1003</a>.</p>
+                    <p><a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20a%20bulk%20quote" target="_blank" rel="noopener">Ask for a bulk quote on WhatsApp</a> or call <a href="tel:+27828261003">082 826 1003</a>.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
+    <section class="why-choose-us" id="why">
         <div class="container">
             <div class="section-header">
                 <h2>Why buy from Supply Station?</h2>
             </div>
             <div class="reasons-grid">
                 <div class="reason-card">
-                    <div class="reason-ico">🏭</div>
+                    <div class="reason-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V10l5 3V10l5 3V6l8 4v11z"/><path d="M3 21h18M7 17h2M12 17h2M17 17h2"/></svg></div>
                     <h3>Straight from the manufacturer</h3>
                     <p>We make the squeegees ourselves in Cape Town — so you buy direct, at manufacturer pricing, with no reseller markup.</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-ico">📦</div>
+                    <div class="reason-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
                     <h3>Reliable stock</h3>
                     <p>Consistent availability on the essentials your forecourt runs through every week. We keep you stocked.</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-ico">🚚</div>
+                    <div class="reason-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 5h13v11H1zM14 9h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg></div>
                     <h3>Delivery &amp; courier</h3>
                     <p>We deliver around Cape Town ourselves. Further afield, your courier collects from our factory in Retreat.</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-ico">💰</div>
+                    <div class="reason-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="8" cy="8" r="1.5"/></svg></div>
                     <h3>Bulk &amp; trade pricing</h3>
                     <p>Competitive bulk savings for stations and wholesale pricing for resellers. Ask for a trade price list.</p>
                 </div>
@@ -471,6 +621,51 @@
         </div>
     </section>
 
+    <!-- FAQ: questions people (and AI assistants) ask. The FAQPage JSON-LD
+         in the <head> is generated from the same text. Edit both together. -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently asked questions</h2>
+                <p>Quick answers about ordering, delivery and pricing.</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>Is Supply Station the same company as UAC Services?</summary>
+                    <p>Yes. UAC Services is now called Supply Station. Same team, same factory in Retreat, Cape Town, new name.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Where can I buy squeegees in Cape Town?</summary>
+                    <p>Directly from us. We make our squeegees at our factory in Retreat, Cape Town, and sell them at R35.00 each excl. VAT in five colours: red, blue, black, dark grey and light grey. Order on WhatsApp or call 082 826 1003.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How do I place an order?</summary>
+                    <p>Pick your products and quantities in the order builder on this page, then send the list to us on WhatsApp. You can also call 082 826 1003. We confirm the final price and delivery before anything is sent.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do your prices include VAT?</summary>
+                    <p>No. All prices on this site exclude VAT. The order builder adds 15% VAT and shows your estimated total.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you deliver?</summary>
+                    <p>Yes. We deliver around Cape Town ourselves: free in Zone 1 (about 15km from Retreat) and for a fee in Zone 2 (about 15 to 40km), confirmed when you order. Further out, you book your own courier to collect from us in Retreat.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you offer bulk or wholesale pricing?</summary>
+                    <p>Yes. Petrol stations get bulk pricing on volume, and resellers can buy at wholesale / trade pricing. WhatsApp us for a bulk quote or our trade price list.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can you make branded or custom squeegees?</summary>
+                    <p>Yes, on request. WhatsApp us with what you need and we'll quote.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What are your business hours?</summary>
+                    <p>Monday to Friday 8am to 5pm, Saturday 8am to 1pm. Closed on Sundays.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
@@ -513,7 +708,7 @@
                         <span id="obSendLabel">Send order on WhatsApp</span>
                     </a>
                     <div class="order-or"><span>or</span></div>
-                    <a href="tel:0828261003" class="btn btn-outline btn-block">📞 Call 082 826 1003</a>
+                    <a href="tel:+27828261003" class="btn btn-outline btn-block">📞 Call 082 826 1003</a>
                     <p class="order-hint">Prefer email? <a href="mailto:uac@gmail.com">uac@gmail.com</a></p>
                 </div>
 
@@ -523,7 +718,7 @@
 
                     <div class="contact-info-item">
                         <h4>Phone / WhatsApp</h4>
-                        <p><a href="tel:0828261003" class="phone-link">082 826 1003</a></p>
+                        <p><a href="tel:+27828261003" class="phone-link">082 826 1003</a></p>
                     </div>
 
                     <div class="contact-info-item">
@@ -533,9 +728,10 @@
 
                     <div class="contact-info-item">
                         <h4>Where we are</h4>
-                        <p>10 Celie Industrial Park<br>
+                        <address>10 Celie Industrial Park<br>
                         Celie Road, Retreat<br>
-                        Cape Town</p>
+                        Cape Town, 7945</address>
+                        <p class="directions"><a href="https://www.google.com/maps/search/?api=1&amp;query=10+Celie+Road+Retreat+Cape+Town" target="_blank" rel="noopener">Get directions &rarr;</a></p>
                     </div>
 
                     <div class="contact-info-item">
@@ -564,13 +760,14 @@
                         <li><a href="#products">Products</a></li>
                         <li><a href="#audiences">Buy Direct / Wholesale</a></li>
                         <li><a href="#delivery">Delivery</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <p>10 Celie Industrial Park<br>Celie Road, Retreat<br>Cape Town</p>
-                    <p>Phone: <a href="tel:0828261003">082 826 1003</a></p>
+                    <address>10 Celie Industrial Park<br>Celie Road, Retreat<br>Cape Town, 7945</address>
+                    <p>Phone: <a href="tel:+27828261003">082 826 1003</a></p>
                     <p>Email: <a href="mailto:uac@gmail.com">uac@gmail.com</a></p>
                 </div>
             </div>
@@ -595,10 +792,10 @@
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
         <a href="https://wa.me/27828261003?text=Hi%20Supply%20Station%2C%20I%27d%20like%20to%20place%20an%20order" class="fab fab-whatsapp" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
-        <a href="tel:0828261003" class="fab fab-call" aria-label="Call Us">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        <a href="tel:+27828261003" class="fab fab-call" aria-label="Call 082 826 1003">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
         </a>
     </div>
 

@@ -17,15 +17,24 @@ Supply Station is a trading name of **True Motives 1130 CC**.
 ```
 UAC/
 ├── index.html          # The whole site (content, meta tags, JSON-LD)
-├── favicon.svg         # Interim four-hexagon mark (source for images/icons/)
+├── 404.html            # Branded "page not found" (served by Cloudflare Pages)
+├── robots.txt          # Crawl rules: all search engines + AI crawlers allowed
+├── sitemap.xml         # For Google Search Console / Bing Webmaster Tools
+├── llms.txt            # Plain-language summary for AI assistants (llmstxt.org)
+├── _headers            # Cloudflare Pages: security, caching, noindex on *.pages.dev
+├── _redirects          # Cloudflare Pages: /llm.txt -> /llms.txt
+├── favicon.svg / .ico  # Interim four-hexagon mark (source for images/icons/)
 ├── site.webmanifest    # PWA / home-screen metadata
 ├── css/style.css       # All styles; brand colours are CSS variables in :root
 ├── js/main.js          # Nav, filters, colour picker, order builder
+├── fonts/              # Self-hosted Poppins + Inter (woff2, OFL licences)
 └── images/             # Product photos, icons, social share image (see images/README.md)
 ```
 
-Vanilla HTML/CSS/JS — no build step, no npm dependencies. Deploy the files
-as-is to any static host (currently GitHub Pages from `main`).
+Vanilla HTML/CSS/JS, no build step and no npm dependencies. Cloudflare Pages
+deploys `main` automatically. The old GitHub Pages copy redirects visitors to
+the real domain (script at the top of `<head>`); turn GitHub Pages off in the
+repo settings once nothing links to it any more.
 
 ---
 
@@ -63,12 +72,14 @@ four-hexagon concept. When the designer delivers the final logo:
 
 ## Products and prices
 
-All prices are **excluding VAT**. Keep these three places in sync when a
-price changes:
+All prices are **excluding VAT**. Keep these places in sync when a price
+changes:
 
 1. The product cards in `index.html` (`.product-price`)
 2. The `Product` JSON-LD block in the `<head>` of `index.html`
 3. `OB.products` in `js/main.js` (order builder)
+4. `llms.txt` (what AI assistants read), and bump its "Last updated" date
+5. `<lastmod>` in `sitemap.xml`
 
 | Product | Price (excl. VAT) |
 |---------|-------------------|
@@ -115,16 +126,36 @@ VAT registered.
 
 ---
 
-## Before launch
+## SEO and AI search
 
-- [ ] Re-render `images/icons/*.png` from `favicon.svg` (they still show the old UAC mark)
-- [ ] Final logo SVG from the designer, then re-render icons again (see Brand)
-- [ ] New `og-image.jpg` with Supply Station branding
-- [ ] New business email to replace `uac@gmail.com` (index.html, JSON-LD)
-- [ ] CC registration number and VAT number in the footer (`.footer-legal`)
+- **Structured data** (JSON-LD in `<head>`): `WholesaleStore` business
+  (name, address, phone, hours), `WebSite` (site name in Google results),
+  the product price list, and an `FAQPage` that mirrors the visible FAQ.
+  Check with https://search.google.com/test/rich-results after changes.
+- **FAQ**: the `#faq` section and the `FAQPage` JSON-LD hold the same text.
+  Edit both together.
+- **NAP**: name, address and phone must match the Google Business Profile
+  exactly: Supply Station, 10 Celie Industrial Park, Celie Road, Retreat,
+  Cape Town 7945, 082 826 1003.
+- **Cloudflare**: under *AI Crawl Control* / *Bots*, make sure AI crawlers
+  are **not** blocked and "managed robots.txt" is **off**, or Cloudflare will
+  override `robots.txt`. Turn on *Crawler Hints* (pings Bing via IndexNow).
+
+## Before / after launch
+
+- [x] Re-render `images/icons/*.png` from `favicon.svg`
+- [x] New `og-image.jpg` with Supply Station branding
 - [x] Absolute `og:image` / `og:url` / canonical and JSON-LD image URLs on https://thesupplystation.co.za
-- [ ] Cloudflare Pages project + DNS for thesupplystation.co.za
-- [ ] Google Business Profile under the new name
+- [x] Cloudflare Pages project + DNS for thesupplystation.co.za
+- [x] robots.txt, sitemap.xml, llms.txt, 404 page
+- [ ] Final logo SVG from the designer, then re-render icons + og-image (see Brand)
+- [ ] New business email to replace `uac@gmail.com` (index.html, JSON-LD, llms.txt)
+- [ ] CC registration number and VAT number in the footer (`.footer-legal`)
+- [ ] Google Search Console: verify domain, submit `sitemap.xml`
+- [ ] Bing Webmaster Tools: import from Search Console, submit `sitemap.xml`
+- [ ] Google Business Profile under the new name, website link to the domain
+- [ ] Turn off GitHub Pages once the domain is indexed
+- [ ] Real photos for the products that still use drawings (soap, rolls, parts, cover)
 
 ---
 

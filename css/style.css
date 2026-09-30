@@ -3,6 +3,16 @@
    B2B manufacturer marketing site. Vanilla CSS, no build.
    ============================================================ */
 
+/* ---------- Fonts (self-hosted, latin subset; OFL licences in fonts/) ---------- */
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/poppins-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/poppins-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/poppins-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800; font-display: swap; src: url('../fonts/poppins-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/inter-latin-700-normal.woff2') format('woff2'); }
+
 :root {
     /* Brand — taken from the Supply Station logo (navy + teal) */
     --navy:        #0E2C48;   /* deep navy for dark bands (topbar, footer) */
@@ -312,11 +322,13 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    gap: .75rem;
     border-top: 1px solid var(--line);
     padding-top: 1rem;
 }
+.range-bulk { white-space: nowrap; }
 .range-price { font-family: var(--font-head); font-weight: 800; font-size: 2rem; color: var(--navy); }
-.range-price small { font-size: .9rem; font-weight: 600; color: var(--muted); }
+.range-price small { display: block; font-size: .78rem; font-weight: 600; color: var(--muted); margin-top: .15rem; }
 .range-bulk {
     font-size: .82rem;
     font-weight: 600;
@@ -557,7 +569,14 @@ button.mini-swatch.is-active {
     gap: 1.5rem;
     flex-wrap: wrap;
 }
-.bulk-icon { font-size: 3rem; line-height: 1; }
+.bulk-icon {
+    width: 4rem; height: 4rem; flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 18px;
+    background: rgba(255,255,255,.1);
+    color: #6FD3CB;
+}
+.bulk-icon svg { width: 2.2rem; height: 2.2rem; }
 .bulk-text { flex: 1; min-width: 260px; }
 .bulk-text h3 { color: #fff; font-size: 1.6rem; margin-bottom: .4rem; }
 .bulk-text p { color: rgba(255,255,255,.92); margin: 0 0 .4rem; }
@@ -580,13 +599,14 @@ button.mini-swatch.is-active {
 }
 .reason-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .reason-ico {
-    font-size: 1.8rem;
     width: 3.2rem; height: 3.2rem;
     display: flex; align-items: center; justify-content: center;
+    color: var(--brand);
     background: #E7F0FB;
     border-radius: 14px;
     margin-bottom: 1rem;
 }
+.reason-ico svg { width: 1.6rem; height: 1.6rem; }
 .reason-card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: .4rem; }
 .reason-card p { color: var(--body); margin: 0; font-size: .96rem; }
 
@@ -659,6 +679,7 @@ button.mini-swatch.is-active {
     gap: 1.5rem;
     align-items: start;
 }
+.contact-layout > * { min-width: 0; }
 .order-card {
     background: #fff;
     border: 1px solid var(--line);
@@ -787,6 +808,9 @@ button.mini-swatch.is-active {
 }
 .contact-info-item p { color: #e6eef8; margin: 0; }
 .contact-info-item a { color: #fff; }
+.contact-info-item address { font-style: normal; color: #e6eef8; }
+.contact-info-item .directions { margin-top: .4rem; font-size: .9rem; }
+.contact-info-item .directions a { color: #6FD3CB; font-weight: 600; }
 .phone-link { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; }
 
 /* ---------- Footer ---------- */
@@ -799,7 +823,7 @@ button.mini-swatch.is-active {
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .footer-col h4 { color: #fff; font-size: 1.05rem; margin-bottom: .8rem; }
-.footer-col p { color: #9fb2c7; font-size: .92rem; }
+.footer-col p, .footer-col address { color: #9fb2c7; font-size: .92rem; font-style: normal; margin: 0 0 1rem; }
 .footer-col ul { list-style: none; margin: 0; padding: 0; }
 .footer-col li { margin-bottom: .5rem; }
 .footer-col a { color: #cfe0f2; font-size: .92rem; }
@@ -807,6 +831,51 @@ button.mini-swatch.is-active {
 .footer-bottom { text-align: center; padding-top: 1.5rem; font-size: .84rem; color: #7f93a9; }
 .footer-bottom p { margin: 0 0 .35rem; }
 .footer-legal { font-size: .78rem; }
+
+/* ---------- FAQ ---------- */
+.faq-section { background: var(--white); }
+.faq-list { max-width: 48rem; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
+.faq-item {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    transition: box-shadow .2s ease, border-color .2s ease;
+}
+.faq-item[open] { background: #fff; border-color: #cfdceb; box-shadow: var(--shadow-sm); }
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1rem 1.2rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 1.02rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: .6rem; height: .6rem;
+    border-right: 2px solid var(--brand);
+    border-bottom: 2px solid var(--brand);
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.faq-item summary:focus-visible { outline: 3px solid rgba(20,63,102,.35); outline-offset: 2px; border-radius: var(--radius-sm); }
+.faq-item p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--body); }
+
+/* ---------- 404 page ---------- */
+.nf { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 16px;
+    background: radial-gradient(900px 420px at 80% -10%, rgba(20,163,154,.14), transparent 60%), var(--bg); }
+.nf-card { max-width: 32rem; text-align: center; background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 2.5rem 2rem; }
+.nf-logo { display: inline-block; margin-bottom: 1rem; }
+.nf-code { font-family: var(--font-head); font-weight: 800; font-size: 3rem; color: var(--accent); margin: 0; line-height: 1; }
+.nf-card h1 { font-size: 1.6rem; color: var(--navy); margin: .6rem 0 .6rem; }
+.nf-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin: 1.5rem 0 1rem; }
+.nf-help { color: var(--muted); font-size: .92rem; margin: 0; }
 
 /* ---------- Floating buttons ---------- */
 .floating-buttons {
@@ -895,13 +964,14 @@ button.mini-swatch.is-active {
         gap: 0;
         background: #fff;
         border-bottom: 1px solid var(--line);
-        box-shadow: var(--shadow-md);
-        padding: .5rem 0;
+        box-shadow: none;
+        padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height .3s ease;
+        border-bottom-width: 0;
+        transition: max-height .3s ease, padding .3s ease;
     }
-    .nav-menu.active { max-height: 420px; }
+    .nav-menu.active { max-height: 420px; padding: .5rem 0; box-shadow: var(--shadow-md); border-bottom-width: 1px; }
     .nav-menu > li { padding: 0 24px; }
     .nav-menu > li > a { display: block; padding: .85rem 0; }
     .btn-nav { justify-content: center; margin: .35rem 0; }
@@ -910,7 +980,40 @@ button.mini-swatch.is-active {
     .bulk-content { flex-direction: column; text-align: center; }
 }
 
+@media (max-width: 600px) {
+    .tb-more { display: none; }
+    .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+    .product-info { padding: .8rem .85rem 1rem; }
+    .product-info h3 { font-size: .95rem; }
+    .product-price { font-size: 1.1rem; }
+    .product-price small { display: block; font-size: .72rem; }
+    .product-note { font-size: .78rem; }
+    .product-colours { flex-wrap: wrap; }
+    .product-colours-label { flex-basis: 100%; margin: .2rem 0 0; }
+    .order-card, .contact-info-container { padding: 1.4rem 1.1rem; }
+    .hero-eyebrow { font-size: .7rem; letter-spacing: .08em; }
+
+    /* Delivery table -> one card per zone, so the delivery cost isn't
+       hidden off-screen behind a sideways scroll. */
+    .delivery-table { min-width: 0; }
+    .delivery-table thead { display: none; }
+    .delivery-table tbody tr {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: .35rem 1rem;
+        padding: 1rem 1.1rem;
+        border-top: 1px solid var(--line);
+    }
+    .delivery-table tbody tr:first-child { border-top: 0; }
+    .delivery-table tbody tr:nth-child(even) { background: var(--bg); }
+    .delivery-table td { display: block; padding: 0; border: 0; background: none !important; }
+    .delivery-table td:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .delivery-table td:nth-child(3) { grid-column: 2; grid-row: 1; text-align: right; }
+    .delivery-table td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; font-size: .88rem; color: var(--muted); }
+    .ob-row { padding: .65rem .7rem; }
+}
+
 @media (max-width: 420px) {
-    .container { padding: 0 18px; }
+    .container { padding: 0 16px; }
     .hero-buttons .btn { width: 100%; }
 }

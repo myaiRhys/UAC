@@ -46,15 +46,15 @@ matching `originals/*.jpg` and save it here under the same PNG name.
 
 - `icons/` — favicons and app icons rendered from `favicon.svg`
   (`apple-touch-icon.png` 180px, `icon-192.png` / `icon-512.png` for
-  Android/PWA on a solid navy `#143F66` square, `favicon-16/32.png` PNG
-  fallbacks). `favicon.svg` is now the **interim** four-hexagon mark, but
-  these PNGs **still show the old UAC mark** — re-render them from
-  `favicon.svg` (and again when the designer's final logo lands).
-- `og-image.jpg` — 1200×630 social share card (WhatsApp/Facebook/Twitter
-  preview). Referenced by the `og:image` / `twitter:image` tags in
-  `index.html`. **Still shows the old UAC branding — regenerate before
-  launch.** When the live domain is set, switch those tags to an absolute
-  `https://DOMAIN/images/og-image.jpg` URL so scrapers pick it up.
+  Android/PWA, `icon-maskable-512.png` full-bleed with the mark inside the
+  safe zone, `favicon-16/32.png` PNG fallbacks; `/favicon.ico` bundles the
+  16 and 32px PNGs). Rendered from the **interim** four-hexagon mark in
+  `favicon.svg`. Re-render them when the designer's final logo lands.
+- `og-image.jpg`: 1200×630 social share card (WhatsApp/Facebook/X preview)
+  with the Supply Station mark, headline, squeegee photo and WhatsApp number.
+  Referenced by absolute URL from the `og:image` / `twitter:image` tags.
+  WhatsApp and Facebook cache previews: after changing it, re-scrape at
+  https://developers.facebook.com/tools/debug/.
 
 ## Conventions
 
