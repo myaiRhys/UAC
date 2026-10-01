@@ -139,9 +139,12 @@ VAT registered.
   stand-in picture breaks Google's rules. So only the squeegee and garage
   roll are marked up for now. When a product gets a real photo, add it back
   to the `ItemList` block with `"image"` set, then use *Validate fix* in
-  Search Console. Warnings for `shippingDetails`, `hasMerchantReturnPolicy`,
-  `review` and `aggregateRating` are optional; leave them until there's a
-  written returns policy and genuine reviews.
+  Search Console. The other Search Console items are warnings, not errors:
+  `shippingDetails` and `hasMerchantReturnPolicy` need the real delivery
+  fees/times and a written returns policy; "No global identifier" on the
+  garage roll needs the brand printed on it (or its barcode as `gtin13`);
+  `review` and `aggregateRating` need genuine customer reviews shown on the
+  page. Never fill these in with made-up values.
 - **FAQ**: the `#faq` section and the `FAQPage` JSON-LD hold the same text.
   Edit both together.
 - **NAP**: name, address and phone must match the Google Business Profile
