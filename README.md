@@ -172,6 +172,7 @@ VAT registered.
 - [ ] Google Business Profile under the new name, website link to the domain
 - [ ] Turn off GitHub Pages once the domain is indexed
 - [ ] Real photos for the products that still use drawings (soap, reject roll, parts, cover), then add them back to the `Product` JSON-LD
+- [ ] To clear the remaining Search Console warnings, send Claude: the brand or barcode on the garage roll; the Zone 2 delivery fee and usual delivery days for Zones 1 and 2; the returns policy
 
 ---
 
