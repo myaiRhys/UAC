@@ -77,7 +77,8 @@ All prices are **excluding VAT**. Keep these places in sync when a price
 changes:
 
 1. The product cards in `index.html` (`.product-price`)
-2. The `Product` JSON-LD block in the `<head>` of `index.html`
+2. The `Product` JSON-LD block in the `<head>` of `index.html` (only the
+   products with a real photo are in it; see SEO below)
 3. `OB.products` in `js/main.js` (order builder)
 4. `llms.txt` (what AI assistants read), and bump its "Last updated" date
 5. `<lastmod>` in `sitemap.xml`
@@ -133,6 +134,14 @@ VAT registered.
   (name, address, phone, hours), `WebSite` (site name in Google results),
   the product price list, and an `FAQPage` that mirrors the visible FAQ.
   Check with https://search.google.com/test/rich-results after changes.
+- **Product markup needs a photo.** Google Search Console reports a `Product`
+  without `image` as an error under *Merchant listings*, and a logo or
+  stand-in picture breaks Google's rules. So only the squeegee and garage
+  roll are marked up for now. When a product gets a real photo, add it back
+  to the `ItemList` block with `"image"` set, then use *Validate fix* in
+  Search Console. Warnings for `shippingDetails`, `hasMerchantReturnPolicy`,
+  `review` and `aggregateRating` are optional; leave them until there's a
+  written returns policy and genuine reviews.
 - **FAQ**: the `#faq` section and the `FAQPage` JSON-LD hold the same text.
   Edit both together.
 - **NAP**: name, address and phone must match the Google Business Profile
@@ -155,11 +164,11 @@ VAT registered.
 - [ ] Final logo SVG from the designer, then re-render icons + og-image (see Brand)
 - [ ] New business email: `uac@gmail.com` was removed (Gmail needs 6+ character usernames, so it could not have been ours). Add the new address to index.html (contact card, footer, JSON-LD `email`) and llms.txt
 - [ ] CC registration number and VAT number in the footer (`.footer-legal`)
-- [ ] Google Search Console: verify domain, submit `sitemap.xml`
-- [ ] Bing Webmaster Tools: import from Search Console, submit `sitemap.xml`
+- [x] Google Search Console: verify domain, submit `sitemap.xml`
+- [x] Bing Webmaster Tools: import from Search Console, submit `sitemap.xml`
 - [ ] Google Business Profile under the new name, website link to the domain
 - [ ] Turn off GitHub Pages once the domain is indexed
-- [ ] Real photos for the products that still use drawings (soap, rolls, parts, cover)
+- [ ] Real photos for the products that still use drawings (soap, reject roll, parts, cover), then add them back to the `Product` JSON-LD
 
 ---
 
