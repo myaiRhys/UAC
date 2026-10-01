@@ -123,7 +123,12 @@
     </script>
 
     <!-- Product catalogue. Prices in ZAR excl. VAT (valueAddedTaxIncluded: false).
-         Keep in sync with the product cards and OB.products in js/main.js. -->
+         Keep in sync with the product cards and OB.products in js/main.js.
+         Only products with a real photo are marked up: Google Search Console
+         reports a Product without "image" as an error (Merchant listings), and
+         a logo or stand-in photo breaks Google's product image rules. Reject
+         roll, pink soap, rubbers, sponges and the out-of-order cover go back in
+         here (same pattern, with "image") once they have photos. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -161,61 +166,6 @@
             "image": "https://thesupplystation.co.za/images/garage-roll.png",
             "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-garage-roll", "price": "235.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
                         "priceSpecification": { "@type": "UnitPriceSpecification", "price": "235.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
-          }
-        },
-        {
-          "@type": "ListItem", "position": 3,
-          "item": {
-            "@type": "Product",
-            "@id": "https://thesupplystation.co.za/#product-reject-garage-roll",
-            "name": "Reject Garage Roll",
-            "description": "Budget-grade forecourt paper towel roll, approx. 160mm × 1250m (sizes vary).",
-            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-reject-garage-roll", "price": "190.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
-                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "190.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
-          }
-        },
-        {
-          "@type": "ListItem", "position": 4,
-          "item": {
-            "@type": "Product",
-            "@id": "https://thesupplystation.co.za/#product-pink-soap",
-            "name": "Pink Multi Purpose Soap 25L",
-            "description": "25 litre pink multi-purpose soap for forecourt cleaning.",
-            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-pink-soap", "price": "450.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
-                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "450.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
-          }
-        },
-        {
-          "@type": "ListItem", "position": 5,
-          "item": {
-            "@type": "Product",
-            "@id": "https://thesupplystation.co.za/#product-rubber",
-            "name": "Replacement Squeegee Rubber 5-Pack",
-            "description": "Five replacement rubber blades that fit Supply Station squeegees.",
-            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-rubber", "price": "40.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
-                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
-          }
-        },
-        {
-          "@type": "ListItem", "position": 6,
-          "item": {
-            "@type": "Product",
-            "@id": "https://thesupplystation.co.za/#product-sponges",
-            "name": "Replacement Squeegee Sponges 5-Pack",
-            "description": "Five replacement sponges that fit Supply Station squeegees.",
-            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-sponges", "price": "40.50", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
-                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40.50", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
-          }
-        },
-        {
-          "@type": "ListItem", "position": 7,
-          "item": {
-            "@type": "Product",
-            "@id": "https://thesupplystation.co.za/#product-out-of-order-cover",
-            "name": "Out of Order Cover",
-            "description": "Forecourt pump / bay out-of-order cover.",
-            "offers": { "@type": "Offer", "url": "https://thesupplystation.co.za/#product-out-of-order-cover", "price": "120.00", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "seller": { "@id": "https://thesupplystation.co.za/#business" },
-                        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "120.00", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false } }
           }
         }
       ]
