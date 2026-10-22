@@ -122,7 +122,7 @@ VAT registered.
 
 | Zone | Areas | Delivery |
 |------|-------|----------|
-| Zone 1 (~15km) | Retreat, Tokai, Wynberg, Claremont, Constantia, etc. | Free |
+| Zone 1 (~15km) | Retreat, Tokai, Wynberg, Claremont, Constantia, etc. | Free on orders R500+ excl. VAT (set in `OB.freeDeliveryMin`) |
 | Zone 2 (~15–40km) | CBD, Bellville, Table View, Hout Bay, etc. | Fee confirmed on order |
 | Zone 3 (40km+) | Rest of the Western Cape and South Africa | Customer's own courier collects from Retreat |
 
