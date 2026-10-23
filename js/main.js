@@ -182,6 +182,7 @@ const OB = {
     vatRate: 0.15,
     bulkThreshold: 50,        // squeegee quantity that counts as bulk
     bulkValueThreshold: 2000, // rand total that counts as bulk regardless of mix
+    freeDeliveryMin: 500,     // Zone 1 free delivery minimum, rand excl. VAT
     // group 'sq' = squeegees (share one threshold for the bulk nudge). unit = label after qty.
     products: [
         { id: 'sq-red',    name: 'Red Squeegee',                group: 'sq', unit: 'each',     price: 35 },
@@ -210,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('obSend');
     const sendLabel = document.getElementById('obSendLabel');
     const bulkNote = document.getElementById('obBulkNote');
+    const delNote = document.getElementById('obDelNote');
     if (!list || !sendBtn) return;
 
     const qty = {};                       // id -> quantity
@@ -264,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!lines.length) {
             summary.hidden = true;
             if (bulkNote) bulkNote.hidden = true;
+            if (delNote) delNote.hidden = true;
             sendLabel.textContent = 'Send order on WhatsApp';
             sendBtn.href = `https://wa.me/${OB.waNumber}?text=` +
                 encodeURIComponent("Hi Supply Station, I'd like to order:\n- ");
@@ -271,6 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         summary.hidden = false;
         if (bulkNote) bulkNote.hidden = !bulkEligible;
+        if (delNote) {
+            const short = OB.freeDeliveryMin - subtotal;
+            delNote.textContent = short > 0
+                ? `🚚 Add ${fmt(short)} more (excl. VAT) for free delivery in Zone 1.`
+                : '🚚 Qualifies for free delivery in Zone 1.';
+            delNote.hidden = false;
+        }
         linesEl.innerHTML = lines.map(l =>
             `<div class="ob-line"><span>${l.q} &times; ${l.name} <small>@ ${fmt(l.unit)}</small></span>` +
             `<span>${fmt(l.lineTotal)}</span></div>`
