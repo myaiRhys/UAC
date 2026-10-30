@@ -166,7 +166,7 @@ VAT registered.
 - [x] robots.txt, sitemap.xml, llms.txt, 404 page
 - [ ] Final logo SVG from the designer, then re-render icons + og-image (see Brand)
 - [ ] New business email: `uac@gmail.com` was removed (Gmail needs 6+ character usernames, so it could not have been ours). Add the new address to index.html (contact card, footer, JSON-LD `email`) and llms.txt
-- [ ] CC registration number and VAT number in the footer (`.footer-legal`)
+- [x] CC registration number and VAT number in the footer (`.footer-legal`)
 - [x] Google Search Console: verify domain, submit `sitemap.xml`
 - [x] Bing Webmaster Tools: import from Search Console, submit `sitemap.xml`
 - [ ] Google Business Profile under the new name, website link to the domain
